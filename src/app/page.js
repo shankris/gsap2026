@@ -1,69 +1,140 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+/* src/app/page.js */
 
-export default function Home() {
+import components from "@/data/components.json";
+import styles from "./page.module.css";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+/* --------------------------------------------------
+Date Formatting
+-------------------------------------------------- */
+
+function formatDate(dateString) {
+  if (!dateString) return "—";
+
+  return new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(`${dateString}T00:00:00`));
+}
+
+/* --------------------------------------------------
+Main Page
+-------------------------------------------------- */
+
+export default function HomePage() {
+  const totalComponents = components.length;
+
+  const readyComponents = components.filter((component) => component.status.toLowerCase() === "ready").length;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={styles.page}>
+      {/* Page Header */}
+
+      <header className={styles.header}>
+        <div>
+          <p className={styles.eyebrow}>COMPONENT LIBRARY</p>
+          <h1>GSAP Components</h1>
+          <p className={styles.subtitle}>A collection of reusable animations and interactive components.</p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className={styles.headerStats}>
+          <div>
+            <strong>{totalComponents}</strong>
+            <span>Components</span>
+          </div>
+
+          <div>
+            <strong>{readyComponents}</strong>
+            <span>Ready</span>
+          </div>
         </div>
-      </main>
-    </div>
+      </header>
+
+      {/* Component Cards */}
+
+      <section className={styles.library}>
+        <div className={styles.sectionHeader}>
+          <h2>All Components</h2>
+          <span>
+            {totalComponents} {totalComponents === 1 ? "item" : "items"}
+          </span>
+        </div>
+
+        {components.length === 0 ? (
+          <div className={styles.emptyState}>
+            <h3>No components yet</h3>
+            <p>Add a component to src/data/components.json.</p>
+          </div>
+        ) : (
+          <div className={styles.cardGrid}>
+            {components.map((component) => (
+              <article
+                className={styles.componentCard}
+                key={component.id}
+              >
+                {/* Card Header */}
+
+                <div className={styles.cardHeader}>
+                  <div>
+                    <h3>{component.name}</h3>
+                  </div>
+
+                  {component.route && component.status.toLowerCase() === "ready" && (
+                    <Link
+                      href={component.route}
+                      className={styles.componentLink}
+                      aria-label={`Preview ${component.name}`}
+                      title={`Preview ${component.name}`}
+                    >
+                      <ArrowUpRight
+                        size={20}
+                        strokeWidth={1.8}
+                      />
+                    </Link>
+                  )}
+                </div>
+
+                {/* Description */}
+
+                <p className={styles.description}>{component.description}</p>
+
+                {/* Metadata */}
+
+                <div className={styles.metadata}>
+                  <div>
+                    <span>Category</span>
+                    <strong>{component.category}</strong>
+                  </div>
+
+                  <div>
+                    <span>Created</span>
+                    <strong>{formatDate(component.date)}</strong>
+                  </div>
+
+                  <div>
+                    <span>Lines</span>
+                    <strong>{component.lines == null ? "—" : component.lines.toLocaleString()}</strong>
+                  </div>
+                </div>
+
+                {/* Card Footer */}
+
+                <div className={styles.cardFooter}>
+                  <span className={styles.componentId}>{component.id}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Footer */}
+      {/* <footer className={styles.footer}>
+        <span>GSAP Component Library</span>
+        <span>Managed through JSON</span>
+      </footer> */}
+    </main>
   );
 }

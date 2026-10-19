@@ -1,0 +1,14 @@
+[
+  {
+    "id": "welcome-loader",
+    "name": "Welcome Loader",
+    "description": "Multilingual welcome animation with a curved loading screen and text reveal.",
+    "category": "Page Loader",
+    "status": "ready",
+    "date": "2026-10-19",
+    "lines": 158,
+    "route": "/gsap/welcomeLoader",
+    "dependencies": ["gsap", "@gsap/react"],
+    "notes": "Props: title (Make), emphasizedText (it), finalText (Happen), onComplete (null). Responsive. Preview not yet available."
+  }
+]
