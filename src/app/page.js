@@ -24,42 +24,19 @@ Main Page
 -------------------------------------------------- */
 
 export default function HomePage() {
-  const totalComponents = components.length;
-
-  const readyComponents = components.filter((component) => component.status.toLowerCase() === "ready").length;
-
   return (
     <main className={styles.page}>
-      {/* Page Header */}
-
       <header className={styles.header}>
         <div>
           <p className={styles.eyebrow}>COMPONENT LIBRARY</p>
-          <h1>GSAP Components</h1>
-          <p className={styles.subtitle}>A collection of reusable animations and interactive components.</p>
-        </div>
-
-        <div className={styles.headerStats}>
-          <div>
-            <strong>{totalComponents}</strong>
-            <span>Components</span>
-          </div>
-
-          <div>
-            <strong>{readyComponents}</strong>
-            <span>Ready</span>
-          </div>
+          <h1>GSAP Library</h1>
+          <p className={styles.subtitle}>A collection of GSAP animations and interactive demos.</p>
         </div>
       </header>
-
-      {/* Component Cards */}
 
       <section className={styles.library}>
         <div className={styles.sectionHeader}>
           <h2>All Components</h2>
-          <span>
-            {totalComponents} {totalComponents === 1 ? "item" : "items"}
-          </span>
         </div>
 
         {components.length === 0 ? (
@@ -74,16 +51,15 @@ export default function HomePage() {
                 className={styles.componentCard}
                 key={component.id}
               >
-                {/* Card Header */}
-
                 <div className={styles.cardHeader}>
                   <div>
+                    <span className={styles.category}>{component.category}</span>
                     <h3>{component.name}</h3>
                   </div>
 
-                  {component.route && component.status.toLowerCase() === "ready" && (
+                  {component.status === "ready" && (
                     <Link
-                      href={component.route}
+                      href={`/${component.slug}`}
                       className={styles.componentLink}
                       aria-label={`Preview ${component.name}`}
                       title={`Preview ${component.name}`}
@@ -96,18 +72,9 @@ export default function HomePage() {
                   )}
                 </div>
 
-                {/* Description */}
-
                 <p className={styles.description}>{component.description}</p>
 
-                {/* Metadata */}
-
                 <div className={styles.metadata}>
-                  <div>
-                    <span>Category</span>
-                    <strong>{component.category}</strong>
-                  </div>
-
                   <div>
                     <span>Created</span>
                     <strong>{formatDate(component.date)}</strong>
@@ -118,23 +85,11 @@ export default function HomePage() {
                     <strong>{component.lines == null ? "—" : component.lines.toLocaleString()}</strong>
                   </div>
                 </div>
-
-                {/* Card Footer */}
-
-                <div className={styles.cardFooter}>
-                  <span className={styles.componentId}>{component.id}</span>
-                </div>
               </article>
             ))}
           </div>
         )}
       </section>
-
-      {/* Footer */}
-      {/* <footer className={styles.footer}>
-        <span>GSAP Component Library</span>
-        <span>Managed through JSON</span>
-      </footer> */}
     </main>
   );
 }

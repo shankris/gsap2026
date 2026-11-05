@@ -1,14 +1,68 @@
 [
   {
-    "id": "welcome-loader",
+    "id": "GSAP-001",
+    "slug": "welcome-loader",
     "name": "Welcome Loader",
     "description": "Multilingual welcome animation with a curved loading screen and text reveal.",
-    "category": "Page Loader",
+    "category": "Loader",
     "status": "ready",
     "date": "2026-10-19",
     "lines": 158,
-    "route": "/gsap/welcomeLoader",
-    "dependencies": ["gsap", "@gsap/react"],
-    "notes": "Props: title (Make), emphasizedText (it), finalText (Happen), onComplete (null). Responsive. Preview not yet available."
+    "zip": ""
+  },
+  {
+    "id": "GSAP-002",
+    "slug": "norden",
+    "name": "Norden",
+    "description": "Atmospheric contact experience with cinematic backgrounds and interactive animations.",
+    "category": "Hero Section",
+    "status": "ready",
+    "date": "2026-11-05",
+    "lines": 571,
+    "zip": "usefull-things-477-form-main.zip"
+  },
+  {
+    "id": "GSAP-003",
+    "slug": "atsu",
+    "name": "Atsu",
+    "description": "Intro animation experience.",
+    "category": "Hero Section",
+    "status": "ready",
+    "date": "2026-11-05",
+    "lines": 837,
+    "zip": "usefull-things-478-intro-main.zip"
+  },
+  {
+    "id": "GSAP-004",
+    "slug": "skill-nexus",
+    "name": "Skill Nexus",
+    "description": "Interactive skill intelligence dashboard with animated capability modules and overdrive effects.",
+    "category": "Cards",
+    "status": "ready",
+    "date": "2026-11-05",
+    "lines": 516,
+    "zip": "usefull-things-476-skills-main.zip"
+  },
+  {
+    "id": "GSAP-005",
+    "slug": "slider-nocturne",
+    "name": "Slider Nocturne",
+    "description": "Cinematic image gallery with a continuous image stream, smooth dragging, and immersive editorial details.",
+    "category": "Slider",
+    "status": "ready",
+    "date": "2026-11-05",
+    "lines": null,
+    "zip": "usefull-things-475-slider-main.zip"
+  },
+  {
+    "id": "GSAP-006",
+    "slug": "paper-craft",
+    "name": "Paper Craft",
+    "description": "A playful paper-cutout travel experience with floating illustrations, layered landscapes, and gentle parallax animations.",
+    "category": "Hero Section",
+    "status": "ready",
+    "date": "2026-11-05",
+    "lines": null,
+    "zip": "usefull-things-472-travel-main.zip"
   }
 ]

@@ -1,0 +1,1112 @@
+/* src/demos/norden/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+
+/* --------------------------------------------------
+   PAGE
+-------------------------------------------------- */
+
+.page {
+  --bg: #090b0d;
+  --panel: rgba(14, 17, 19, 0.88);
+  --gold: #c5a36a;
+  --gold-light: #e3c894;
+  --red: #a32d2d;
+  --text: #e8e2d7;
+  --muted: #85827b;
+  --line: rgba(197, 163, 106, 0.25);
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page button,
+.page input,
+.page textarea {
+  font: inherit;
+}
+
+/* Ensure the HTML hidden attribute works with component styles */
+
+.page :global([hidden]) {
+  display: none !important;
+}
+
+/* --------------------------------------------------
+   LOADER
+-------------------------------------------------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #080a0c;
+  display: grid;
+  place-items: center;
+}
+
+.loader-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader-rune {
+  font-family: "Cinzel", serif;
+  font-size: 65px;
+  color: var(--gold);
+  animation: runeRotate 4s linear infinite;
+}
+
+.loader-line {
+  width: 180px;
+  height: 1px;
+  background: rgba(197, 163, 106, 0.2);
+  margin: 25px 0 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loadLine 2s ease forwards;
+}
+
+.loader-percent {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  color: var(--gold-light);
+}
+
+.loader-content p {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--muted);
+  margin-top: 15px;
+}
+
+@keyframes runeRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadLine {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* --------------------------------------------------
+   ATMOSPHERE
+-------------------------------------------------- */
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.noise {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+      transparent 25%,
+      rgba(0, 0, 0, 0.55) 100%);
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  left: 40%;
+  top: 20%;
+  background: rgba(139, 38, 29, 0.08);
+  filter: blur(130px);
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.055;
+  z-index: 10;
+}
+
+.bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
+.header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.logo-symbol {
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.header-center,
+.header-right {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--gold);
+}
+
+/* --------------------------------------------------
+   HERO
+-------------------------------------------------- */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 150px 10% 110px;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("/demos/norden/images/bg.png") center top / cover no-repeat;
+  filter: brightness(0.37) saturate(0.55);
+  transform: scale(1.06);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 75% 40%,
+      rgba(130, 45, 30, 0.12),
+      transparent 45%),
+    linear-gradient(90deg,
+      rgba(7, 9, 11, 0.96),
+      rgba(7, 9, 11, 0.3) 75%),
+    linear-gradient(0deg,
+      #090b0d,
+      transparent 40%,
+      rgba(0, 0, 0, 0.45));
+}
+
+/* --------------------------------------------------
+   HERO CONTENT
+-------------------------------------------------- */
+
+.hero-content {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.82fr;
+  align-items: center;
+  gap: 10%;
+}
+
+/* --------------------------------------------------
+   INTRO
+-------------------------------------------------- */
+
+.intro {
+  max-width: 550px;
+  position: relative;
+  isolation: isolate;
+}
+
+/* ANCIENT RUNE */
+
+.ancient-rune {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 80px;
+
+  font-family: "Cinzel", serif;
+  font-size: clamp(220px, 30vw, 440px);
+  line-height: 1;
+
+  color: rgba(197, 163, 106, 0.045);
+
+  pointer-events: none;
+  user-select: none;
+
+  filter: drop-shadow(0 0 35px rgba(197, 163, 106, 0.08));
+}
+
+/* --------------------------------------------------
+   PARTICLES
+-------------------------------------------------- */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+
+  background: #d9b779;
+  box-shadow: 0 0 12px 2px rgba(197, 163, 106, 0.4);
+
+  opacity: 0;
+}
+
+/* --------------------------------------------------
+   FOG
+-------------------------------------------------- */
+
+.fog {
+  position: absolute;
+  z-index: 0;
+  width: 65%;
+  height: 35%;
+  pointer-events: none;
+
+  background: radial-gradient(ellipse,
+      rgba(176, 184, 187, 0.12),
+      rgba(176, 184, 187, 0.025) 45%,
+      transparent 75%);
+
+  filter: blur(45px);
+  opacity: 0.5;
+}
+
+.fog-one {
+  bottom: 5%;
+  left: -15%;
+}
+
+.fog-two {
+  top: 15%;
+  right: -20%;
+}
+
+/* --------------------------------------------------
+   BUTTON ENERGY
+-------------------------------------------------- */
+
+.submit-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 45%;
+  height: 200%;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent);
+
+  transform: rotate(25deg);
+  transition: left 0.8s ease;
+}
+
+.submit-button:hover::before {
+  left: 150%;
+}
+
+.submit-button>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------
+   SUCCESS ENERGY
+-------------------------------------------------- */
+
+.success-rune {
+  text-shadow:
+    0 0 15px rgba(197, 163, 106, 0.5),
+    0 0 55px rgba(197, 163, 106, 0.25);
+}
+
+/* --------------------------------------------------
+   ATMOSPHERIC MOTION
+-------------------------------------------------- */
+
+@keyframes fogDrift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(8%, -12%, 0) scale(1.2);
+  }
+}
+
+.fog-one {
+  animation: fogDrift 18s ease-in-out infinite;
+}
+
+.fog-two {
+  animation: fogDrift 23s ease-in-out infinite reverse;
+}
+
+/* --------------------------------------------------
+   INTRO TYPOGRAPHY
+-------------------------------------------------- */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+.eyebrow-line {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.intro h1 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(45px, 5.4vw, 82px);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+.intro h1 span {
+  display: block;
+  color: var(--gold);
+}
+
+.intro-description {
+  max-width: 380px;
+  color: #aaa69e;
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
+.intro-bottom {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 65px;
+}
+
+.rune-decoration {
+  width: 55px;
+  height: 55px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-family: "Cinzel", serif;
+  font-size: 28px;
+  color: var(--gold);
+  transform: rotate(45deg);
+}
+
+.intro-bottom div:last-child {
+  margin-left: 8px;
+}
+
+.intro-bottom span,
+.intro-bottom p {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.intro-bottom p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------
+   FORM
+-------------------------------------------------- */
+
+.form-wrapper {
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 50%),
+    var(--panel);
+  border: 1px solid var(--line);
+  padding: 45px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 25px 100px rgba(0, 0, 0, 0.45);
+}
+
+.form-wrapper::before,
+.form-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-color: var(--gold);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.form-wrapper::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.form-wrapper::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.form-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-index {
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.form-top h2 {
+  font-family: "Cinzel", serif;
+  font-size: 27px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.form-rune {
+  font-family: "Cinzel", serif;
+  font-size: 45px;
+  color: rgba(197, 163, 106, 0.55);
+}
+
+.form-description {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 20px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  height: 55px;
+  padding: 18px 35px 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 13px;
+  transition: border-color 0.4s;
+}
+
+.input-box textarea {
+  height: 100px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.input-box label {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  color: #89857e;
+  font-size: 9px;
+  letter-spacing: 2px;
+  pointer-events: none;
+  transition: 0.35s ease;
+}
+
+.input-box .input-symbol {
+  position: absolute;
+  right: 0;
+  top: 17px;
+  color: rgba(197, 163, 106, 0.45);
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+  border-color: var(--gold);
+}
+
+.input-box input:focus~label,
+.input-box input:not(:placeholder-shown)~label,
+.input-box textarea:focus~label,
+.input-box textarea:not(:placeholder-shown)~label {
+  top: -7px;
+  font-size: 8px;
+  color: var(--gold);
+}
+
+.input-box input:focus~.input-symbol,
+.input-box textarea:focus~.input-symbol {
+  color: var(--gold);
+}
+
+/* --------------------------------------------------
+   SUBMIT
+-------------------------------------------------- */
+
+.submit-button {
+  width: 100%;
+  height: 58px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #15120e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: 0.4s ease;
+}
+
+.submit-button:hover {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: 0 0 30px rgba(197, 163, 106, 0.1);
+}
+
+.button-icon {
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+}
+
+.form-footer {
+  text-align: center;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 25px;
+}
+
+.form-footer span {
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+/* --------------------------------------------------
+   SUCCESS
+-------------------------------------------------- */
+
+.success-message {
+  position: absolute;
+  inset: 0;
+  background: #101214;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: 0.5s ease;
+}
+
+.success-message.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.success-rune {
+  font-family: "Cinzel", serif;
+  font-size: 65px;
+  color: var(--gold);
+}
+
+.success-message h3 {
+  font-family: "Cinzel", serif;
+  font-size: 23px;
+  margin-top: 20px;
+}
+
+.success-message p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 15px;
+}
+
+.success-message button {
+  margin-top: 35px;
+  border: none;
+  background: transparent;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------
+   DECORATIONS
+-------------------------------------------------- */
+
+.side-mark {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+  font-family: "Cinzel", serif;
+  font-size: 9px;
+  letter-spacing: 8px;
+  color: rgba(197, 163, 106, 0.45);
+}
+
+.hero-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.footer-center {
+  font-family: "Cinzel", serif;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.vertical-line {
+  position: absolute;
+  left: 6%;
+  top: 30%;
+  bottom: 20%;
+  width: 1px;
+  background: linear-gradient(transparent,
+      rgba(197, 163, 106, 0.5),
+      transparent);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 1050px) {
+  .hero {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .hero-content {
+    gap: 5%;
+  }
+
+  .form-wrapper {
+    padding: 30px;
+  }
+
+  .header {
+    padding: 0 5%;
+  }
+
+  .side-mark {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   MOBILE EXPERIENCE
+-------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .page {
+    overflow: visible;
+  }
+
+  .header {
+    position: absolute;
+    height: 72px;
+    padding: 0 6%;
+  }
+
+  .logo {
+    gap: 8px;
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .header-right {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  /* HERO */
+
+  .hero {
+    display: block;
+    min-height: auto;
+    padding: 125px 6% 90px;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    background-position: 55% center;
+    transform: scale(1.05);
+  }
+
+  .hero-image-overlay {
+    background: linear-gradient(180deg,
+        rgba(7, 9, 11, 0.35),
+        rgba(7, 9, 11, 0.75) 25%,
+        #090b0d 65%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 55px;
+    width: 100%;
+  }
+
+  /* INTRO */
+
+  .intro {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 2.5px;
+    margin-bottom: 22px;
+  }
+
+  .intro h1 {
+    font-size: clamp(39px, 9vw, 65px);
+    line-height: 1.17;
+    letter-spacing: -1.5px;
+  }
+
+  .intro-description {
+    max-width: 330px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 22px;
+  }
+
+  .intro-bottom {
+    margin-top: 30px;
+    gap: 17px;
+  }
+
+  .rune-decoration {
+    width: 43px;
+    height: 43px;
+    font-size: 22px;
+  }
+
+  .ancient-rune {
+    top: -90px;
+    left: 10px;
+    font-size: clamp(200px, 65vw, 280px);
+    opacity: 0.5;
+  }
+
+  /* FORM */
+
+  .form-wrapper {
+    width: 100%;
+    padding: 32px 25px;
+    margin: 0 auto;
+    backdrop-filter: blur(15px);
+  }
+
+  .form-top h2 {
+    font-size: 25px;
+  }
+
+  .form-description {
+    margin-bottom: 30px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    row-gap: 5px;
+  }
+
+  .input-box {
+    margin-bottom: 27px;
+    min-width: 0;
+  }
+
+  .input-box input,
+  .input-box textarea {
+    font-size: 14px;
+  }
+
+  .input-box label {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .input-symbol {
+    font-size: 14px;
+  }
+
+  .message-box {
+    margin-top: 5px;
+  }
+
+  .submit-button {
+    height: 55px;
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  /* ATMOSPHERE */
+
+  .particles {
+    opacity: 0.65;
+  }
+
+  .fog {
+    width: 120%;
+    height: 25%;
+    filter: blur(35px);
+  }
+
+  .fog-one {
+    bottom: 20%;
+  }
+
+  .fog-two {
+    top: 25%;
+  }
+
+  /* FOOTER */
+
+  .hero-footer {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 55px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .vertical-line,
+  .side-mark {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   SMALL MOBILE
+-------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .header {
+    height: 65px;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .header-right {
+    font-size: 6px;
+  }
+
+  .hero {
+    padding: 110px 5% 35px;
+  }
+
+  .hero-content {
+    gap: 42px;
+  }
+
+  .intro h1 {
+    font-size: clamp(36px, 10vw, 48px);
+    letter-spacing: -1px;
+  }
+
+  .intro-description {
+    max-width: 290px;
+  }
+
+  .form-wrapper {
+    padding: 27px 20px;
+  }
+
+  .form-top h2 {
+    font-size: 22px;
+  }
+
+  .form-rune {
+    font-size: 35px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .input-box {
+    margin-bottom: 25px;
+  }
+
+  .message-box {
+    margin-top: 0;
+  }
+
+  .submit-button {
+    padding: 0 15px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-footer {
+    margin-top: 40px;
+    font-size: 6px;
+    letter-spacing: 0.8px;
+  }
+
+  .footer-center {
+    font-size: 16px;
+  }
+}
+
+/* --------------------------------------------------
+   REDUCED MOTION / TOUCH
+-------------------------------------------------- */
+
+@media (pointer: coarse) {
+  .submit-button::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ancient-rune,
+  .fog,
+  .particle {
+    animation: none !important;
+  }
+}

@@ -1,15 +1,21 @@
-/* src/components/welcomeLoader/welcomeLoader.jsx */
+/* src/demos/welcome-loader/Demo.jsx */
 
 "use client";
 
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import styles from "./welcomeLoader.module.css";
+import styles from "./Demo.module.css";
 
 gsap.registerPlugin(useGSAP);
 
-export default function WelcomeLoader({ greetings, title, emphasizedText, finalText, onComplete }) {
+export default function WelcomeLoader() {
+  const greetings = ["Hello", "Bonjour", "स्वागत हे", "Ciao", "Olá", "おい", "Hallå", "Guten tag", "Hallo", "স্বাগতম"];
+
+  const title = "Make";
+  const emphasizedText = "it";
+  const finalText = "Happen";
+
   const containerRef = useRef(null);
 
   useGSAP(
@@ -35,9 +41,6 @@ export default function WelcomeLoader({ greetings, title, emphasizedText, finalT
       const timeline = gsap.timeline({
         defaults: {
           ease: "power2.inOut",
-        },
-        onComplete: () => {
-          onComplete?.();
         },
       });
 
@@ -115,7 +118,6 @@ export default function WelcomeLoader({ greetings, title, emphasizedText, finalT
     },
     {
       scope: containerRef,
-      dependencies: [greetings, title, emphasizedText, finalText, onComplete],
       revertOnUpdate: true,
     },
   );
@@ -135,7 +137,6 @@ export default function WelcomeLoader({ greetings, title, emphasizedText, finalT
               className={styles.welcomeText}
               key={`${greeting}-${index}`}
             >
-              {/* <div className={styles.dot} /> */}
               <h2>{greeting}</h2>
             </div>
           ))}

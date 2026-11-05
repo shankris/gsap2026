@@ -1,0 +1,769 @@
+/* src/demos/paper-craft/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap");
+
+.page,
+.page * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.page {
+  --sky: #79c8e5;
+  --sky-deep: #4ba6d0;
+  --ink: #173b50;
+  --paper: #fff8e9;
+  --yellow: #ffc65e;
+  --blue: #247ea7;
+  --muted: #e9f7fb;
+  --grass: #39865b;
+  --grass-dark: #20583f;
+  --grass-light: #a6d99a;
+  --mint: #c7e1c4;
+
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: var(--grass-dark);
+  font-family: "Manrope", sans-serif;
+}
+
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page button {
+  font: inherit;
+}
+
+.page svg {
+  display: block;
+}
+
+.site {
+  opacity: 0;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(145deg, #4ea8d0 0%, #80d0e8 48%, #b5e6e9 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: -5%;
+  right: -5%;
+  bottom: -2%;
+  height: 24%;
+  border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+  background: linear-gradient(180deg, #a6d99a 0%, #69b875 45%, #39865b 100%);
+  box-shadow: 0 -15px 35px rgba(35, 105, 77, 0.12);
+  pointer-events: none;
+}
+
+/* Loader */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fdf6e7;
+}
+
+.loaderBefore,
+.loader::after {
+  content: "";
+  position: absolute;
+  left: -10vw;
+  width: 120vw;
+  height: 52vh;
+  border-radius: 50%;
+  background: #7bc9e7;
+  transform: translateY(-120%);
+}
+
+.loaderBefore {
+  top: 0;
+}
+
+.loader::after {
+  top: auto;
+  bottom: 0;
+  background: #f5e8ce;
+  transform: translateY(120%);
+}
+
+.loaderInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.loaderPlane {
+  width: 110px;
+  filter: drop-shadow(0 12px 9px #327c9940);
+}
+
+.loaderBrand {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.loaderTrack {
+  width: 160px;
+  height: 2px;
+  overflow: hidden;
+  background: #d8d4c8;
+}
+
+.loaderProgress {
+  width: 0;
+  height: 100%;
+  background: var(--blue);
+}
+
+.loaderCount {
+  color: #527c8c;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 0.16em;
+}
+
+/* Navigation */
+
+.nav {
+  position: relative;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px clamp(22px, 5.2vw, 82px);
+  color: #fffdf4;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+}
+
+.brand svg {
+  width: 30px;
+  height: 30px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3.5vw, 55px);
+}
+
+.navLinks a {
+  position: relative;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.86;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s;
+}
+
+.navLinks a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menuToggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ffffff8c;
+  border-radius: 50%;
+  color: white;
+  background: transparent;
+}
+
+/* Hero copy */
+
+.heroCopy {
+  position: relative;
+  z-index: 8;
+  width: min(520px, 45vw);
+  margin-left: clamp(24px, 9vw, 145px);
+  padding-top: clamp(55px, 10vh, 120px);
+  color: #fffdf6;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+.heroCopy h1 {
+  margin: 25px 0 20px;
+  font-size: clamp(46px, 6.1vw, 94px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.99;
+}
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.07em;
+}
+
+.heroCopy h1 em {
+  color: var(--yellow);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+.heroDescription {
+  max-width: 340px;
+  color: #f3fbff;
+  font-size: clamp(13px, 1.15vw, 16px);
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 15px 21px 15px 25px;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  color: white;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.cta:hover {
+  color: var(--blue);
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.cta svg {
+  width: 18px;
+}
+
+.smallNote {
+  color: #e8f7fc;
+  font: 9px "DM Mono", monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* Paper illustration */
+
+.artboard {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sunWrap {
+  position: absolute;
+  top: 13%;
+  right: 15%;
+  width: clamp(100px, 16vw, 230px);
+}
+
+.sun {
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+/* Clouds */
+
+.cloud {
+  position: absolute;
+  z-index: 2;
+  height: clamp(42px, 6vw, 88px);
+  border: 2px solid #f4e9d8;
+  border-radius: 999px;
+  background: #fff8eb;
+  filter: drop-shadow(0 10px 0 #286d8b10) drop-shadow(0 18px 18px #205e7610);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 15%;
+  border: inherit;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.cloud::before {
+  bottom: 15%;
+  left: 15%;
+  width: 48%;
+  aspect-ratio: 1;
+  border-bottom-color: transparent;
+}
+
+.cloud::after {
+  right: 15%;
+  bottom: 12%;
+  width: 36%;
+  aspect-ratio: 1;
+  border-bottom-color: transparent;
+}
+
+.cloudA {
+  bottom: 2%;
+  left: -6%;
+  width: 24vw;
+  min-width: 170px;
+}
+
+.cloudB {
+  top: 27%;
+  right: -7%;
+  width: 25vw;
+  min-width: 180px;
+}
+
+.cloudC {
+  bottom: 15%;
+  left: 46%;
+  width: 16vw;
+  min-width: 125px;
+  opacity: 0.84;
+}
+
+/* Balloons */
+
+.balloon {
+  position: absolute;
+  width: clamp(64px, 9vw, 125px);
+  filter: drop-shadow(0 16px 12px #2b779333);
+}
+
+.balloonA {
+  top: 44%;
+  right: 12%;
+}
+
+.balloonB {
+  top: 56%;
+  left: 30%;
+  width: clamp(45px, 5vw, 72px);
+}
+
+.balloonSvg {
+  width: 100%;
+}
+
+.balloonSvgA,
+.balloonSvgB {
+  width: 100%;
+}
+
+/* Airplane */
+
+.planeWrap {
+  position: absolute;
+  top: 28%;
+  right: 35%;
+  width: clamp(260px, 38vw, 560px);
+  transform: rotate(-3deg);
+}
+
+.plane {
+  width: 100%;
+  filter: drop-shadow(0 24px 12px #1c638344);
+}
+
+.flightPath {
+  position: absolute;
+  top: 36%;
+  left: 27%;
+  width: 54%;
+  height: 40%;
+  overflow: visible;
+}
+
+.flightPath path {
+  fill: none;
+  stroke: #fff6df;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 10;
+  opacity: 0.8;
+}
+
+.bird {
+  position: absolute;
+  width: 55px;
+}
+
+.birdA {
+  top: 23%;
+  left: 42%;
+}
+
+.birdB {
+  top: 12%;
+  left: 59%;
+  width: 36px;
+}
+
+/* Layered paper landscape */
+
+.paperLandscape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.paperLandscape svg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.landscapeBack {
+  z-index: 1;
+}
+
+.landscapeBack svg {
+  bottom: 0;
+}
+
+.landscapeFront {
+  z-index: 4;
+  top: auto;
+  height: 31%;
+  min-height: 190px;
+}
+
+.landscapeFront svg {
+  inset: 0;
+}
+
+.mountainFar,
+.mountainMid,
+.paperHills,
+.treeRowBack,
+.treeRowFront,
+.grassLayer {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.mountainFar {
+  filter: drop-shadow(0 7px 5px rgba(36, 91, 85, 0.08));
+}
+
+.mountainMid {
+  filter: drop-shadow(0 9px 7px rgba(26, 85, 58, 0.12));
+}
+
+.paperHills {
+  filter: drop-shadow(0 -5px 6px rgba(30, 86, 57, 0.08));
+}
+
+.treeRowBack,
+.treeRowFront {
+  transform-origin: center bottom;
+}
+
+.grassLayer {
+  filter: drop-shadow(0 -5px 6px rgba(21, 73, 45, 0.14));
+}
+
+.grassDetails {
+  opacity: 0.9;
+}
+
+.landscapeFront::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -5%;
+  bottom: -1px;
+  left: -5%;
+  height: 15%;
+  background: #20583f;
+}
+
+/* Bottom labels */
+
+.bottomLabel {
+  position: absolute;
+  z-index: 10;
+  bottom: 26px;
+  left: clamp(24px, 5.2vw, 82px);
+  color: #5288a0;
+  font: 9px "DM Mono", monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.scrollCue {
+  position: absolute;
+  z-index: 10;
+  right: clamp(24px, 5.2vw, 82px);
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #5288a0;
+  font: 9px "DM Mono", monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mouse {
+  position: relative;
+  width: 16px;
+  height: 25px;
+  border: 1px solid #5288a0;
+  border-radius: 12px;
+}
+
+.mouse::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 2px;
+  height: 5px;
+  background: #5288a0;
+  transform: translateX(-50%);
+  animation: wheel 1.5s infinite;
+}
+
+@keyframes wheel {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 7px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 760px) {
+  .nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
+
+  .menuToggle {
+    position: relative;
+    z-index: 14;
+    display: block;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 90px 24px 30px;
+    background: #267fa7;
+    transform: translateY(-110%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .navLinks.open {
+    transform: translateY(0);
+  }
+
+  .navLinks a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .heroCopy {
+    width: auto;
+    margin: 0 25px;
+    padding-top: 8vh;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(48px, 13vw, 78px);
+  }
+
+  .heroDescription {
+    max-width: 280px;
+  }
+
+  .planeWrap {
+    top: 52%;
+    right: 15%;
+    width: 72vw;
+  }
+
+  .flightPath {
+    top: 56%;
+    left: 6%;
+    width: 75%;
+    height: 27%;
+  }
+
+  .sunWrap {
+    top: 24%;
+    right: -3%;
+    width: 30vw;
+  }
+
+  .balloonA {
+    top: 61%;
+    right: 6%;
+    width: 75px;
+  }
+
+  .balloonB {
+    top: 70%;
+    left: 13%;
+  }
+
+  .birdA {
+    top: 73%;
+    left: 43%;
+  }
+
+  .birdB {
+    top: 78%;
+    left: 56%;
+  }
+
+  .cloudA {
+    bottom: 4%;
+    width: 15vw;
+  }
+
+  .cloudB {
+    top: 38%;
+    right: -14%;
+    width: 25vw;
+  }
+
+  .cloudC {
+    bottom: 10%;
+    left: 40%;
+    width: 12vw;
+  }
+
+  .landscapeBack {
+    top: auto;
+    height: 58%;
+  }
+
+  .landscapeFront {
+    height: 24%;
+    min-height: 175px;
+  }
+
+  .mountainFar {
+    opacity: 0.95;
+  }
+
+  .mountainMid {
+    opacity: 1;
+  }
+
+  .treeRowBack {
+    opacity: 0.8;
+  }
+
+  .bottomLabel {
+    bottom: 18px;
+    font-size: 8px;
+  }
+
+  .scrollCue {
+    bottom: 18px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

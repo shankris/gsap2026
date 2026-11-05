@@ -114,17 +114,18 @@ Responsive Component Grid
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+  gap: 12px;
 }
 
 .componentCard {
   display: flex;
-  min-width: 0;
   flex-direction: column;
-  padding: 22px;
+  height: 100%;
+  min-width: 0;
+  padding: 16px;
   border: 1px solid #e3e7ed;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #ffffff;
   transition: border-color 160ms ease;
 }
@@ -156,7 +157,9 @@ Responsive Component Grid
   margin: 0;
   font-size: 18px;
   line-height: 1.4;
-  letter-spacing: -0.02em;
+  /* letter-spacing: -0.02em; */
+  font-weight: 300;
+  color: #203060;
 }
 
 .status {
@@ -194,20 +197,20 @@ Description and Metadata
 -------------------------------------------------- */
 
 .description {
-  margin: 12px 0 18px;
-  color: #697386;
+  margin: 6px 0;
+  color: #919191;
   font-size: 12px;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 
 .metadata {
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 32px;
-  padding: 14px 0;
-  border-top: 1px solid #edf0f4;
-  border-bottom: 1px solid #edf0f4;
+  gap: 2px;
+  padding: 6px 0 0 0;
+
 }
 
 .metadata div {
@@ -223,8 +226,8 @@ Description and Metadata
 
 .metadata strong {
   color: #343b49;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 300;
 }
 
 /* --------------------------------------------------
