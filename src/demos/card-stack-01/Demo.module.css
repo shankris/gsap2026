@@ -1,0 +1,223 @@
+/* src/demos/card-stack-01/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* --------------------------------------------------
+   Component Container
+-------------------------------------------------- */
+
+.page,
+.page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  width: 100%;
+  overflow-x: clip;
+  font-family: "Raleway", sans-serif;
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.page section {
+  width: 100%;
+  min-height: 80vh;
+  background: #fcfcfc;
+}
+
+/* --------------------------------------------------
+   Intro and Outro
+-------------------------------------------------- */
+
+.intro,
+.outro {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8vw;
+  background: #1a1a1a !important;
+  color: #ffffff;
+  text-align: center;
+}
+
+.intro h2,
+.outro h2 {
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.intro h2 span,
+.outro h2 span {
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  margin-left: 0.8vw;
+  color: bisque;
+}
+
+.outro h2 span {
+  margin-right: 0.8vw;
+}
+
+.intro p,
+.outro p {
+  max-width: 800px;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.intro svg,
+.outro svg {
+  height: 5vw;
+  width: 5vw;
+}
+
+/* --------------------------------------------------
+   Pin Cards
+-------------------------------------------------- */
+
+.card {
+  position: relative;
+  display: flex;
+  padding: 10vh 8vw;
+  justify-content: space-between;
+  border-bottom: 1px solid #0000003d;
+  perspective: 1000px;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.number {
+  font-size: 8vw;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cardContent {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #1a1a1a;
+}
+
+.cardContent h2 {
+  font-size: 4vw;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  letter-spacing: -0.08rem;
+}
+
+.cardContent img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cardContent p {
+  max-width: 70%;
+  margin-top: 1.5rem;
+  line-height: 1.3;
+  color: #1a1a1a;
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .intro h2,
+  .outro h2 {
+    font-size: 8vw;
+  }
+
+  .intro svg,
+  .outro svg {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  .intro p,
+  .outro p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .card {
+    flex-direction: column;
+    padding: 5vh 6vw;
+    gap: 2rem;
+  }
+
+  .number {
+    font-size: 12vw;
+  }
+
+  .cardContent {
+    width: 100%;
+  }
+
+  .cardContent h2 {
+    font-size: 8vw;
+    margin-bottom: 1rem;
+  }
+
+  .cardContent p {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .intro,
+  .outro {
+    padding: 0 6vw;
+  }
+
+  .intro h2,
+  .outro h2 {
+    font-size: 10vw;
+  }
+
+  .intro svg,
+  .outro svg {
+    height: 10vw;
+    width: 10vw;
+  }
+
+  .number {
+    font-size: 15vw;
+  }
+
+  .cardContent h2 {
+    font-size: 10vw;
+  }
+}

@@ -64,5 +64,55 @@
     "date": "2026-11-05",
     "lines": null,
     "zip": "usefull-things-472-travel-main.zip"
+  },
+  {
+    "id": "GSAP-007",
+    "slug": "card-stack-01",
+    "name": "Card Stack 01",
+    "description": "A layered card-stacking experience with pinned sections, 3D rotations, and scroll-driven transitions.",
+    "category": "Scroll Animation",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-008",
+    "slug": "card-stack-02",
+    "name": "Card Stack 02",
+    "description": "A scroll-driven service card deck with layered stacking, smooth transitions, and individual card fly-out animations.",
+    "category": "Scroll Animation",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-009",
+    "slug": "electric-border",
+    "name": "Electric Border",
+    "description": "An animated electric card border with SVG turbulence distortion, layered glow, and hover-reactive lighting.",
+    "category": "Visual Effects",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-010",
+    "slug": "showcase1",
+    "name": "Showcase 1",
+    "description": "A 3D scroll-triggered portfolio showcase with five cards per section, animated headings, and smooth scrolling.",
+    "category": "Scroll Effects",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-011",
+    "slug": "gallery-01",
+    "name": "Gallery 01",
+    "description": "A cinematic five-panel image gallery featuring clip-path scroll reveals, image zoom transitions, animated typography, and scroll progress navigation.",
+    "category": "Scroll Effects",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
   }
 ]

@@ -1,0 +1,303 @@
+/* src/demos/electric-border/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap");
+
+/* --------------------------------------------------
+   Component Container
+-------------------------------------------------- */
+
+.page,
+.page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  --electric-border-color: oklch(0.65 0.19 295);
+  --electric-light-color: oklch(from var(--electric-border-color) calc(l + 0.06) calc(c * 0.75) h);
+  --electric-border-muted: oklch(from var(--electric-border-color) l c h / 0.45);
+  --electric-border-soft: oklch(from var(--electric-border-color) l c h / 0.55);
+  --gradient-color: oklch(from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4);
+  --color-neutral-900: oklch(0.17 0.02 285);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: oklch(0.11 0.025 285);
+  color: oklch(0.985 0 0);
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.filterSvg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------
+   Card
+-------------------------------------------------- */
+
+.card {
+  position: relative;
+  width: min(350px, calc(100vw - 40px));
+  height: 500px;
+  padding: 2px;
+  border-radius: 24px;
+  background:
+    linear-gradient(-30deg,
+      var(--gradient-color),
+      transparent,
+      var(--gradient-color)),
+    linear-gradient(to bottom,
+      var(--color-neutral-900),
+      var(--color-neutral-900));
+  cursor: pointer;
+}
+
+.stack {
+  position: relative;
+}
+
+.frame {
+  border: 2px solid var(--electric-border-muted);
+  border-radius: 24px;
+}
+
+.wire {
+  position: relative;
+  width: 100%;
+  height: 496px;
+  overflow: hidden;
+  border: 2px solid var(--electric-border-color);
+  border-radius: 24px;
+  background: transparent;
+  filter: url("#electric-turbulent-displace");
+}
+
+.wire::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to bottom,
+      var(--electric-border-color),
+      transparent);
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  content: "";
+}
+
+.card:hover .wire::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   Glow Layers
+-------------------------------------------------- */
+
+.glowSm,
+.glowLg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.glowSm {
+  border: 2px solid var(--electric-border-soft);
+  filter: blur(1px);
+}
+
+.glowLg {
+  border: 2px solid var(--electric-light-color);
+  filter: blur(4px);
+}
+
+/* --------------------------------------------------
+   Shine and Aura
+-------------------------------------------------- */
+
+.shine,
+.shineSoft {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(-30deg,
+      white,
+      transparent 30%,
+      transparent 70%,
+      white);
+  mix-blend-mode: overlay;
+  transform: scale(1.1);
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.shine {
+  opacity: 1;
+}
+
+.shineSoft {
+  opacity: 0.5;
+}
+
+.aura {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(-30deg,
+      var(--electric-light-color),
+      transparent,
+      var(--electric-border-color));
+  opacity: 0.3;
+  transform: scale(1.1);
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   Card Content
+-------------------------------------------------- */
+
+.copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 36px;
+  padding-bottom: 12px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  padding-top: 12px;
+}
+
+/* --------------------------------------------------
+   Pill
+-------------------------------------------------- */
+
+.pill {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background:
+    radial-gradient(47.2% 50% at 50.39% 88.37%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.pill:hover {
+  background:
+    radial-gradient(47.2% 50% at 50.39% 88.37%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.08);
+}
+
+.pill::before {
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(150deg,
+      rgba(255, 255, 255, 0.48) 16.73%,
+      rgba(255, 255, 255, 0.08) 30.2%,
+      rgba(255, 255, 255, 0.08) 68.2%,
+      rgba(255, 255, 255, 0.6) 81.89%);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  content: "";
+}
+
+/* --------------------------------------------------
+   Heading and Description
+-------------------------------------------------- */
+
+.heading {
+  margin-top: auto;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------
+   Divider
+-------------------------------------------------- */
+
+.rule {
+  height: 1px;
+  border: none;
+  margin-top: auto;
+  background-color: currentColor;
+  opacity: 0.5;
+  mask-image: linear-gradient(to right, transparent, black, transparent);
+  -webkit-mask-image: linear-gradient(to right,
+      transparent,
+      black,
+      transparent);
+}
+
+/* --------------------------------------------------
+   Small Screens
+-------------------------------------------------- */
+
+@media (max-width: 400px) {
+  .top {
+    padding: 28px;
+    padding-bottom: 12px;
+  }
+
+  .bottom {
+    padding: 28px;
+    padding-top: 12px;
+  }
+}
