@@ -1,0 +1,75 @@
+/* src/demos/carousel-03/Demo.module.css */
+
+.section {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: #0e0e0e;
+  color: #f2f2f2;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.heading {
+  margin: 0 0 16px;
+  padding-left: 8px;
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  height: min(62vh, 560px);
+  gap: 4px;
+}
+
+.item {
+  position: relative;
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 4px;
+  contain: layout paint;
+  will-change: flex-grow;
+}
+
+.clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: clip-path;
+}
+
+.clip>* {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clip>img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Smaller screens */
+
+@media (max-width: 640px) {
+  .row {
+    height: min(62vh, 560px);
+  }
+}

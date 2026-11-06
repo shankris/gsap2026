@@ -114,7 +114,7 @@ Responsive Component Grid
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 340px));
   gap: 12px;
 }
 

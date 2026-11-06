@@ -1,0 +1,224 @@
+/* src/demos/carousel-02/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+.page {
+  --thumb: clamp(48px, 4.2vw, 62px);
+  --cover: max(240px, min(40vw, 52dvh));
+  --side: calc(19px + var(--thumb) * 0.3);
+
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: #181818;
+  color: #e9f1fb;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(18px, 3vh, 28px);
+}
+
+.personInfo {
+  display: flex;
+  max-width: min(46ch, 92vw);
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.personInfo h1 {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.042em;
+}
+
+.personInfo p {
+  margin: 0;
+  color: rgb(233 241 251 / 70%);
+  font-size: clamp(11px, 1.05vw, 13px);
+  font-weight: 200;
+  line-height: 1.4;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  width: var(--cover);
+  height: var(--cover);
+  flex: none;
+  overflow: visible;
+  margin-top: clamp(16px, 3vh, 30px);
+  margin-bottom: auto;
+}
+
+.coverCard {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #1a2942;
+  will-change: transform;
+}
+
+.coverCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thumbnail dock */
+
+.dock {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex: none;
+  align-items: flex-end;
+  justify-content: safe center;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  padding: calc(var(--thumb) * 0.6 + 52px) var(--side) 20px;
+  margin: 0;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.dock::-webkit-scrollbar {
+  display: none;
+}
+
+.dockItem {
+  flex: none;
+  margin: 0;
+  padding: 0;
+}
+
+.thumbnail {
+  display: block;
+  width: var(--thumb);
+  height: var(--thumb);
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: #1a2942;
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition:
+    opacity 300ms ease,
+    box-shadow 300ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail {
+  opacity: 0.85;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+}
+
+.thumbnail:focus-visible {
+  outline: 2px solid #e9f1fb;
+  outline-offset: 4px;
+}
+
+.magnifiable {
+  will-change: transform;
+}
+
+.touchThumbnail {
+  transition:
+    opacity 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.touchThumbnail:hover {
+  transform: translateY(-3px);
+}
+
+.touchThumbnail.active {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 3px #686a6d,
+    0 0 0 4px #e9f1fb;
+}
+
+/* Selection ring */
+
+.selectionRing {
+  position: absolute;
+  z-index: 2;
+  bottom: 15px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 2px solid #e9f1fb;
+  border-radius: 11px;
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* Hover name label */
+
+.hoverLabel {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  left: 0;
+  padding: 7px 13px;
+  border-radius: 8px;
+  background: #e9f1fb;
+  color: #0a1626;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .page {
+    --cover: max(190px, min(78vw, calc(100dvh - 340px)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .thumbnail,
+  .touchThumbnail {
+    transition: none;
+  }
+}

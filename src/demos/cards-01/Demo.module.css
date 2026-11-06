@@ -1,0 +1,272 @@
+/* src/demos/cards-01/Demo.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background: #160f03;
+}
+
+.container {
+  width: 100%;
+}
+
+.sectionContainer {
+  width: 100%;
+}
+
+.introSection,
+.section {
+  height: 100vh;
+  width: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Intro */
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.introContent h2 {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 5rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7c59f 50%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.introContent p {
+  font-family: "Syne", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.line {
+  height: 12rem;
+  width: 1px;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  animation: lineScroll 2s ease-in-out infinite;
+}
+
+@keyframes lineScroll {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+/* Cards */
+
+.content {
+  height: 80%;
+  width: 35%;
+  min-width: 380px;
+  max-width: 500px;
+  aspect-ratio: 9 / 14;
+  transform-origin: center center;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.4) 30%,
+      transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  font-family: "Syne", sans-serif;
+}
+
+.cardInfo {
+  transform: translateY(0);
+}
+
+.cardNumber {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.cardName {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.cardRole {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}
+
+.cardDivider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b35, #f7c59f);
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+.cardQuote {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .content {
+    width: 50%;
+    min-width: 280px;
+    max-width: 360px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .content {
+    width: 85%;
+    min-width: unset;
+    max-width: unset;
+    border-radius: 1.5rem;
+  }
+
+  .introSection,
+  .section {
+    padding: 1rem;
+  }
+
+  .introContent h2 {
+    font-size: 3rem;
+  }
+
+  .introContent p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .line {
+    height: 8rem;
+  }
+
+  .cardOverlay {
+    padding: 2rem;
+  }
+
+  .cardName {
+    font-size: 1.6rem;
+  }
+
+  .cardRole {
+    font-size: 0.85rem;
+  }
+
+  .cardQuote {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  .content {
+    width: 92%;
+    height: 75%;
+    border-radius: 1rem;
+  }
+
+  .cardOverlay {
+    padding: 1.5rem;
+  }
+
+  .cardName {
+    font-size: 1.4rem;
+  }
+
+  .cardNumber {
+    font-size: 0.65rem;
+  }
+
+  .cardRole {
+    font-size: 0.8rem;
+  }
+
+  .cardQuote {
+    font-size: 0.7rem;
+  }
+
+  .cardDivider {
+    width: 30px;
+    height: 2px;
+    margin: 0.75rem 0;
+  }
+
+  .line {
+    height: 6rem;
+  }
+}

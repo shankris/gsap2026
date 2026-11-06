@@ -114,5 +114,106 @@
     "status": "ready",
     "date": "2026-11-06",
     "lines": null
+  },
+  {
+    "id": "GSAP-012",
+    "slug": "scroll-01",
+    "name": "Scroll 01",
+    "description": "Scroll-driven section transitions with pinned panels and rotating entrances.",
+    "category": "Scroll",
+    "technologies": ["GSAP", "ScrollTrigger", "Lenis"],
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-013",
+    "slug": "cards-01",
+    "name": "Cards 01",
+    "description": "A cinematic team showcase featuring stacked profile cards, pinned scrolling sections, and 3D transitions.",
+    "category": "Scroll Animations",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": null
+  },
+  {
+    "id": "GSAP-014",
+    "slug": "flip-accordion-01",
+    "name": "Flip Accordion 01",
+    "description": "Expanding image panels with smooth GSAP Flip transitions, hover interactions, and responsive layouts.",
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-015",
+    "slug": "carousel-01",
+    "name": "Carousel 01",
+    "description": "An infinite image carousel with a curved viewport, smooth drag navigation, inertia, automatic movement, and image parallax.",
+    "category": "Carousel",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-016",
+    "slug": "carousel-02",
+    "name": "Carousel 02",
+    "description": "An interactive portrait dock with a magnifying thumbnail strip, cursor-following selection ring, and animated transitions into a large profile image.",
+    "category": "Carousel",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-017",
+    "slug": "carousel-03",
+    "name": "Carousel 03",
+    "description": "An interactive image gallery with cursor-driven flex expansion and a smoothly bending image clip-path.",
+    "category": "Carousel",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-018",
+    "slug": "slider-01",
+    "name": "Slider 01",
+    "description": "A pinned horizontal slider with layered GSAP transitions on desktop and sticky stacking cards on mobile.",
+    "category": "Slider",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-019",
+    "slug": "hover-01",
+    "name": "Hover 01",
+    "description": "A hover-driven services showcase with animated image reveals, text transitions, and an interactive navigation indicator.",
+    "category": "Hover",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-020",
+    "slug": "preloader-01",
+    "name": "Preloader 01",
+    "description": "A cinematic image preloader with Three.js cloth deformation, GSAP transitions, and smooth scroll interactions.",
+    "category": "Preloader",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-020",
+    "slug": "accordion-01",
+    "name": "Accordion 01",
+    "description": "An interactive image accordion with expanding panels, vertical headings, and grayscale-to-color image transitions.",
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-06",
+    "lines": 0
   }
 ]

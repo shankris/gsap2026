@@ -1,0 +1,169 @@
+/* src/demos/scroll-01/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:wght@400;600;700&display=swap");
+
+.page {
+  width: 100%;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4vw;
+  padding-top: clamp(2rem, 8vw, 4vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.big {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3.5rem, 12vw, 14rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.big span {
+  display: block;
+}
+
+.sub {
+  max-width: 50ch;
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.tag {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.right {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bottom {
+  margin-top: auto;
+}
+
+.rule {
+  width: 100%;
+  margin: 2vw 0;
+  border: 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.6;
+}
+
+.cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vw;
+}
+
+.cols>div {
+  flex: 1;
+  min-width: 180px;
+}
+
+.label {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.detail {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* Section colors */
+
+.s1 .container {
+  background: #e85a2b;
+  color: #000;
+}
+
+.s1 .rule {
+  border-color: #000;
+  opacity: 1;
+}
+
+.s2 .container {
+  background: #000;
+  color: #fff;
+}
+
+.s3 .container {
+  background: #f5f0e8;
+  color: #000;
+}
+
+.s4 .container {
+  background: #1a3de8;
+  color: #fff;
+}
+
+.s4 .rule {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.s5 .container {
+  background: #e8e02b;
+  color: #000;
+}
+
+/* Smaller screens */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.25rem;
+    padding-top: 2rem;
+    gap: 1.25rem;
+  }
+
+  .big {
+    font-size: clamp(3.5rem, 17vw, 7rem);
+  }
+
+  .sub {
+    font-size: clamp(1rem, 4vw, 1.35rem);
+  }
+
+  .rule {
+    margin: 1rem 0;
+  }
+
+  .cols {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .cols>div {
+    min-width: 0;
+  }
+}

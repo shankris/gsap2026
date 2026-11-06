@@ -1,0 +1,536 @@
+/* src/demos/preloader-01/Demo.module.css */
+
+/* ----------------------------------------
+   Demo
+---------------------------------------- */
+
+.demo {
+  --bg: #ebebf8;
+  --ink: #17171f;
+  --accent: #4b4bee;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: clip;
+}
+
+.demo *,
+.demo *::before,
+.demo *::after {
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------
+   Spacer
+---------------------------------------- */
+
+.spacer {
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  color: rgba(23, 23, 31, 0.35);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   Header
+---------------------------------------- */
+
+.siteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+}
+
+.siteHeaderLogo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.siteHeaderLogo sup {
+  font-size: 0.6em;
+  font-weight: 500;
+}
+
+.siteHeaderNav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.siteHeaderNav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.siteHeaderNav a:hover {
+  opacity: 1;
+}
+
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 60;
+}
+
+.menuBtn span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: var(--ink);
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
+}
+
+/* Global mobile navigation state */
+
+:global(html.nav-open) .menuBtn span:nth-child(1) {
+  transform: translateY(calc(0.4rem + 2px)) rotate(45deg);
+}
+
+:global(html.nav-open) .menuBtn span:nth-child(2) {
+  opacity: 0;
+}
+
+:global(html.nav-open) .menuBtn span:nth-child(3) {
+  transform: translateY(calc(-0.4rem - 2px)) rotate(-45deg);
+}
+
+/* ----------------------------------------
+   Approach section
+---------------------------------------- */
+
+.approach {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6rem;
+  align-items: start;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 1.5rem 3rem 2.5rem;
+  min-height: calc(100vh - 5.75rem);
+}
+
+.approachTitle {
+  font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+/* ----------------------------------------
+   Media
+---------------------------------------- */
+
+.mediaSlot {
+  aspect-ratio: 16 / 10;
+}
+
+.mediaSlotHome {
+  align-self: end;
+}
+
+.mediaCard {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--accent);
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.mediaCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  backface-visibility: hidden;
+}
+
+.mediaCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+/* WebGL active state */
+
+.glCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.glActive {
+  background: transparent;
+}
+
+.glActive img,
+.glActive::after {
+  visibility: hidden;
+}
+
+/* ----------------------------------------
+   Content
+---------------------------------------- */
+
+.approachContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.approachContent .pillBtn {
+  margin-top: 1.5rem;
+}
+
+.approachMeta {
+  margin-top: auto;
+  align-self: stretch;
+  display: flex;
+  gap: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(23, 23, 31, 0.12);
+}
+
+.approachStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.approachStatNum {
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.approachStatLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.approachText {
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  line-height: 1.45;
+  letter-spacing: -0.05em;
+  max-width: 34em;
+}
+
+.pillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.pillBtn:hover {
+  background: #3a3ad9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(75, 75, 238, 0.35);
+}
+
+.pillBtnDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ----------------------------------------
+   Showcase
+---------------------------------------- */
+
+.showcase {
+  padding: 1.5rem 0 6rem;
+}
+
+.showcaseContainer {
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.showcase .mediaSlotAway {
+  width: 100%;
+  height: 75vh;
+  aspect-ratio: auto;
+}
+
+/* ----------------------------------------
+   Loader
+---------------------------------------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+}
+
+.loaderStack {
+  position: relative;
+  width: min(30rem, 55vw);
+  aspect-ratio: 16 / 10;
+}
+
+.loaderStack .mediaCardStack,
+.mediaSlotLoader {
+  position: absolute;
+  inset: 0;
+}
+
+.mediaCardStack img {
+  filter: none;
+}
+
+.mediaCardStack::after {
+  content: none;
+}
+
+.loaderCount {
+  position: absolute;
+  right: 3rem;
+  bottom: 2.5rem;
+  z-index: 6;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------------------
+   Responsive: Tablet
+---------------------------------------- */
+
+@media (max-width: 900px) {
+  .siteHeader {
+    padding: 1.5rem;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  .siteHeaderNav {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  :global(html.nav-open) .siteHeaderNav {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .siteHeaderNav a {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    opacity: 1;
+    transform: translateY(0.75rem);
+    transition:
+      transform 0.4s ease,
+      opacity 0.2s ease;
+  }
+
+  :global(html.nav-open) .siteHeaderNav a {
+    transform: translateY(0);
+  }
+
+  .approach {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    row-gap: 1.75rem;
+    padding: 1.5rem 1.5rem 2rem;
+    min-height: calc(100svh - 5.75rem);
+  }
+
+  .mediaSlotHome {
+    order: 2;
+    margin-top: 0;
+    aspect-ratio: auto;
+    height: 32svh;
+  }
+
+  .approachContent {
+    order: 1;
+    gap: 1.5rem;
+    padding-top: 0;
+  }
+
+  .approachContent .pillBtn {
+    margin-top: 0.5rem;
+  }
+
+  .approachMeta {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .showcaseContainer {
+    padding: 0 1.5rem;
+  }
+
+  .showcase .mediaSlotAway {
+    height: 60vh;
+    height: 60svh;
+  }
+
+  .loaderCount {
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+}
+
+/* ----------------------------------------
+   Responsive: Mobile
+---------------------------------------- */
+
+@media (max-width: 600px) {
+  .siteHeader {
+    padding: 1.25rem 1rem;
+  }
+
+  .approach {
+    padding: 0.75rem 1rem 1.25rem;
+    row-gap: 1rem;
+    min-height: calc(100svh - 5.25rem);
+  }
+
+  .approachContent {
+    gap: 1rem;
+  }
+
+  .approachTitle {
+    font-size: clamp(1.5rem, 7vw, 1.85rem);
+  }
+
+  .approachText {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+
+  .pillBtn {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.75rem;
+  }
+
+  .approachContent .pillBtn {
+    margin-top: 0;
+  }
+
+  .approachMeta {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+  }
+
+  .approachStat {
+    gap: 0.2rem;
+  }
+
+  .approachStatNum {
+    font-size: 1.1rem;
+  }
+
+  .approachStatLabel {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .mediaSlotHome {
+    height: 26svh;
+  }
+
+  .mediaCard,
+  .mediaCard img {
+    border-radius: 1rem;
+  }
+
+  .showcaseContainer {
+    padding: 0 1rem;
+  }
+
+  .showcase .mediaSlotAway {
+    height: 50vh;
+    height: 50svh;
+  }
+
+  .loaderStack {
+    width: min(30rem, 78vw);
+  }
+}
