@@ -207,7 +207,7 @@
     "lines": 0
   },
   {
-    "id": "GSAP-020",
+    "id": "GSAP-021",
     "slug": "accordion-01",
     "name": "Accordion 01",
     "description": "An interactive image accordion with expanding panels, vertical headings, and grayscale-to-color image transitions.",
@@ -217,7 +217,7 @@
     "lines": 0
   },
   {
-    "id": "GSAP-021",
+    "id": "GSAP-025",
     "slug": "preloader-02",
     "name": "Preloader 02",
     "description": "A cinematic image preloader with a staggered image reveal, loading counter, and animated hero transition.",
@@ -242,6 +242,67 @@
     "name": "Split Screen 01",
     "description": "A cinematic split-screen portfolio slider with synchronized image and typography transitions driven by scroll.",
     "category": "Scroll",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-024",
+    "slug": "carousel-04",
+    "name": "Carousel 04",
+    "description": "An immersive split-screen carousel featuring synchronized image transitions, animated typography, and smooth scroll-driven storytelling.",
+    "category": "Carousel",
+    "status": "In Progress",
+    "date": "2026-11-07",
+    "lines": null
+  },
+  {
+    "id": "GSAP-026",
+    "slug": "cards-02",
+    "name": "Cards 02",
+    "description": "Interactive project cards featuring animated scribble strokes that reveal alternate images on hover, with spring-like arrow animations.",
+    "category": "Cards",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-027",
+    "slug": "button-01",
+    "name": "Button 01",
+    "description": "A pill-shaped button with a hand-drawn scribble fill animation on hover and keyboard focus, built with SVG and CSS transitions.",
+    "category": "Buttons",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+
+  {
+    "id": "GSAP-028",
+    "slug": "nav-01",
+    "name": "Nav 01",
+    "description": "An interactive liquid dock navigation with spring-driven movement, magnifying icons, animated tooltips, and a fluid cursor-following effect.",
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-029",
+    "slug": "accordion-02",
+    "name": "Accordion 02",
+    "description": "An animated spine accordion with expanding color panels, vertical titles, floating artwork, hover interactions, keyboard navigation, and optional autoplay.",
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-030",
+    "slug": "showcase-01",
+    "name": "Showcase 01",
+    "description": "A scroll-driven 3D carousel wall where image cards spin around a tilted carousel, fly onto a perspective wall, and reveal accompanying content.",
+    "category": "Showcase",
     "status": "ready",
     "date": "2026-11-07",
     "lines": 0

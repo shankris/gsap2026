@@ -1,0 +1,388 @@
+/* src/demos/accordion-02/Demo.module.css */
+
+.demo {
+  width: 100%;
+  min-width: 0;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.root {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  min-width: 0;
+  color: var(--sa-text, #24262b);
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.viewport {
+  width: 100%;
+  min-width: 0;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Card */
+
+.card {
+  position: relative;
+  flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.titleProbe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  height: max-content;
+  padding-inline: 0.075em;
+  white-space: nowrap;
+  visibility: hidden;
+  pointer-events: none;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.tone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.outline {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px currentColor;
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.card[data-link-engaged="true"] .outline,
+.card[data-trigger-engaged="true"] .outline {
+  opacity: 0.22;
+}
+
+.heading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trigger:focus {
+  outline: none;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sa-focus, #d7d5e5);
+  outline-offset: -5px;
+}
+
+.horizontalHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.mobileHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.number {
+  flex-shrink: 0;
+  width: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  transition: opacity 220ms ease;
+}
+
+.card[data-trigger-engaged="true"] .number {
+  opacity: 1;
+}
+
+.horizontalNumber {
+  position: absolute;
+  top: 34px;
+  left: 21px;
+  width: auto;
+}
+
+.verticalTitle {
+  position: absolute;
+  top: 94px;
+  left: 50%;
+  width: max-content;
+  height: max-content;
+  padding-inline: 0.075em;
+  white-space: nowrap;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.mobileTitle {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.mobileArtSpacer {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.mobileMarkSpacer {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Open panel */
+
+.panelLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.panelLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+  text-decoration: none;
+  outline: none;
+}
+
+.panelLink:focus-visible {
+  outline: 2px solid var(--sa-text, #24262b);
+  outline-offset: -3px;
+}
+
+.artPosition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.artMotion {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+.artImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.artPlaceholder {
+  display: block;
+  width: 66%;
+  height: 66%;
+  margin: 17%;
+  border-radius: 46% 54% 45% 55%;
+  opacity: 0.16;
+}
+
+.panelContent {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.artSpacer {
+  flex-shrink: 0;
+}
+
+.description {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ticket {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  margin-top: 20px;
+  padding: 15px 24px 15px 0;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.ticketRule,
+.ticketProgress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.ticketRule {
+  opacity: 0.18;
+}
+
+.ticketProgress {
+  opacity: 0.55;
+  transform-origin: left center;
+  transition: opacity 180ms ease;
+}
+
+.panelLink:active .ticketProgress {
+  opacity: 0.38;
+}
+
+.ticketLabel {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Plus, minus and autoplay control */
+
+.mark {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.markSvg {
+  display: block;
+  width: 36px;
+  height: 36px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.markCircle {
+  opacity: 0.22;
+  transition: opacity 220ms ease;
+}
+
+.card[data-trigger-engaged="true"] .markCircle,
+.mark[data-timer-engaged="true"] .markCircle {
+  opacity: 0.5;
+}
+
+.timerButton {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.timerButton:focus {
+  outline: none;
+}
+
+.timerButton:focus-visible,
+.timerFocus {
+  outline: 2px solid var(--sa-focus, #d7d5e5);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 700px) {
+  .demo {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo {
+    padding: 16px 12px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .outline,
+  .number,
+  .markCircle,
+  .ticketProgress {
+    transition: none;
+  }
+}
