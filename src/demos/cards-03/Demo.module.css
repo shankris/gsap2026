@@ -1,0 +1,144 @@
+/* src/demos/card-03/Demo.module.css */
+
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  container-type: size;
+}
+
+.heading {
+  position: absolute;
+  top: 12%;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 24px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.headingTitle {
+  font-size: clamp(44px, 7cqw, 104px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.headingSubtitle {
+  margin-top: 2cqh;
+  font-size: clamp(16px, 1.8cqw, 28px);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.wheel {
+  position: absolute;
+  top: 60%;
+  left: -100%;
+  z-index: 1;
+  width: 300%;
+  aspect-ratio: 1;
+}
+
+.slot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  width: min(clamp(140px, 18cqw, 295px), 29cqh);
+  aspect-ratio: 295 / 417;
+  margin-inline: auto;
+  transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: auto;
+  container-type: inline-size;
+  user-select: none;
+  transition: transform 200ms ease-out;
+}
+
+.card:hover {
+  transform: translateY(-54%) scale(1.04);
+}
+
+.cardContent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7cqw;
+  padding: 9cqw;
+  border-radius: 7cqw;
+  text-align: center;
+  will-change: transform;
+}
+
+.note {
+  padding: 1.4cqw 4cqw;
+  border: 0.5cqw solid currentColor;
+  border-radius: 999px;
+  font-size: 6cqw;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 18cqw;
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.tag {
+  padding: 2cqw 4.5cqw;
+  border-radius: 999px;
+  font-size: 6cqw;
+  line-height: 1;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------
+Responsive
+-------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .heading {
+    top: 10%;
+    padding-inline: 16px;
+  }
+
+  .headingTitle {
+    font-size: clamp(40px, 12vw, 64px);
+  }
+
+  .headingSubtitle {
+    margin-top: 12px;
+    font-size: clamp(14px, 4vw, 18px);
+  }
+
+  .card {
+    width: min(clamp(140px, 34vw, 220px), 29cqh);
+  }
+}
+
+/* --------------------------------------------------
+Reduced Motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}

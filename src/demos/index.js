@@ -7,12 +7,14 @@ import Background01 from "./background-01/Demo";
 import Button01 from "./button-01/Demo";
 import Cards01 from "./cards-01/Demo";
 import Cards02 from "./cards-02/Demo";
+import Cards03 from "./cards-03/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import Carousel01 from "./carousel-01/Demo";
 import Carousel02 from "./carousel-02/Demo";
 import Carousel03 from "./carousel-03/Demo";
 import Carousel04 from "./carousel-04/Demo";
+import Carousel05 from "./carousel-05/Demo";
 import ElectricBorder from "./electric-border/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
@@ -50,6 +52,7 @@ const demos = {
   "carousel-02": Carousel02,
   "carousel-03": Carousel03,
   "carousel-04": Carousel04,
+  "carousel-05": Carousel05,
   "slider-01": Slider01,
   "hover-01": Hover01,
   "preloader-01": Preloader01,
@@ -62,6 +65,7 @@ const demos = {
   "nav-01": Nav01,
   "accordion-02": Accordion02,
   "showcase-01": Showcase01,
+  "cards-03": Cards03,
 };
 
 export default demos;
