@@ -2,6 +2,7 @@
 
 import Accordion01 from "./accordion-01/Demo";
 import Atsu from "./atsu/Demo";
+import Background01 from "./background-01/Demo";
 import Cards01 from "./cards-01/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
@@ -15,12 +16,15 @@ import Hover01 from "./hover-01/Demo";
 import Norden from "./norden/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
+import Preloader02 from "./preloader-02/Demo";
 import Scroll01 from "./scroll-01/Demo";
 import Slider01 from "./slider-01/Demo";
 import Showcase1 from "./showcase1/Demo";
 import SkillNexus from "./skill-nexus/Demo";
 import SliderNocturne from "./slider-nocturne/Demo";
+import SplitScreen01 from "./split-screen-01/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
+
 const demos = {
   "welcome-loader": WelcomeLoader,
   norden: Norden,
@@ -42,7 +46,10 @@ const demos = {
   "slider-01": Slider01,
   "hover-01": Hover01,
   "preloader-01": Preloader01,
+  "preloader-02": Preloader02,
   "accordion-01": Accordion01,
+  "background-01": Background01,
+  "split-screen-01": SplitScreen01,
 };
 
 export default demos;

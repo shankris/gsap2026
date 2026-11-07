@@ -1,0 +1,390 @@
+/* src/demos/split-screen-01/Demo.module.css */
+
+/* --------------------------------------------------
+   Lenis global styles
+-------------------------------------------------- */
+
+:global(html.lenis),
+:global(html.lenis body) {
+  height: auto;
+}
+
+:global(.lenis.lenis-smooth) {
+  scroll-behavior: auto !important;
+}
+
+:global(.lenis.lenis-smooth [data-lenis-prevent]) {
+  overscroll-behavior: contain;
+}
+
+:global(.lenis.lenis-stopped) {
+  overflow: hidden;
+}
+
+:global(.lenis.lenis-smooth iframe) {
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   Reel variables and root
+-------------------------------------------------- */
+
+.reel {
+  --mfa-edge: clamp(14px, 2.2vh, 30px);
+  --mfa-gutter: clamp(16px, 2.2vw, 44px);
+  --mfa-micro: clamp(9px, 0.72vw, 13px);
+  --mfa-overscan: 16%;
+  --mfa-title-leading: 0.78;
+  --mfa-title-look: 12.4cqw;
+  --mfa-veil: 0.66;
+
+  position: relative;
+  display: block;
+  isolation: isolate;
+  overflow-x: clip;
+
+  background: #08080a;
+  color: #f4f4f0;
+
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* --------------------------------------------------
+   Pinned viewport
+-------------------------------------------------- */
+
+.pin {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: clip;
+}
+
+/* --------------------------------------------------
+   Split columns
+-------------------------------------------------- */
+
+.column {
+  position: absolute;
+  top: 0;
+
+  width: 50%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.columnLeft {
+  left: 0;
+}
+
+.columnRight {
+  left: 50%;
+}
+
+.stage {
+  position: absolute;
+  top: 0;
+
+  width: 200%;
+  height: 100%;
+
+  container-type: inline-size;
+}
+
+.stageLeft {
+  left: 0;
+}
+
+.stageRight {
+  left: -100%;
+}
+
+/* --------------------------------------------------
+   Slides
+-------------------------------------------------- */
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  margin: 0;
+  overflow: hidden;
+
+  background: #14141a;
+}
+
+.slideInner {
+  position: absolute;
+  inset: 0;
+}
+
+.photoViewport {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+  background: #14141a;
+}
+
+.photoStrip {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(-1 * var(--mfa-overscan));
+  bottom: calc(-1 * var(--mfa-overscan));
+
+  display: flex;
+}
+
+.photo {
+  display: block;
+
+  width: 0;
+  height: 100%;
+
+  flex: 1 1 0%;
+  object-fit: cover;
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+.photoFirst {
+  flex: 1.32 1 0%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(120% 90% at 50% 50%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.6) 100%),
+    rgba(8, 8, 10, var(--mfa-veil));
+}
+
+/* --------------------------------------------------
+   Text
+-------------------------------------------------- */
+
+.textBlock {
+  position: absolute;
+  inset: 0;
+}
+
+.copyLayer {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    calc(var(--mfa-edge) * 2.6) var(--mfa-gutter);
+
+  color: var(--mfa-accent);
+  text-align: center;
+}
+
+.copyLeft {
+  clip-path: inset(0 calc(50% - 0.5px) 0 0);
+}
+
+.copyRight {
+  clip-path: inset(0 0 0 50%);
+}
+
+.kicker,
+.status {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+
+  font-size: var(--mfa-micro);
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.headline {
+  margin:
+    clamp(10px, 2vh, 26px) 0;
+
+  font-size: min(var(--mfa-title-look),
+      calc((100cqw - 2 * var(--mfa-gutter)) / (var(--mfa-longest-line) * var(--mfa-cap))),
+      calc(62svh / (var(--mfa-title-lines) * var(--mfa-title-leading))));
+
+  font-weight: 900;
+  line-height: var(--mfa-title-leading);
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.headline span {
+  display: block;
+  white-space: nowrap;
+}
+
+.slideCta {
+  margin-top: clamp(14px, 3.4vh, 42px);
+  padding-bottom: 2px;
+
+  border-bottom: 1px solid currentColor;
+
+  color: inherit;
+  font-size: var(--mfa-micro);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  opacity: 0.85;
+  transition: opacity 250ms ease;
+}
+
+.slideCta:hover,
+.slideCta:focus-visible {
+  opacity: 1;
+}
+
+/* --------------------------------------------------
+   Navigation and wordmark
+-------------------------------------------------- */
+
+.chrome {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin: 0;
+  padding-inline: var(--mfa-gutter);
+
+  color: #f4f4f0;
+
+  font-size: var(--mfa-micro);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.chromeTop {
+  top: var(--mfa-edge);
+}
+
+.chromeBottom {
+  bottom: var(--mfa-edge);
+}
+
+.chromeItem {
+  flex: 1;
+
+  color: inherit;
+  text-decoration: none;
+
+  opacity: 0.9;
+  transition: opacity 250ms ease;
+}
+
+a.chromeItem:hover,
+a.chromeItem:focus-visible {
+  opacity: 1;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .reel {
+    --mfa-micro: 10px;
+    --mfa-title-leading: 0.84;
+    --mfa-title-look: 21cqw;
+  }
+
+  .photoSecond {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pin {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    overflow: visible;
+  }
+
+  .column {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .columnRight {
+    display: none;
+  }
+
+  .stage {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .slide {
+    position: relative;
+    inset: auto;
+
+    height: 100svh;
+  }
+
+  .copyLeft {
+    clip-path: none;
+  }
+
+  .copyRight,
+  .chromeBottom {
+    display: none;
+  }
+
+  .photoStrip {
+    top: 0;
+    bottom: 0;
+  }
+
+  .slideCta,
+  .chromeItem {
+    transition: none;
+  }
+}

@@ -1,0 +1,396 @@
+/* src/demos/background-01/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap");
+
+/* --------------------------------------------------
+   Page
+-------------------------------------------------- */
+
+.page {
+  --bg: #050505;
+  --ink: #f2f2f2;
+  --ink-dim: #b9b9b9;
+  --font-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+  --pad-x: clamp(20px, 4vw, 56px);
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #030303;
+}
+
+/* --------------------------------------------------
+   Shader background
+-------------------------------------------------- */
+
+.scene {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sceneCanvas {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sceneGrain {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+}
+
+.sceneVignette {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.75), transparent 42%),
+    linear-gradient(270deg, rgba(0, 0, 0, 0.4), transparent 16%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 26%),
+    radial-gradient(120% 120% at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.5));
+}
+
+/* --------------------------------------------------
+   Navigation
+-------------------------------------------------- */
+
+.nav {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+
+  padding: 18px var(--pad-x) 0;
+}
+
+.navLogo {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.navLogo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.navLinks {
+  display: flex;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.navLinks a,
+.button {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.navLinks a {
+  color: var(--ink-dim);
+  transition: color 0.25s ease;
+}
+
+.navLinks a:hover {
+  color: var(--ink);
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* --------------------------------------------------
+   Buttons
+-------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 26px;
+  border-radius: 999px;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    background 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.buttonGhost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.buttonGhost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.buttonLight {
+  color: #141414;
+
+  background: linear-gradient(180deg, #f3f3f3, #b9b9b9);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.buttonLight:hover {
+  filter: brightness(1.06);
+}
+
+/* --------------------------------------------------
+   Hero content
+-------------------------------------------------- */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  max-width: 860px;
+
+  padding: clamp(40px, 8vh, 80px) var(--pad-x) 0;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+
+  color: #dcdcdc;
+
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+}
+
+.heroBadge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.heroTitle {
+  margin-top: 24px;
+
+  color: #f6f4ff;
+
+  font-size: clamp(38px, 4.9vw, 66px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.heroLine {
+  display: block;
+}
+
+.ctaButton {
+  margin-top: 34px;
+}
+
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
+
+.heroFooter {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  max-width: 420px;
+
+  margin-top: auto;
+  padding: 0 var(--pad-x) clamp(24px, 4vh, 40px);
+}
+
+.heroDescription {
+  color: #cfcfcf;
+
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.55;
+
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+}
+
+.heroTrust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+
+  border: 2px solid #0a0a0a;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.55), transparent 45%),
+    var(--avatar-color, #888);
+}
+
+.avatar:nth-child(1) {
+  --avatar-color: #8b5cf6;
+}
+
+.avatar:nth-child(2) {
+  --avatar-color: #ec4899;
+}
+
+.avatar:nth-child(3) {
+  --avatar-color: #38bdf8;
+}
+
+.avatar:nth-child(4) {
+  --avatar-color: #f0abfc;
+}
+
+.avatar+.avatar {
+  margin-left: -9px;
+}
+
+.heroTrustText {
+  color: #d6d6d6;
+
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (max-width: 820px) {
+  .navLinks {
+    display: none;
+  }
+
+  .heroFooter {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 12px;
+    padding-top: 14px;
+  }
+
+  .navActions {
+    gap: 6px;
+  }
+
+  .button {
+    padding: 10px 14px;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .heroBadge {
+    padding: 8px 13px;
+    font-size: 10.5px;
+  }
+
+  .heroContent {
+    padding-top: clamp(28px, 6vh, 48px);
+  }
+
+  .heroTitle {
+    font-size: clamp(34px, 10.5vw, 48px);
+  }
+
+  .ctaButton {
+    margin-top: 26px;
+    padding: 12px 22px;
+  }
+
+  .heroDescription {
+    font-size: 13.5px;
+  }
+
+  .heroFooter {
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition-duration: 0.01ms;
+  }
+}

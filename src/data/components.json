@@ -215,5 +215,35 @@
     "status": "ready",
     "date": "2026-11-06",
     "lines": 0
+  },
+  {
+    "id": "GSAP-021",
+    "slug": "preloader-02",
+    "name": "Preloader 02",
+    "description": "A cinematic image preloader with a staggered image reveal, loading counter, and animated hero transition.",
+    "category": "Preloader",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-022",
+    "slug": "background-01",
+    "name": "Background 01",
+    "description": "A cinematic Three.js aurora shader background with mouse interaction and GSAP entrance animations.",
+    "category": "Background",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-023",
+    "slug": "split-screen-01",
+    "name": "Split Screen 01",
+    "description": "A cinematic split-screen portfolio slider with synchronized image and typography transitions driven by scroll.",
+    "category": "Scroll",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
   }
 ]
