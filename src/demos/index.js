@@ -5,6 +5,7 @@ import Accordion02 from "./accordion-02/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
 import Button01 from "./button-01/Demo";
+import Button02 from "./button-02/Demo";
 import Cards01 from "./cards-01/Demo";
 import Cards02 from "./cards-02/Demo";
 import Cards03 from "./cards-03/Demo";
@@ -19,7 +20,9 @@ import ElectricBorder from "./electric-border/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
 import Hover01 from "./hover-01/Demo";
+import Icon01 from "./icon-01/Demo";
 import Nav01 from "./nav-01/Demo";
+import Nav02 from "./nav-02/Demo";
 import Norden from "./norden/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
@@ -55,6 +58,7 @@ const demos = {
   "carousel-05": Carousel05,
   "slider-01": Slider01,
   "hover-01": Hover01,
+  "icon-01": Icon01,
   "preloader-01": Preloader01,
   "preloader-02": Preloader02,
   "accordion-01": Accordion01,
@@ -62,7 +66,9 @@ const demos = {
   "split-screen-01": SplitScreen01,
   "cards-02": Cards02,
   "button-01": Button01,
+  "button-02": Button02,
   "nav-01": Nav01,
+  "nav-02": Nav02,
   "accordion-02": Accordion02,
   "showcase-01": Showcase01,
   "cards-03": Cards03,

@@ -1,0 +1,49 @@
+/* src/demos/icon-01/Demo.module.css */
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100svh;
+  padding: 60px 24px;
+  background: #e9e9e9;
+}
+
+.iconGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.iconItem {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.icon {
+  width: 100%;
+}
+
+.iconCanvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 480px) {
+  .iconGrid {
+    max-width: 340px;
+    gap: 20px;
+  }
+}

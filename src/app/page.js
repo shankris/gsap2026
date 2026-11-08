@@ -3,7 +3,9 @@
 import components from "@/data/components.json";
 import styles from "./page.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import Screenshot from "@/components/Screenshot";
 
 /* --------------------------------------------------
 Date Formatting
@@ -35,9 +37,9 @@ export default function HomePage() {
       </header>
 
       <section className={styles.library}>
-        <div className={styles.sectionHeader}>
+        {/* <div className={styles.sectionHeader}>
           <h2>All Components</h2>
-        </div>
+        </div> */}
 
         {components.length === 0 ? (
           <div className={styles.emptyState}>
@@ -51,38 +53,45 @@ export default function HomePage() {
                 className={styles.componentCard}
                 key={component.id}
               >
-                <div className={styles.cardHeader}>
-                  <div>
-                    <span className={styles.category}>{component.category}</span>
-                    <h3>{component.name}</h3>
+                <Screenshot
+                  slug={component.slug}
+                  name={component.name}
+                />
+
+                <div className={styles.cardContent}>
+                  <div className={styles.cardHeader}>
+                    <div>
+                      <span className={styles.category}>{component.category}</span>
+                      <h3>{component.name}</h3>
+                    </div>
+
+                    {component.status === "ready" && (
+                      <Link
+                        href={`/${component.slug}`}
+                        className={styles.componentLink}
+                        aria-label={`Preview ${component.name}`}
+                        title={`Preview ${component.name}`}
+                      >
+                        <ArrowUpRight
+                          size={20}
+                          strokeWidth={1.8}
+                        />
+                      </Link>
+                    )}
                   </div>
 
-                  {component.status === "ready" && (
-                    <Link
-                      href={`/${component.slug}`}
-                      className={styles.componentLink}
-                      aria-label={`Preview ${component.name}`}
-                      title={`Preview ${component.name}`}
-                    >
-                      <ArrowUpRight
-                        size={20}
-                        strokeWidth={1.8}
-                      />
-                    </Link>
-                  )}
-                </div>
+                  <p className={styles.description}>{component.description}</p>
 
-                <p className={styles.description}>{component.description}</p>
+                  <div className={styles.metadata}>
+                    <div>
+                      <span>Created</span>
+                      <strong>{formatDate(component.date)}</strong>
+                    </div>
 
-                <div className={styles.metadata}>
-                  <div>
-                    <span>Created</span>
-                    <strong>{formatDate(component.date)}</strong>
-                  </div>
-
-                  <div>
-                    <span>Lines</span>
-                    <strong>{component.lines == null ? "—" : component.lines.toLocaleString()}</strong>
+                    <div>
+                      <span>Lines</span>
+                      <strong>{component.lines == null ? "—" : component.lines.toLocaleString()}</strong>
+                    </div>
                   </div>
                 </div>
               </article>

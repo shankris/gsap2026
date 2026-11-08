@@ -244,7 +244,7 @@
     "description": "A cinematic image preloader with a staggered image reveal, loading counter, and animated hero transition.",
     "star": 2,
     "category": "Preloader",
-    "status": "ready",
+    "status": "In Progress",
     "date": "2026-11-07",
     "lines": 0
   },
@@ -311,7 +311,7 @@
     "description": "An interactive liquid dock navigation with spring-driven movement, magnifying icons, animated tooltips, and a fluid cursor-following effect.",
     "star": 2,
     "category": "Navigation",
-    "status": "ready",
+    "status": "In Progress",
     "date": "2026-11-07",
     "lines": 0
   },
@@ -352,8 +352,42 @@
     "id": "GSAP-032",
     "name": "Scroll Image Fly-Through",
     "slug": "carousel-05",
+    "star": 2,
     "category": "Carousel",
     "description": "A scroll-driven image sequence with 3D perspective, random rotation, elastic entrances, and images flying out of the frame.",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-033",
+    "name": "3D Puffy Icon",
+    "slug": "icon-01",
+    "star": 2,
+    "category": "Icons",
+    "description": "An interactive 3D icon tile with rounded, puffed geometry, extruded SVG artwork, realistic lighting, and pointer-responsive tilt.",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-034",
+    "name": "Skew Slide Button",
+    "slug": "button-02",
+    "star": 2,
+    "category": "Buttons",
+    "description": "A button hover effect with letter-by-letter skewed transitions, sliding text, double chevrons, and a subtle background swell.",
+    "status": "ready",
+    "date": "2026-11-07",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-035",
+    "name": "Liquid Dock",
+    "slug": "nav-02",
+    "star": 3,
+    "category": "Navigation",
+    "description": "An interactive glass dock with six colorful icons, a spring-driven liquid highlight, pointer-following droplet, icon magnification, and animated tooltips.",
     "status": "ready",
     "date": "2026-11-07",
     "lines": 0

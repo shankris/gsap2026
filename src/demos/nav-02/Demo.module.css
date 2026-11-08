@@ -1,0 +1,153 @@
+/* src/demos/nav-02/Demo.module.css */
+
+/* Demo background */
+
+.demo {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  background: #0f0f14;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.7;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.orangeGlow,
+.purpleGlow,
+.tealGlow {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.orangeGlow {
+  top: 18%;
+  left: 22%;
+  width: 18rem;
+  height: 18rem;
+  background: #ff7a59;
+}
+
+.purpleGlow {
+  top: 30%;
+  right: 20%;
+  width: 20rem;
+  height: 20rem;
+  background: #8b5cf6;
+}
+
+.tealGlow {
+  bottom: 12%;
+  left: 40%;
+  width: 18rem;
+  height: 18rem;
+  background: #22c3a6;
+}
+
+/* Liquid dock */
+
+.dockWrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.dock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.liquidLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.liquidSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.blobSheen {
+  position: absolute;
+  border-radius: 33%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.dockButton {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dockButton:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.tooltip {
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: bottom;
+  transition: color 200ms;
+}
+
+.icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
