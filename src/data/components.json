@@ -391,5 +391,15 @@
     "status": "ready",
     "date": "2026-11-07",
     "lines": 0
+  },
+  {
+    "id": "GSAP-036",
+    "name": "Schedule Accordion",
+    "slug": "accordion-03",
+    "category": "Accordions",
+    "description": "A horizontal schedule accordion with expandable day panels, staggered content reveals, and highlighted Power Hour events.",
+    "status": "ready",
+    "date": "2026-11-09",
+    "lines": 0
   }
 ]

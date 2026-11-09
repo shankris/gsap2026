@@ -2,6 +2,7 @@
 
 import Accordion01 from "./accordion-01/Demo";
 import Accordion02 from "./accordion-02/Demo";
+import Accordion03 from "./accordion-03/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
 import Button01 from "./button-01/Demo";
@@ -72,6 +73,7 @@ const demos = {
   "accordion-02": Accordion02,
   "showcase-01": Showcase01,
   "cards-03": Cards03,
+  "accordion-03": Accordion03,
 };
 
 export default demos;

@@ -118,6 +118,18 @@ Responsive Component Grid
   gap: 12px;
 }
 
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .componentCard {
   display: flex;
   flex-direction: column;

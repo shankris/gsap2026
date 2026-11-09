@@ -1,0 +1,161 @@
+/* src/demos/accordion-03/Demo.module.css */
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100svh;
+  padding: 24px;
+  background: #fff;
+  color: #222;
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.accordion {
+  display: flex;
+  width: 100%;
+  max-width: 575px;
+  margin: 25px auto;
+  overflow: hidden;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.panel {
+  position: relative;
+  flex: initial;
+  width: 10%;
+  min-width: 80px;
+  margin-left: -1px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  will-change: width;
+  transition: width 0.3s ease;
+}
+
+.panel:first-child {
+  margin-left: 0;
+}
+
+.panel.active {
+  width: 80%;
+}
+
+.trigger {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.trigger::before {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  background: #f05022;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.4em;
+  text-align: center;
+  content: "+";
+  transform: translateX(-50%);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #f05022;
+  outline-offset: -3px;
+}
+
+.content {
+  overflow: hidden;
+  padding: 16px;
+  white-space: nowrap;
+}
+
+.content>*:first-child {
+  margin-top: 0;
+}
+
+.content h3 {
+  margin: 0;
+  padding: 0 0 15px;
+  color: #f05022;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: padding 0.3s ease;
+}
+
+.active .content h3 {
+  padding: 0 25px 15px;
+}
+
+.dayGroup {
+  padding: 15px 25px;
+  opacity: 1;
+  transform: translateX(0);
+  will-change: opacity, transform;
+}
+
+.content h3+.dayGroup {
+  padding-top: 0;
+}
+
+.dayGroup h4,
+.dayGroup p {
+  margin: 0;
+  padding: 0;
+}
+
+.dayGroup h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.powerHour {
+  background-color: #f05022;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .demo {
+    padding: 16px;
+  }
+
+  .accordion {
+    max-width: 100%;
+  }
+
+  .panel {
+    min-width: 64px;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  .dayGroup {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
