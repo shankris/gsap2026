@@ -401,5 +401,55 @@
     "status": "ready",
     "date": "2026-11-09",
     "lines": 0
+  },
+  {
+    "id": "GSAP-037",
+    "name": "Accordion 04",
+    "slug": "accordion-04",
+    "category": "Accordions",
+    "description": "Interactive accordion component.",
+    "status": "ready",
+    "date": "2026-11-09",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-038",
+    "name": "3D Product Card",
+    "slug": "cards-04",
+    "category": "Cards",
+    "description": "Interactive 3D product card with hover effects, flip animation and image gallery carousel.",
+    "status": "ready",
+    "date": "2026-11-09",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-039",
+    "name": "Rolling Counter",
+    "slug": "counter-01",
+    "category": "Counters",
+    "description": "Interactive rolling number counter with press-and-hold controls, drag-to-adjust input, and configurable ranges and step values.",
+    "status": "ready",
+    "date": "2026-11-09",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-040",
+    "name": "Date Ruler",
+    "slug": "datepicker-01",
+    "category": "Date Pickers",
+    "description": "Interactive date picker with draggable day, month and year rulers, rolling date reels, weekday display and leap-year support.",
+    "status": "ready",
+    "date": "2026-11-09",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-041",
+    "slug": "nav-03",
+    "name": "macOS Dock Navigation",
+    "description": "An animated dock navigation with expandable panels, an active tab indicator, and interactive hover effects.",
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-10",
+    "lines": null
   }
 ]

@@ -1,0 +1,439 @@
+/* src/demos/cards-04/Demo.module.css */
+
+.demo {
+  width: 100%;
+  height: 100vh;
+  /* min-height: 650px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 80px 20px; */
+  background: #eaebec;
+  font-family: "Open Sans", Arial, sans-serif;
+  /* overflow: hidden; */
+}
+
+.make3DSpace {
+  position: relative;
+  width: 340px;
+  height: 510px;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.productCard {
+  width: 325px;
+  height: 490px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition:
+    width 100ms ease-out,
+    height 100ms ease-out,
+    top 100ms ease-out,
+    left 100ms ease-out,
+    box-shadow 100ms ease-out,
+    transform 400ms ease-out;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+.productCard.hovered {
+  width: 335px;
+  height: 500px;
+  top: 5px;
+  left: 5px;
+  box-shadow: 0 13px 21px -5px rgba(0, 0, 0, 0.3);
+}
+
+.productCard.flipped {
+  transform: rotateY(180deg);
+}
+
+.productFront,
+.productBack {
+  width: 335px;
+  height: 500px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background: #fff;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition:
+    top 100ms ease-out,
+    left 100ms ease-out;
+  overflow: hidden;
+}
+
+.productCard.hovered .productFront,
+.productCard.hovered .productBack {
+  top: 0;
+  left: 0;
+}
+
+.productBack {
+  transform: rotateY(180deg);
+}
+
+/* Front image */
+
+.productImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: #48daa1;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.productCard.hovered .imageOverlay {
+  opacity: 0.7;
+}
+
+.shadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2));
+}
+
+.productBack .shadow {
+  z-index: 10;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.1));
+}
+
+/* View details */
+
+.viewDetails {
+  position: absolute;
+  z-index: 4;
+  top: 112px;
+  left: 50%;
+  width: 172px;
+  margin-left: -86px;
+  padding: 10px 0;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 200ms ease-out;
+}
+
+.productCard.hovered .viewDetails {
+  top: 115px;
+  width: 152px;
+  margin-left: -76px;
+  font-size: 15px;
+  opacity: 1;
+}
+
+.viewDetails:hover {
+  background: #fff;
+  color: #48cfad;
+}
+
+/* Product information */
+
+.statsContainer {
+  position: absolute;
+  z-index: 2;
+  top: 400px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 27px 35px 35px;
+  background: #fff;
+  transition: top 200ms ease-out;
+}
+
+.productCard.hovered .statsContainer {
+  top: 272px;
+}
+
+.productName {
+  display: block;
+  color: #393c45;
+  font-size: 22px;
+}
+
+.productPrice {
+  float: right;
+  color: #48cfad;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.statsContainer p {
+  padding: 2px 0 20px;
+  color: #b1b1b3;
+  font-size: 16px;
+}
+
+.productOptions {
+  padding-top: 2px;
+}
+
+.productOptions strong {
+  display: block;
+  color: #393c45;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.productOptions>span {
+  display: block;
+  margin-bottom: 8px;
+  color: #969699;
+  font-size: 14px;
+}
+
+.colors {
+  display: flex;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.color {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.color span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: all 100ms ease-out;
+}
+
+.color:hover span {
+  width: 17px;
+  height: 17px;
+  margin: -1px;
+}
+
+.blue span {
+  background: #6e8cd5;
+}
+
+.red span {
+  background: #f56060;
+}
+
+.green span {
+  background: #44c28d;
+}
+
+.white span {
+  background: #fff;
+  border: 1px solid #e8e9eb;
+}
+
+/* Back image carousel */
+
+.carousel {
+  position: relative;
+  width: 335px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 300ms ease-out;
+}
+
+.carouselSlide {
+  flex: 0 0 100%;
+  width: 335px;
+  height: 500px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.carouselSlide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.arrowsPerspective {
+  position: absolute;
+  top: 218px;
+  left: 0;
+  width: 335px;
+  height: 55px;
+  perspective: 335px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.carouselPrev,
+.carouselNext {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 55px;
+  border: 0;
+  background: #ccc;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 200ms ease-out;
+}
+
+.carouselNext {
+  right: -26px;
+  transform: rotateY(-117deg);
+}
+
+.carouselPrev {
+  left: -26px;
+  transform: rotateY(117deg);
+}
+
+.carouselNext.visible,
+.carouselPrev.visible {
+  opacity: 0.8;
+  background: #eee;
+  transform: rotateY(0deg);
+}
+
+.carouselNext.visible {
+  right: 0;
+}
+
+.carouselPrev.visible {
+  left: 0;
+}
+
+.carouselPrev:disabled,
+.carouselNext:disabled {
+  cursor: default;
+}
+
+.carouselPrev:disabled {
+  left: -26px;
+  opacity: 0;
+  transform: rotateY(117deg);
+  pointer-events: none;
+}
+
+.carouselNext:disabled {
+  right: -26px;
+  opacity: 0;
+  transform: rotateY(-117deg);
+  pointer-events: none;
+}
+
+.arrowX,
+.arrowY {
+  position: absolute;
+  top: 31px;
+  left: 17px;
+  width: 15px;
+  height: 2px;
+  background: #48cfad;
+  transform: rotate(45deg);
+}
+
+.arrowX {
+  top: 21px;
+  transform: rotate(135deg);
+}
+
+.carouselNext .arrowX {
+  transform: rotate(45deg);
+}
+
+.carouselNext .arrowY {
+  transform: rotate(135deg);
+}
+
+/* Flip back button */
+
+.flipBack {
+  position: absolute;
+  z-index: 12;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.closeX,
+.closeY {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 0;
+  height: 3px;
+  background: #d2d5dc;
+  transition: all 250ms ease-in-out;
+}
+
+.productCard.flipped .closeX,
+.productCard.flipped .closeY {
+  right: 0;
+  width: 30px;
+}
+
+.closeX {
+  transform: rotate(45deg);
+}
+
+.closeY {
+  transform: rotate(-45deg);
+}
+
+.flipBack:hover .closeX,
+.flipBack:hover .closeY {
+  background: #979ca7;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .demo {
+    padding: 50px 10px;
+  }
+
+  .make3DSpace {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}

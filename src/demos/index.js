@@ -3,6 +3,7 @@
 import Accordion01 from "./accordion-01/Demo";
 import Accordion02 from "./accordion-02/Demo";
 import Accordion03 from "./accordion-03/Demo";
+import Accordion04 from "./accordion-04/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
 import Button01 from "./button-01/Demo";
@@ -10,6 +11,7 @@ import Button02 from "./button-02/Demo";
 import Cards01 from "./cards-01/Demo";
 import Cards02 from "./cards-02/Demo";
 import Cards03 from "./cards-03/Demo";
+import Cards04 from "./cards-04/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import Carousel01 from "./carousel-01/Demo";
@@ -17,6 +19,8 @@ import Carousel02 from "./carousel-02/Demo";
 import Carousel03 from "./carousel-03/Demo";
 import Carousel04 from "./carousel-04/Demo";
 import Carousel05 from "./carousel-05/Demo";
+import Counter01 from "./counter-01/Demo";
+import Datepicker01 from "./datepicker-01/Demo";
 import ElectricBorder from "./electric-border/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
@@ -24,6 +28,7 @@ import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
+import Nav03 from "./nav-03/Demo";
 import Norden from "./norden/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
@@ -57,6 +62,7 @@ const demos = {
   "carousel-03": Carousel03,
   "carousel-04": Carousel04,
   "carousel-05": Carousel05,
+  "counter-01": Counter01,
   "slider-01": Slider01,
   "hover-01": Hover01,
   "icon-01": Icon01,
@@ -74,6 +80,10 @@ const demos = {
   "showcase-01": Showcase01,
   "cards-03": Cards03,
   "accordion-03": Accordion03,
+  "accordion-04": Accordion04,
+  "cards-04": Cards04,
+  "datepicker-01": Datepicker01,
+  "nav-03": Nav03,
 };
 
 export default demos;

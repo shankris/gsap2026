@@ -1,0 +1,706 @@
+/* src/demos/datepicker-01/Demo.module.css */
+
+.demo,
+.demo * {
+  box-sizing: border-box;
+}
+
+.demo {
+  --background: oklch(19.5% 0 0);
+  --card-background: oklch(25% 0 0);
+  --text-primary: oklch(97% 0 0);
+  --text-secondary: oklch(70% 0 0);
+  --text-muted: oklch(50% 0 0);
+  --tick-color: oklch(88% 0 0);
+  --accent: oklch(64% 0.19 25);
+
+  position: relative;
+  min-height: 100vh;
+  overflow: clip;
+  padding: 0 16px;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.demo::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image:
+    radial-gradient(circle, oklch(100% 0 0 / 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom,
+      black,
+      transparent 90%);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Version tabs */
+
+.versions {
+  position: absolute;
+  inset: 20px 16px auto;
+  z-index: 5;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  margin: 0;
+  border: 1px solid oklch(100% 0 0 / 0.14);
+  border-radius: 999px;
+  background: oklch(16% 0 0 / 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px oklch(0% 0 0 / 0.25);
+}
+
+.tabs label {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: oklch(100% 0 0 / 0.62);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+}
+
+.tabs label:hover {
+  color: white;
+  background: oklch(100% 0 0 / 0.08);
+}
+
+.tabs input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabs .activeTab {
+  color: oklch(16% 0 0);
+  background: white;
+}
+
+.tabs label:has(input:focus-visible) {
+  outline: 2px solid oklch(70% 0.12 250);
+  outline-offset: 2px;
+}
+
+.tabNumber {
+  font:
+    500 11px/1 ui-monospace,
+    "SF Mono",
+    Menlo,
+    monospace;
+  opacity: 0.7;
+}
+
+.about {
+  max-width: 34em;
+  margin: 0;
+  color: oklch(66% 0 0);
+  text-wrap: balance;
+}
+
+/* Main layout */
+
+.main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: minmax(100vh, auto) auto;
+  justify-items: center;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 145px 0 125px;
+}
+
+.picker {
+  --cell: 1.2em;
+
+  display: grid;
+  gap: 6px;
+  width: min(620px, calc(100vw - 32px));
+  padding: 30px 0 24px;
+  border-radius: 34px;
+  background: var(--card-background);
+  box-shadow:
+    inset 0 1px 0 oklch(100% 0 0 / 0.04),
+    0 10px 30px oklch(0% 0 0 / 0.35);
+  transition: background 200ms ease;
+}
+
+/* Rolling date */
+
+.date {
+  display: flex;
+  align-items: center;
+  padding: 0 30px 14px;
+  color: var(--text-primary);
+  font:
+    400 clamp(44px, 11vw, 60px)/1 system-ui,
+    -apple-system,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.reel {
+  display: inline-block;
+  height: var(--cell);
+  overflow: hidden;
+  mask-image: linear-gradient(transparent,
+      black 22% 78%,
+      transparent);
+}
+
+.strip {
+  display: grid;
+  justify-items: start;
+  grid-auto-rows: var(--cell);
+  transition:
+    transform 650ms cubic-bezier(0.2, 0.9, 0.25, 1),
+    filter 250ms ease;
+}
+
+.strip i {
+  display: block;
+  height: var(--cell);
+  line-height: var(--cell);
+  font-style: normal;
+}
+
+.dayTens,
+.dayUnits {
+  width: 0.58em;
+}
+
+.dayTens {
+  justify-items: end;
+}
+
+.hiddenDigit {
+  width: 0;
+}
+
+.dayUnits {
+  margin-left: 0;
+}
+
+.monthReel {
+  margin-left: 0.26em;
+}
+
+.yearDigit {
+  width: 0.58em;
+}
+
+/* Digit reel positions */
+
+.digit0 {
+  transform: translateY(0);
+}
+
+.digit1 {
+  transform: translateY(-1.2em);
+}
+
+.digit2 {
+  transform: translateY(-2.4em);
+}
+
+.digit3 {
+  transform: translateY(-3.6em);
+}
+
+.digit4 {
+  transform: translateY(-4.8em);
+}
+
+.digit5 {
+  transform: translateY(-6em);
+}
+
+.digit6 {
+  transform: translateY(-7.2em);
+}
+
+.digit7 {
+  transform: translateY(-8.4em);
+}
+
+.digit8 {
+  transform: translateY(-9.6em);
+}
+
+.digit9 {
+  transform: translateY(-10.8em);
+}
+
+/* Month reel positions */
+
+.month0 {
+  transform: translateY(0);
+}
+
+.month1 {
+  transform: translateY(-1.2em);
+}
+
+.month2 {
+  transform: translateY(-2.4em);
+}
+
+.month3 {
+  transform: translateY(-3.6em);
+}
+
+.month4 {
+  transform: translateY(-4.8em);
+}
+
+.month5 {
+  transform: translateY(-6em);
+}
+
+.month6 {
+  transform: translateY(-7.2em);
+}
+
+.month7 {
+  transform: translateY(-8.4em);
+}
+
+.month8 {
+  transform: translateY(-9.6em);
+}
+
+.month9 {
+  transform: translateY(-10.8em);
+}
+
+.month10 {
+  transform: translateY(-12em);
+}
+
+.month11 {
+  transform: translateY(-13.2em);
+}
+
+/* Weekday and year */
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px 4px;
+  color: var(--text-secondary);
+  font:
+    500 20px/1 system-ui,
+    -apple-system,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.weekday {
+  white-space: nowrap;
+}
+
+.years {
+  display: flex;
+  align-items: center;
+}
+
+/* Rulers */
+
+.ruler {
+  --gap: 64px;
+
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  mask-image: linear-gradient(90deg,
+      transparent,
+      black 32% 68%,
+      transparent);
+}
+
+.ruler:active {
+  cursor: grabbing;
+}
+
+.ruler:has(.rangeInput:focus-visible) {
+  background: oklch(100% 0 0 / 0.05);
+}
+
+.ruler:has(.rangeInput:focus-visible)::after {
+  box-shadow: 0 0 0 3px oklch(64% 0.19 25 / 0.4);
+}
+
+.month {
+  --gap: 64px;
+}
+
+.year {
+  --gap: 72px;
+}
+
+.ruler::after {
+  content: "";
+  position: absolute;
+  inset: 4px auto auto calc(50% - 1.5px);
+  z-index: 2;
+  width: 3px;
+  height: 26px;
+  border-radius: 2px;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.rangeInput {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.track {
+  position: absolute;
+  inset: 0 auto 0 calc(50% - var(--gap) / 2);
+  display: flex;
+  width: max-content;
+  translate: calc((var(--position) - 1) * var(--gap) * -1);
+}
+
+.track span {
+  flex: none;
+  width: var(--gap);
+  padding-top: 34px;
+  text-align: center;
+  color: oklch(75% 0 0);
+  font:
+    400 15px/1 system-ui,
+    -apple-system,
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  background:
+    linear-gradient(var(--tick-color), var(--tick-color)) 50% 6px / 2px 20px no-repeat,
+    linear-gradient(oklch(60% 0 0), oklch(60% 0 0)) 0 6px / 1.5px 11px no-repeat;
+}
+
+.yearTrack {
+  inset-inline-start: calc(50% - 4.5 * var(--gap));
+  translate: none;
+}
+
+/* How it is built */
+
+.colophon {
+  --card-heading: oklch(88% 0 0);
+  --card-lead: oklch(86% 0 0);
+  --card-text: oklch(64% 0 0);
+  --card-faint: oklch(50% 0 0);
+  --card-code: oklch(90% 0 0);
+  --card-link: white;
+  --card-bg: oklch(18% 0 0 / 0.72);
+  --card-border: oklch(100% 0 0 / 0.1);
+  --card-line: oklch(100% 0 0 / 0.07);
+  --card-chip: oklch(100% 0 0 / 0.07);
+  --card-chip-hover: oklch(100% 0 0 / 0.16);
+  --card-shadow: oklch(0% 0 0 / 0.8);
+  --card-focus: oklch(80% 0 0);
+
+  width: min(100%, 680px);
+  margin-top: -104px;
+  padding-bottom: calc(8vmin + 52px);
+  color: var(--card-text);
+  font:
+    14px/1.6 system-ui,
+    sans-serif;
+}
+
+.colophonHead {
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  height: 104px;
+  gap: 4px;
+  margin-bottom: 6vmin;
+  padding-bottom: 18px;
+}
+
+.colophonHead h2 {
+  color: var(--card-heading);
+  font:
+    650 15px/1.3 system-ui,
+    sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.down {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--card-faint);
+  animation: nudge 2.2s ease-in-out infinite;
+}
+
+.down:hover {
+  color: var(--card-link);
+}
+
+.down:focus-visible {
+  outline: 2px solid var(--card-focus);
+}
+
+.down svg {
+  width: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.howText {
+  scroll-margin-top: 8vmin;
+  padding: 26px 30px 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 24px 60px -30px var(--card-shadow);
+}
+
+.howText p {
+  margin-bottom: 18px;
+  color: var(--card-lead);
+  font-size: 16px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.howText ul {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--card-line);
+  list-style: none;
+  counter-reset: point;
+}
+
+.howText li {
+  position: relative;
+  padding: 13px 0 13px 2.6em;
+  counter-increment: point;
+  text-wrap: pretty;
+}
+
+.howText li+li {
+  border-top: 1px solid var(--card-line);
+}
+
+.howText li::before {
+  content: counter(point, decimal-leading-zero);
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--card-faint);
+  font:
+    500 12px/2 ui-monospace,
+    "SF Mono",
+    Menlo,
+    monospace;
+}
+
+.howText code {
+  color: var(--card-code);
+  font:
+    500 0.88em ui-monospace,
+    "SF Mono",
+    Menlo,
+    monospace;
+  white-space: nowrap;
+}
+
+.howText a {
+  color: var(--card-link);
+  text-decoration-color: oklch(100% 0 0 / 0.4);
+  text-underline-offset: 3px;
+}
+
+.howText a:hover {
+  text-decoration-color: currentColor;
+}
+
+@keyframes nudge {
+  50% {
+    translate: 0 5px;
+  }
+}
+
+/* Corner labels */
+
+.labels {
+  position: fixed;
+  inset: auto 14px 14px auto;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  font:
+    600 12px/1 system-ui,
+    sans-serif;
+}
+
+.labels>* {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px oklch(0% 0 0 / 0.5);
+}
+
+.labelMade,
+.labelX {
+  border: 1px solid oklch(32% 0 0);
+  background: oklch(22% 0 0);
+  color: oklch(72% 0 0);
+}
+
+.labelMade b,
+.labelX {
+  color: white;
+}
+
+.labelLink {
+  background: oklch(94% 0 0);
+  color: oklch(20% 0 0);
+}
+
+.labelLink:hover {
+  background: white;
+}
+
+.labelX:hover {
+  background: oklch(30% 0 0);
+}
+
+.labelsLeft {
+  inset: auto auto 14px 14px;
+}
+
+.labelLink:focus-visible,
+.labelX:focus-visible {
+  outline: 2px solid var(--card-focus);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .labels {
+    position: static;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 3vmin;
+  }
+
+  .labelsLeft {
+    padding-bottom: 6vmin;
+  }
+
+  .colophon {
+    padding-bottom: 6vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs label {
+    gap: 4px;
+    padding: 7px 9px;
+  }
+
+  .tabText {
+    display: none;
+  }
+
+  .meta {
+    padding-inline: 24px;
+    font-size: 17px;
+  }
+
+  .date {
+    padding-inline: 24px;
+  }
+
+  .howText {
+    padding-inline: 22px;
+  }
+
+  .stage {
+    padding-top: 135px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .strip,
+  .tabs label {
+    transition: none;
+  }
+
+  .down {
+    animation: none;
+  }
+}
+
+.field {
+  text-align: center;
+}

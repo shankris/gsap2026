@@ -1,0 +1,601 @@
+/* src/demos/scrollspy-01/Demo.module.css */
+
+.demo {
+  --paper: oklch(0.985 0.004 85);
+  --paper-2: oklch(0.965 0.006 85);
+  --ink: oklch(0.235 0.01 60);
+  --muted: oklch(0.555 0.012 60);
+  --faint: oklch(0.7 0.01 60);
+  --hair: oklch(0.885 0.006 70);
+  --hair-soft: oklch(0.93 0.005 75);
+  --accent: oklch(0.555 0.155 32);
+  --accent-soft: oklch(0.555 0.155 32 / 0.12);
+
+  --reading: 38rem;
+  --aside-width: 17.5rem;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Google Sans Flex", Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt"0,
+    "wdth"100,
+    "GRAD"0,
+    "ROND"0;
+  line-height: 1.5;
+
+  animation: scrollProgress linear;
+  animation-timeline: scroll(root block);
+}
+
+.demo,
+.demo * {
+  box-sizing: border-box;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(0, var(--reading)) 2px var(--aside-width);
+  grid-template-rows: 7.5rem 1fr;
+  align-items: start;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: calc(var(--reading) + var(--aside-width) + 12rem);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.header {
+  display: flex;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid var(--hair);
+}
+
+.header h1 {
+  width: 100%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.article {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  max-width: var(--reading);
+  margin-left: auto;
+  padding: 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.4rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: clamp(2.6rem, 5vw, 3.7rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.dek {
+  max-width: 32rem;
+  margin: 0 0 2.3rem;
+  color: var(--muted);
+  font-size: 1.32rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  padding-bottom: 2.6rem;
+  border-bottom: 1px solid var(--hair);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  flex: 0 0 3px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+
+.section {
+  padding-top: 2.6rem;
+  scroll-margin-top: 1.6rem;
+  view-timeline-axis: y;
+}
+
+.section:nth-of-type(1) {
+  view-timeline-name: --section-view-1;
+}
+
+.section:nth-of-type(2) {
+  view-timeline-name: --section-view-2;
+}
+
+.section:nth-of-type(3) {
+  view-timeline-name: --section-view-3;
+}
+
+.section:nth-of-type(4) {
+  view-timeline-name: --section-view-4;
+}
+
+.section:nth-of-type(5) {
+  view-timeline-name: --section-view-5;
+}
+
+.section:nth-of-type(6) {
+  view-timeline-name: --section-view-6;
+}
+
+.section:first-of-type>p:first-of-type::first-letter {
+  float: left;
+  padding: 0.32rem 0.6rem 0 0;
+  color: var(--ink);
+  font-size: 4.1rem;
+  font-weight: 500;
+  line-height: 0.78;
+}
+
+.section p {
+  margin: 0 0 1.35rem;
+  color: oklch(0.3 0.01 60);
+  font-size: 1.16rem;
+  line-height: 1.72;
+  text-wrap: pretty;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 0 0 1.1rem;
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+}
+
+.number {
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transform: translateY(-0.35em);
+}
+
+.pullquote {
+  margin: 2.4rem 0 !important;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--accent);
+  color: var(--ink) !important;
+  font-size: 1rem !important;
+  font-style: italic;
+  line-height: 1.4 !important;
+}
+
+.topButton {
+  --progress-90-100: clamp(0%,
+      calc((var(--scroll, 0) - 0.9) * 1000%),
+      100%);
+
+  margin-top: 6rem;
+  background-color: color-mix(in srgb,
+      var(--paper) calc(100% - var(--progress-90-100)),
+      #221d19 var(--progress-90-100));
+  text-align: center;
+}
+
+.topButton a {
+  display: block;
+  padding: 2rem;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.vertical {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: stretch;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-left: 1px solid var(--hair);
+}
+
+.aside {
+  grid-column: 3;
+  grid-row: 2;
+  min-height: 100vh;
+}
+
+.toc {
+  position: sticky;
+  top: 2.5rem;
+  height: fit-content;
+  --idx: 10;
+}
+
+.tocHead {
+  margin: 0 0 1.5rem;
+  padding-left: calc(1rem + 2px);
+}
+
+.tocLabel {
+  margin: 0 0 0.65rem;
+  color: var(--faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tocMeta {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.percentage {
+  color: var(--ink);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  --pc: calc(var(--scroll, 0) * 100);
+}
+
+.percentage::before {
+  counter-reset: progress var(--pc);
+  content: counter(progress) "%";
+}
+
+.tocContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+.path {
+  position: relative;
+  width: 2px;
+  height: calc(100% - 12px);
+  transform-origin: top center;
+  background: var(--accent);
+  animation: expandHeight linear;
+  animation-timeline: scroll(root block);
+}
+
+.path::before {
+  position: absolute;
+  z-index: -1;
+  width: 2px;
+  height: 100%;
+  background: rgb(128 128 128 / 25%);
+  content: "";
+}
+
+.path::after {
+  position: relative;
+  top: 100%;
+  left: 1px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 5px var(--accent-soft);
+  content: "";
+  translate: -50% 0;
+}
+
+.tocList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocList li {
+  position: relative;
+  color: var(--muted);
+  animation: lightUp linear forwards;
+  animation-range: entry 0% exit 100%;
+  --idx: sibling-index();
+}
+
+.tocList li::after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  content: "";
+}
+
+.tocList li a {
+  position: relative;
+  display: block;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.tocList li a::before {
+  position: relative;
+  padding-inline-end: 1rem;
+  color: var(--accent);
+  font-size: 12px;
+  counter-reset: item var(--idx);
+  content: "0"counter(item);
+}
+
+.tocList li a::after {
+  position: absolute;
+  top: 50%;
+  left: calc(-1rem - 6px);
+  z-index: -1;
+  width: 6px;
+  height: 6px;
+  border: 2px solid #dcdbd9;
+  border-radius: 50%;
+  content: "";
+  translate: 0 -50%;
+}
+
+.tocList li:nth-of-type(1) {
+  animation-timeline: --section-view-1;
+}
+
+.tocList li:nth-of-type(2) {
+  animation-timeline: --section-view-2;
+}
+
+.tocList li:nth-of-type(3) {
+  animation-timeline: --section-view-3;
+}
+
+.tocList li:nth-of-type(4) {
+  animation-timeline: --section-view-4;
+}
+
+.tocList li:nth-of-type(5) {
+  animation-timeline: --section-view-5;
+}
+
+.tocList li:nth-of-type(6) {
+  animation-timeline: --section-view-6;
+}
+
+.tocList li:nth-of-type(1)::after,
+.tocList li:nth-of-type(1) a::after {
+  animation-timeline: --section-view-1;
+}
+
+.tocList li:nth-of-type(2)::after,
+.tocList li:nth-of-type(2) a::after {
+  animation-timeline: --section-view-2;
+}
+
+.tocList li:nth-of-type(3)::after,
+.tocList li:nth-of-type(3) a::after {
+  animation-timeline: --section-view-3;
+}
+
+.tocList li:nth-of-type(4)::after,
+.tocList li:nth-of-type(4) a::after {
+  animation-timeline: --section-view-4;
+}
+
+.tocList li:nth-of-type(5)::after,
+.tocList li:nth-of-type(5) a::after {
+  animation-timeline: --section-view-5;
+}
+
+.tocList li:nth-of-type(6)::after,
+.tocList li:nth-of-type(6) a::after {
+  animation-timeline: --section-view-6;
+}
+
+.tocList li::after {
+  animation: expandWidth linear both;
+}
+
+.tocList li a::after {
+  animation: markerBackground linear both;
+}
+
+.demo {
+  timeline-scope:
+    --section-view-1,
+    --section-view-2,
+    --section-view-3,
+    --section-view-4,
+    --section-view-5,
+    --section-view-6;
+}
+
+@keyframes lightUp {
+  entry 0% {
+    color: var(--muted);
+  }
+
+  entry 80% {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  entry 100% {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  exit 0% {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  exit 20% {
+    color: var(--muted);
+  }
+
+  exit 100% {
+    color: var(--muted);
+  }
+}
+
+@keyframes markerBackground {
+  entry 0% {
+    border-color: #dcdbd9;
+    background-color: var(--paper);
+  }
+
+  entry 80% {
+    border-color: #dcdbd9;
+    background-color: var(--paper);
+    opacity: 0.4;
+  }
+
+  entry 100% {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    opacity: 1;
+  }
+
+  exit 100% {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollProgress {
+  to {
+    --scroll: 1;
+  }
+}
+
+@keyframes expandHeight {
+  from {
+    height: 0%;
+  }
+}
+
+@keyframes expandWidth {
+  entry 0% {
+    width: 0%;
+  }
+
+  entry 100% {
+    width: 100%;
+  }
+
+  exit 0% {
+    opacity: 1;
+  }
+
+  exit 10% {
+    opacity: 0;
+  }
+
+  exit 100% {
+    opacity: 0;
+  }
+}
+
+@property --scroll {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@media (max-width: 719px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 4rem 1fr;
+    column-gap: 0;
+    padding: 0 1.5rem;
+  }
+
+  .header {
+    grid-column: 1;
+  }
+
+  .header h1 {
+    font-size: 1.05rem;
+  }
+
+  .article {
+    grid-column: 1;
+  }
+
+  .topButton {
+    margin-top: 4rem;
+  }
+
+  .aside,
+  .vertical {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo {
+    scroll-behavior: auto;
+  }
+
+  .tocList li,
+  .tocList li::after,
+  .tocList li a::after,
+  .path {
+    animation: none;
+  }
+}

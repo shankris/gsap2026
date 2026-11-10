@@ -1,0 +1,261 @@
+/* src/demos/accordion-04/Demo.module.css */
+
+.scrollGate {
+  --bg-gray: #ced4da;
+  --glass-white: rgba(255, 255, 255, 0.45);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
+  --glass-edge-shadow: rgba(0, 0, 0, 0.08);
+  --inactive-border: rgba(0, 0, 0, 0.05);
+  --fill-color: #334155;
+  --max-width: 1100px;
+
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  background: var(--bg-gray);
+  color: #0f172a;
+  font-family: Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Glass bezel */
+
+.glassBezel {
+  position: relative;
+  padding: 12px;
+  border-top: 1.5px solid var(--glass-highlight);
+  border-left: 1.5px solid var(--glass-highlight);
+  border-bottom: 2.5px solid var(--glass-edge-shadow);
+  border-radius: 32px;
+  background: var(--glass-white);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.noiseGrain {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.screenBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #000;
+}
+
+.stepImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.stepImage.active {
+  opacity: 1;
+}
+
+/* Accordion */
+
+.accordionPane {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.glassCard {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--inactive-border);
+  border-radius: 24px;
+  transition: all 0.4s ease;
+}
+
+.glassCard.active {
+  border-top: 1.5px solid var(--glass-highlight);
+  border-bottom: 2px solid var(--glass-edge-shadow);
+  background: var(--glass-white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+/* Progress indicator */
+
+.track {
+  position: relative;
+  flex-shrink: 0;
+  width: 8px;
+  height: 100%;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.grayFill {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 10px;
+  background: var(--fill-color);
+}
+
+/* Card content */
+
+.contentBody {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.glassCard.active .title {
+  color: #0f172a;
+}
+
+.expandEngine {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.5s ease,
+    opacity 0.4s ease,
+    margin-top 0.5s ease;
+}
+
+.glassCard.active .expandEngine {
+  grid-template-rows: 1fr;
+  margin-top: 12px;
+  opacity: 1;
+}
+
+.inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.description {
+  margin: 0;
+  color: #57606a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.textAction {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #0f172a;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Mobile and tablet */
+
+@media (max-width: 900px) {
+  .scrollGate {
+    height: 400vh;
+  }
+
+  .stickyViewport {
+    align-items: flex-start;
+    padding: 80px 20px 0;
+  }
+
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .visualPane {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    margin-bottom: 20px;
+  }
+
+  .glassBezel {
+    padding: 8px;
+    border-radius: 24px;
+  }
+
+  .screenBox {
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .accordionPane {
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stickyViewport {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .glassCard {
+    gap: 14px;
+    padding: 16px;
+  }
+}
