@@ -19,13 +19,17 @@ import Carousel02 from "./carousel-02/Demo";
 import Carousel03 from "./carousel-03/Demo";
 import Carousel04 from "./carousel-04/Demo";
 import Carousel05 from "./carousel-05/Demo";
+import Carousel06 from "./carousel-06/Demo";
 import Counter01 from "./counter-01/Demo";
+import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
 import ElectricBorder from "./electric-border/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
 import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
+import Landing01 from "./landing-01/Demo";
+import Landing02 from "./landing-02/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
@@ -40,6 +44,7 @@ import Showcase1 from "./showcase1/Demo";
 import SkillNexus from "./skill-nexus/Demo";
 import SliderNocturne from "./slider-nocturne/Demo";
 import SplitScreen01 from "./split-screen-01/Demo";
+import Table01 from "./table-01/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
 
 const demos = {
@@ -74,6 +79,7 @@ const demos = {
   "cards-02": Cards02,
   "button-01": Button01,
   "button-02": Button02,
+  "landing-01": Landing01,
   "nav-01": Nav01,
   "nav-02": Nav02,
   "accordion-02": Accordion02,
@@ -84,6 +90,10 @@ const demos = {
   "cards-04": Cards04,
   "datepicker-01": Datepicker01,
   "nav-03": Nav03,
+  "carousel-06": Carousel06,
+  "darkMode-01": DarkMode01,
+  "landing-02": Landing02,
+  "table-01": Table01,
 };
 
 export default demos;

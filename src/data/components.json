@@ -451,5 +451,55 @@
     "status": "ready",
     "date": "2026-11-10",
     "lines": null
+  },
+  {
+    "id": "GSAP-042",
+    "slug": "carousel-06",
+    "name": "Atelier Art Gallery",
+    "description": "A full-screen art gallery carousel featuring animated typography, image transitions, autoplay, and responsive navigation.",
+    "category": "Carousels",
+    "status": "ready",
+    "date": "2026-11-10",
+    "lines": null
+  },
+  {
+    "id": "GSAP-043",
+    "slug": "landing-01",
+    "name": "A Walk by the Sea",
+    "description": "An elegant, interactive invitation landing page with animated typography, character decryption, floating letters, and expanding scan rings.",
+    "category": "Landing Pages",
+    "status": "ready",
+    "date": "2026-11-10",
+    "lines": null
+  },
+  {
+    "id": "GSAP-044",
+    "slug": "darkMode-01",
+    "name": "Theme Toggle",
+    "description": "An animated dark and light theme switch with a glass interface, orbiting elements, persistent theme preference, and custom liquid cursor.",
+    "category": "Themes",
+    "status": "ready",
+    "date": "2026-11-10",
+    "lines": null
+  },
+  {
+    "id": "GSAP-045",
+    "slug": "landing-02",
+    "name": "Elastic Motion Playground",
+    "description": "An interactive motion studio landing page featuring an animated preloader, elastic SVG lines, draggable orb, animated navigation, and floating autumn leaves.",
+    "category": "Landing Pages",
+    "status": "development",
+    "date": "2026-11-10",
+    "lines": null
+  },
+  {
+    "id": "GSAP-046",
+    "slug": "table-01",
+    "name": "Neon Arena Leaderboard",
+    "description": "A neon-styled interactive leaderboard featuring animated player rankings, win-rate indicators, XP boosts, and GSAP Flip transitions.",
+    "category": "Tables",
+    "status": "ready",
+    "date": "2026-11-10",
+    "lines": null
   }
 ]
