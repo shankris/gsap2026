@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Screenshot from "@/components/Screenshot";
+import CardMetadata from "@/components/CardMetadata";
+import LastViewedTracker from "@/components/LastViewedTracker";
 
 /* --------------------------------------------------
 Date Formatting
@@ -31,7 +33,7 @@ export default function HomePage() {
       <header className={styles.header}>
         <div>
           <p className={styles.eyebrow}>COMPONENT LIBRARY</p>
-          <h1>GSAP Library</h1>
+          <h1>GSAP - Next Js Components</h1>
           <p className={styles.subtitle}>A collection of GSAP animations and interactive demos.</p>
         </div>
       </header>
@@ -82,17 +84,10 @@ export default function HomePage() {
 
                   <p className={styles.description}>{component.description}</p>
 
-                  <div className={styles.metadata}>
-                    <div>
-                      <span>Created</span>
-                      <strong>{formatDate(component.date)}</strong>
-                    </div>
-
-                    <div>
-                      <span>Lines</span>
-                      <strong>{component.lines == null ? "—" : component.lines.toLocaleString()}</strong>
-                    </div>
-                  </div>
+                  <CardMetadata
+                    slug={component.slug}
+                    rating={component.star}
+                  />
                 </div>
               </article>
             ))}

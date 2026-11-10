@@ -1,0 +1,33 @@
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.metadata>div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metadata span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.metadata strong {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-muted);
+
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #e5a928;
+  min-height: 18px;
+}

@@ -43,8 +43,9 @@ Page Header
 .header h1 {
   margin: 0;
   font-size: clamp(28px, 4vw, 38px);
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: -0.04em;
+  color: #4c586b
 }
 
 .subtitle {
@@ -432,4 +433,7 @@ Responsive Layout
 
 .cardContent {
   padding: 14px 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
