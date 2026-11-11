@@ -1,0 +1,383 @@
+/* src/demos/carousel-07-pics/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap");
+
+.spotlight {
+    --paper: #eee5d5;
+    --paper-dark: #d9cbb5;
+    --ink: #34251f;
+    --wine: #713c40;
+    --rose: #b78d83;
+    --gold: #a88b5b;
+    --line: rgba(67, 43, 34, 0.22);
+
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 650px;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--ink);
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(255, 250, 235, 0.7),
+            transparent 65%
+        ),
+        linear-gradient(135deg, #e6dac6 0%, #f1e8d8 45%, #d9c9b2 100%);
+    font-family: "Cormorant Garamond", serif;
+}
+
+.spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+}
+
+.spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    z-index: 5;
+    pointer-events: none;
+    border: 1px solid rgba(113, 60, 64, 0.4);
+    outline: 1px solid rgba(113, 60, 64, 0.14);
+    outline-offset: 5px;
+}
+
+.spotlightHeader {
+    position: absolute;
+    top: clamp(42px, 8vh, 85px);
+    left: 50%;
+    z-index: 10;
+    width: min(90%, 900px);
+    transform: translateX(-50%);
+    text-align: center;
+    animation: headerAppear 1.4s ease both;
+}
+
+.spotlightEyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 17px;
+    color: var(--wine);
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+}
+
+.spotlightEyebrow::before,
+.spotlightEyebrow::after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.spotlightTitle {
+    color: var(--ink);
+    font-size: clamp(42px, 6.5vw, 86px);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+}
+
+.spotlightTitle em {
+    color: var(--wine);
+    font-weight: 400;
+}
+
+.spotlightSubtitle {
+    margin-top: 18px;
+    color: #79685a;
+    font-size: clamp(14px, 1.5vw, 17px);
+    font-style: italic;
+    letter-spacing: 0.035em;
+}
+
+.spotlightTrack {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1400px;
+}
+
+.spotlightPanels {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 40vh, 400px);
+}
+
+.spotlightPanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    background: #bca58b;
+    border: 1px solid rgba(67, 43, 34, 0.28);
+    box-shadow:
+        0 4px 12px rgba(55, 35, 25, 0.08),
+        inset 0 0 0 3px rgba(238, 229, 213, 0.45);
+    transition: box-shadow 0.7s ease;
+    will-change: left, width;
+    outline-offset: 4px;
+}
+
+.spotlightPanel::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: 2;
+    border: 1px solid rgba(238, 229, 213, 0.5);
+    pointer-events: none;
+}
+
+.spotlightPanel img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    filter: sepia(0.55) saturate(0.7) contrast(0.92);
+    transition:
+        filter 1s ease,
+        transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    pointer-events: none;
+    user-select: none;
+}
+
+.spotlightPanel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(49, 30, 25, 0.02) 35%,
+        rgba(49, 30, 25, 0.28) 100%
+    );
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+.spotlightPanel:hover {
+    box-shadow:
+        0 14px 35px rgba(55, 35, 25, 0.2),
+        inset 0 0 0 3px rgba(238, 229, 213, 0.6);
+}
+
+.spotlightPanel:hover img {
+    filter: sepia(0.18) saturate(0.92) contrast(1.03);
+    transform: translateX(-50%) scale(1.075);
+}
+
+.spotlightFocusIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    border: 2px solid var(--wine);
+    box-shadow:
+        0 0 0 5px rgba(238, 229, 213, 0.72),
+        0 0 0 6px rgba(113, 60, 64, 0.28);
+    will-change: left, width;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.spotlightFocusIndicator::before,
+.spotlightFocusIndicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: var(--wine);
+}
+
+.spotlightFocusIndicator::before {
+    bottom: 100%;
+    height: 100svh;
+}
+
+.spotlightFocusIndicator::after {
+    top: 100%;
+    height: 100svh;
+}
+
+.spotlightOrnament {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--wine);
+    font-size: 21px;
+    line-height: 1;
+}
+
+.spotlightOrnamentTop {
+    top: -30px;
+}
+
+.spotlightOrnamentBottom {
+    bottom: -31px;
+}
+
+.spotlightFooter {
+    position: absolute;
+    right: 8%;
+    bottom: clamp(35px, 7vh, 70px);
+    left: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #79685a;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.spotlightFooterCenter {
+    color: var(--wine);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+@keyframes headerAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@media (max-width: 1000px) {
+    .spotlight {
+        min-height: 600px;
+    }
+
+    .spotlightTrack {
+        top: 53%;
+        width: 90%;
+    }
+
+    .spotlightPanels {
+        height: clamp(250px, 38vh, 340px);
+    }
+
+    .spotlightPanel img {
+        width: 220px;
+    }
+
+    .spotlightFocusIndicator {
+        width: 100px;
+    }
+
+    .spotlightFooter {
+        right: 9%;
+        left: 9%;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 560px) {
+    .spotlight::after {
+        inset: 10px;
+    }
+
+    .spotlightHeader {
+        top: 75px;
+    }
+
+    .spotlightEyebrow {
+        gap: 8px;
+        font-size: 8px;
+        letter-spacing: 0.18em;
+    }
+
+    .spotlightEyebrow::before,
+    .spotlightEyebrow::after {
+        width: 17px;
+    }
+
+    .spotlightTitle {
+        font-size: clamp(39px, 11vw, 57px);
+    }
+
+    .spotlightSubtitle {
+        max-width: 290px;
+        margin: 14px auto 0;
+        line-height: 1.4;
+    }
+
+    .spotlightTrack {
+        top: 54%;
+        width: 94%;
+    }
+
+    .spotlightPanels {
+        height: 280px;
+    }
+
+    .spotlightPanel img {
+        width: 180px;
+    }
+
+    .spotlightFooter {
+        right: 8%;
+        bottom: 42px;
+        left: 8%;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 10px 16px;
+    }
+
+    .spotlightFooterCenter {
+        width: 100%;
+        order: -1;
+        font-size: 18px;
+    }
+
+    .spotlightFocusIndicator {
+        border-width: 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spotlightPanel,
+    .spotlightPanel img,
+    .spotlightFocusIndicator {
+        transition-duration: 0.01ms;
+    }
+
+    .spotlightHeader {
+        animation: none;
+    }
+}

@@ -12,6 +12,7 @@ import Cards01 from "./cards-01/Demo";
 import Cards02 from "./cards-02/Demo";
 import Cards03 from "./cards-03/Demo";
 import Cards04 from "./cards-04/Demo";
+import Cards05 from "./cards-05/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import Carousel01 from "./carousel-01/Demo";
@@ -20,6 +21,7 @@ import Carousel03 from "./carousel-03/Demo";
 import Carousel04 from "./carousel-04/Demo";
 import Carousel05 from "./carousel-05/Demo";
 import Carousel06 from "./carousel-06/Demo";
+import Carousel07Pics from "./carousel-07-pics/Demo";
 import Counter01 from "./counter-01/Demo";
 import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
@@ -30,6 +32,9 @@ import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
 import Landing01 from "./landing-01/Demo";
 import Landing02 from "./landing-02/Demo";
+import Landing03 from "./landing-03/Demo";
+import Landing04 from "./landing-04/Demo";
+import Mis01Radar from "./mis-01-radar/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
@@ -41,6 +46,7 @@ import Scroll01 from "./scroll-01/Demo";
 import Showcase01 from "./showcase-01/Demo";
 import Slider01 from "./slider-01/Demo";
 import Showcase1 from "./showcase1/Demo";
+import Site01 from "./site-01/Demo";
 import SkillNexus from "./skill-nexus/Demo";
 import SliderNocturne from "./slider-nocturne/Demo";
 import SplitScreen01 from "./split-screen-01/Demo";
@@ -56,11 +62,13 @@ const demos = {
   "paper-craft": PaperCraft,
   "card-stack-01": CardStack01,
   "card-stack-02": CardStack02,
+  "cards-01": Cards01,
+  "cards-02": Cards02,
+  "cards-05": Cards05,
   "electric-border": ElectricBorder,
   showcase1: Showcase1,
   "gallery-01": Gallery01,
   "scroll-01": Scroll01,
-  "cards-01": Cards01,
   "flip-accordion-01": FlipAccordion01,
   "carousel-01": Carousel01,
   "carousel-02": Carousel02,
@@ -76,7 +84,6 @@ const demos = {
   "accordion-01": Accordion01,
   "background-01": Background01,
   "split-screen-01": SplitScreen01,
-  "cards-02": Cards02,
   "button-01": Button01,
   "button-02": Button02,
   "landing-01": Landing01,
@@ -94,6 +101,11 @@ const demos = {
   "darkMode-01": DarkMode01,
   "landing-02": Landing02,
   "table-01": Table01,
+  "mis-01-radar": Mis01Radar,
+  "carousel-07-pics": Carousel07Pics,
+  "landing-03": Landing03,
+  "site-01": Site01,
+  "landing-04": Landing04,
 };
 
 export default demos;
