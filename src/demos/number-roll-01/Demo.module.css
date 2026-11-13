@@ -1,0 +1,265 @@
+/* src/demos/number-roll-01/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap");
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  overflow: hidden;
+  padding: 24px;
+  background: #f3f0eb;
+  color: #1c1917;
+  font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  gap: 12px;
+  text-align: center;
+  container-type: inline-size;
+}
+
+.eyebrow,
+.statLabel,
+.rollButton {
+  font-family: monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.heroNumber {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  font-size: clamp(48px, 14cqw, 240px);
+  line-height: 1;
+}
+
+.heroOdometer {
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+.heroAffix {
+  opacity: 0.45;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid currentColor;
+  border-color: rgb(28 25 23 / 15%);
+}
+
+.stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+}
+
+.statBorder {
+  border-left: 1px solid rgb(28 25 23 / 15%);
+  padding-left: 16px;
+  margin-left: 16px;
+}
+
+.statNumber {
+  font-size: clamp(26px, 5.4vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.statAffix {
+  opacity: 0.45;
+}
+
+.statLabel {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.rollButton {
+  align-self: center;
+  margin-top: 20px;
+  padding: 9px 16px;
+  border: 1px solid rgb(28 25 23 / 25%);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 200ms ease;
+}
+
+.rollButton:hover,
+.rollButton:focus-visible {
+  opacity: 1;
+}
+
+/* Odometer */
+
+.odometer {
+  display: inline-flex;
+  align-items: center;
+  white-space: pre;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  line-height: 1;
+}
+
+.affix {
+  display: inline-block;
+  white-space: pre;
+  line-height: 1;
+}
+
+.digitGroup {
+  display: inline-flex;
+  align-items: center;
+  white-space: pre;
+  line-height: 1;
+}
+
+.fixedCharacter {
+  display: inline-block;
+  line-height: 1;
+}
+
+.digitWindow {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  margin: 0 -0.04em;
+  padding: 0 0.04em;
+  line-height: 1;
+  mask-image: linear-gradient(to bottom,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent);
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent);
+}
+
+.wheel {
+  display: block;
+  will-change: transform;
+}
+
+.wheelCell {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Dark theme */
+
+:global(html[data-theme="dark"]) .demo {
+  background: #0f0b0b;
+  color: #e8ddd4;
+}
+
+:global(html[data-theme="dark"]) .stats {
+  border-color: rgb(232 221 212 / 15%);
+}
+
+:global(html[data-theme="dark"]) .statBorder {
+  border-color: rgb(232 221 212 / 15%);
+}
+
+:global(html[data-theme="dark"]) .rollButton {
+  border-color: rgb(232 221 212 / 25%);
+}
+
+/* Responsive */
+
+@media (min-width: 768px) {
+  .demo {
+    padding: 36px 48px;
+  }
+
+  .stat {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .statBorder {
+    padding-left: 32px;
+    margin-left: 32px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo {
+    min-height: 480px;
+    padding: 20px 16px;
+  }
+
+  .main {
+    gap: 16px;
+  }
+
+  .heroNumber {
+    font-size: clamp(40px, 13cqw, 80px);
+  }
+
+  .stat {
+    gap: 6px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .statBorder {
+    padding-left: 10px;
+    margin-left: 10px;
+  }
+
+  .statNumber {
+    font-size: clamp(22px, 6vw, 34px);
+  }
+
+  .statLabel {
+    font-size: 9px;
+  }
+
+  .rollButton {
+    margin-top: 16px;
+  }
+}

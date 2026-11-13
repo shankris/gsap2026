@@ -1,0 +1,72 @@
+/* src/demos/background-02/AuroraBackground.module.css */
+
+.aurora {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+}
+
+.glowLayer {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  pointer-events: none;
+}
+
+.layerBottom {
+  top: 0;
+  height: 130%;
+}
+
+.layerTop {
+  top: -30%;
+  height: 130%;
+}
+
+.layerCenter {
+  top: -15%;
+  height: 130%;
+}
+
+.blob {
+  position: absolute;
+  will-change: transform;
+}
+
+.wordmark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  font-size: clamp(46px, 25cqw, 280px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-size: 160px 160px;
+  mix-blend-mode: overlay;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+}

@@ -1,0 +1,122 @@
+/* src/demos/background-02/Demo.module.css */
+
+.demo {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fafafa;
+  color: #0a0a0a;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+}
+
+.brand {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.hero {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 16vh;
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(44px, 8vw, 112px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.hero p {
+  max-width: 38ch;
+  margin: 24px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.actions button {
+  min-height: 40px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+
+.actions button:hover {
+  opacity: 0.75;
+}
+
+.primaryButton {
+  border: 1px solid #0a0a0a;
+  background: #0a0a0a;
+  color: #fafafa;
+}
+
+.secondaryButton {
+  border: 1px solid rgb(10 10 10 / 20%);
+  background: transparent;
+  color: inherit;
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding: 24px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 12vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 12vw, 64px);
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+html[data-theme="dark"] .demo {
+  background: #0b0b0c;
+  color: #ededed;
+}
+
+html[data-theme="dark"] .primaryButton {
+  border-color: #ededed;
+  background: #ededed;
+  color: #0b0b0c;
+}
+
+html[data-theme="dark"] .secondaryButton {
+  border-color: rgb(237 237 237 / 20%);
+}

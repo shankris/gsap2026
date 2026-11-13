@@ -571,5 +571,65 @@
     "status": "ready",
     "date": "2026-11-11",
     "lines": null
+  },
+  {
+    "id": "GSAP-053",
+    "slug": "menu-01",
+    "name": "Menu 01",
+    "description": "An animated fullscreen navigation menu featuring a circular curtain reveal, staggered typography, interactive links, and reversible GSAP transitions.",
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": null
+  },
+  {
+    "id": "GSAP-054",
+    "slug": "menu-02",
+    "name": "Menu 02",
+    "description": "An animated fullscreen navigation menu featuring a circular curtain reveal, staggered typography, interactive links, and reversible GSAP transitions.",
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": null
+  },
+  {
+    "id": "GSAP-055",
+    "name": "Number Roll 01",
+    "slug": "number-roll-01",
+    "category": "Number Animation",
+    "description": "Animated odometer-style number counter with rolling digits, staggered transitions, and customizable formatting.",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-056",
+    "name": "Background 02",
+    "slug": "background-02",
+    "category": "Background",
+    "description": "Animated aurora background with drifting gradient blobs, customizable color palettes, blur, intensity, and light/dark theme support.",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-057",
+    "name": "Number Roll 02",
+    "slug": "number-roll-02",
+    "category": "Number Animation",
+    "description": "Odometer-style statistics animation with scroll-triggered rolling digits, staggered text reveals, and hover-to-replay interactions.",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-058",
+    "name": "macOS Dock 01",
+    "slug": "macos-dock-01",
+    "category": "Interaction",
+    "description": "macOS-style magnification dock with pointer proximity scaling, smooth GSAP animations, and hover tooltips.",
+    "status": "ready",
+    "date": "2026-11-13",
+    "lines": 0
   }
 ]

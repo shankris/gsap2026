@@ -1,0 +1,196 @@
+/* src/demos/number-roll-02/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap");
+
+.demo {
+  --accent: #e5431f;
+
+  min-height: 100vh;
+  background: #f1eee6;
+  color: #141311;
+  font-family: "Inter Tight", system-ui, sans-serif;
+}
+
+.stats {
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 3vw, 2.5rem) 5rem;
+}
+
+.statsHead {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.statsEyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.statsHead h2 {
+  max-width: 900px;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.statsList {
+  margin: 0;
+  padding: 0;
+}
+
+.stat {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+}
+
+.rule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: color-mix(in srgb, currentColor 30%, transparent);
+  transform-origin: left;
+}
+
+.stat dt,
+.stat dd {
+  margin: 0;
+}
+
+.label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.note {
+  display: block;
+  max-width: 20rem;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  opacity: 0.65;
+}
+
+.stat dd {
+  display: flex;
+}
+
+/* --------------------------------------------------
+   Odometer
+-------------------------------------------------- */
+
+.figure {
+  display: flex;
+  overflow: hidden;
+  padding-right: 0.06em;
+  font-size: clamp(3.75rem, 13vw, 12.5rem);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.slot {
+  position: relative;
+  display: block;
+}
+
+.slotSize {
+  display: block;
+  visibility: hidden;
+}
+
+.wheel {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wheel span {
+  display: block;
+}
+
+.unit {
+  display: block;
+  margin: 0.1em 0 0 0.08em;
+  color: var(--accent);
+  font-size: 0.38em;
+  line-height: 1;
+}
+
+/* --------------------------------------------------
+   Accessibility
+-------------------------------------------------- */
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------
+   Credit
+-------------------------------------------------- */
+
+.credit {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 50;
+  padding: 0.65em 1em;
+  border-radius: 999px;
+  background: #141311;
+  color: #f1eee6;
+  font: 600 12px/1 system-ui, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+}
+
+.credit:hover {
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  .statsHead,
+  .stat {
+    grid-template-columns: 5fr 7fr;
+    align-items: end;
+  }
+
+  .stat {
+    padding: 2rem 0;
+  }
+
+  .stat dt {
+    padding-bottom: 0.75rem;
+  }
+
+  .stat dd {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .credit {
+    position: static;
+    display: block;
+    width: fit-content;
+    margin: 1rem 1.25rem 1.25rem auto;
+  }
+}

@@ -6,6 +6,7 @@ import Accordion03 from "./accordion-03/Demo";
 import Accordion04 from "./accordion-04/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
+import Background02 from "./background-02/Demo";
 import Button01 from "./button-01/Demo";
 import Button02 from "./button-02/Demo";
 import Cards01 from "./cards-01/Demo";
@@ -34,11 +35,16 @@ import Landing01 from "./landing-01/Demo";
 import Landing02 from "./landing-02/Demo";
 import Landing03 from "./landing-03/Demo";
 import Landing04 from "./landing-04/Demo";
+import MacosDock01 from "./macos-dock-01/Demo";
+import Menu01 from "./menu-01/Demo";
+import Menu02 from "./menu-02/Demo";
 import Mis01Radar from "./mis-01-radar/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
 import Norden from "./norden/Demo";
+import NumberRoll01 from "./number-roll-01/Demo";
+import NumberRoll02 from "./number-roll-02/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
 import Preloader02 from "./preloader-02/Demo";
@@ -87,6 +93,7 @@ const demos = {
   "button-01": Button01,
   "button-02": Button02,
   "landing-01": Landing01,
+  "macos-dock-01": MacosDock01,
   "nav-01": Nav01,
   "nav-02": Nav02,
   "accordion-02": Accordion02,
@@ -106,6 +113,11 @@ const demos = {
   "landing-03": Landing03,
   "site-01": Site01,
   "landing-04": Landing04,
+  "menu-01": Menu01,
+  "menu-02": Menu02,
+  "number-roll-01": NumberRoll01,
+  "background-02": Background02,
+  "number-roll-02": NumberRoll02,
 };
 
 export default demos;
