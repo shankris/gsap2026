@@ -631,5 +631,38 @@
     "status": "ready",
     "date": "2026-11-13",
     "lines": 0
+  },
+  {
+    "id": "GSAP-060",
+    "name": "Card Stack 03",
+    "slug": "card-stack-03",
+    "category": "Scroll Animation",
+    "description": "Sticky parallax card stack with scroll-linked scaling, image zoom effects, and layered transitions using Motion.",
+    "tech": "Motion animation library",
+    "status": "ready",
+    "date": "2026-11-15",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-061",
+    "name": "Nav 04",
+    "slug": "nav-04",
+    "category": "Navigation",
+    "description": "Animated expanding side menu with perspective link transitions, staggered entrances, and an interactive Menu/Close toggle.",
+    "tech": "Motion animation library",
+    "status": "ready",
+    "date": "2026-11-15",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-062",
+    "name": "Nav 05",
+    "slug": "nav-05",
+    "category": "Navigation",
+    "description": "Curved SVG side menu with animated panel transitions, staggered navigation links, and an active-link indicator.",
+    "tech": "Motion animation library",
+    "status": "ready",
+    "date": "2026-11-15",
+    "lines": 0
   }
 ]

@@ -1,0 +1,221 @@
+/* src/components/dashboard-01/Sidebar.module.css */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  min-height: 100vh;
+  padding: 26px 6px 16px 10px;
+  background: #f5f3ef;
+  border-right: 1px solid #ebe9e4;
+  color: #33312e;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 34px;
+  padding: 0 5px;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #292722;
+  color: #fff;
+}
+
+/* Search */
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 32px;
+  border: 1px solid #e6e3dd;
+  border-radius: 8px;
+  background: #fff;
+  color: #88847d;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search kbd {
+  margin-left: auto;
+  padding: 2px 4px;
+  border: 1px solid #e9e6e0;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* Navigation */
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionLabel {
+  margin: 0 0 4px 9px;
+  color: #a09c94;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 30px;
+  padding: 0 11px;
+  border-radius: 7px;
+  color: #77736c;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.navItem:hover {
+  background: #ebe8e2;
+  color: #292722;
+}
+
+.active {
+  background: #e9e5dd;
+  color: #292722;
+  font-weight: 600;
+}
+
+/* Bottom Section */
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+/* Upgrade Card */
+
+.upgradeCard {
+  margin-top: 22px;
+  padding: 15px 13px;
+  border: 1px solid #e7e1d6;
+  border-radius: 10px;
+  background: #eeebe4;
+}
+
+.upgradeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #e2d9c9;
+  color: #806c4e;
+}
+
+.upgradeCard h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.upgradeCard p {
+  margin: 0 0 13px;
+  color: #858077;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.upgradeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: #302e29;
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Profile */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 3px 3px;
+  margin-top: 14px;
+  border-top: 1px solid #e5e2dc;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d9c7b4;
+  color: #534333;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.profileName {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.profileRole {
+  color: #918c83;
+  font-size: 10px;
+}
+
+.profileArrow {
+  margin-left: auto;
+  color: #99948b;
+}

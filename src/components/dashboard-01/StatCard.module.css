@@ -1,0 +1,95 @@
+/* src/components/dashboard-01/StatCard.module.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid #ebe9e4;
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: #dcd8d0;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+}
+
+.title {
+  margin: 0;
+  color: #514e47;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.value {
+  margin: 0;
+  color: #292722;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+
+.change {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.changePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.positive {
+  color: #39845c;
+  background: #e9f5ed;
+}
+
+.negative {
+  color: #c45151;
+  background: #fbecec;
+}
+
+.changeLabel {
+  color: #a19d95;
+  font-size: 10px;
+}

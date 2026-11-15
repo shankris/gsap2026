@@ -1,0 +1,21 @@
+/* src/components/dashboard-01/DashboardLayout.module.css */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  width: 100%;
+  min-height: 100vh;
+  background: #faf9f6;
+}
+
+.main {
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+}

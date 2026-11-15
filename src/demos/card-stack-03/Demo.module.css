@@ -1,0 +1,117 @@
+/* src/demos/card-stack-03/Demo.module.css */
+
+.main {
+  position: relative;
+  margin-top: 50vh;
+  padding-bottom: 10vh;
+}
+
+.cardContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 500px;
+  width: min(1000px, calc(100% - 48px));
+  border-radius: 25px;
+  padding: 50px;
+  transform-origin: top;
+}
+
+.card h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.body {
+  display: flex;
+  height: 100%;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+.description {
+  width: 40%;
+  position: relative;
+  top: 10%;
+}
+
+.description p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.description p::first-letter {
+  font-size: 28px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.imageContainer {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.inner img {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    min-height: 540px;
+    padding: 28px;
+    border-radius: 18px;
+  }
+
+  .card h2 {
+    font-size: 22px;
+  }
+
+  .body {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .description {
+    width: 100%;
+    top: 0;
+  }
+
+  .description p {
+    font-size: 14px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 240px;
+    flex-shrink: 0;
+  }
+}

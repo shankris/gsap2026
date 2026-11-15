@@ -16,6 +16,7 @@ import Cards04 from "./cards-04/Demo";
 import Cards05 from "./cards-05/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
+import CardStack03 from "./card-stack-03/Demo";
 import Carousel01 from "./carousel-01/Demo";
 import Carousel02 from "./carousel-02/Demo";
 import Carousel03 from "./carousel-03/Demo";
@@ -42,6 +43,8 @@ import Mis01Radar from "./mis-01-radar/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
+import Nav04 from "./nav-04/Demo";
+import Nav05 from "./nav-05/Demo";
 import Norden from "./norden/Demo";
 import NumberRoll01 from "./number-roll-01/Demo";
 import NumberRoll02 from "./number-roll-02/Demo";
@@ -68,6 +71,7 @@ const demos = {
   "paper-craft": PaperCraft,
   "card-stack-01": CardStack01,
   "card-stack-02": CardStack02,
+  "card-stack-03": CardStack03,
   "cards-01": Cards01,
   "cards-02": Cards02,
   "cards-05": Cards05,
@@ -96,14 +100,16 @@ const demos = {
   "macos-dock-01": MacosDock01,
   "nav-01": Nav01,
   "nav-02": Nav02,
+  "nav-03": Nav03,
+  "nav-04": Nav04,
+  "nav-05": Nav05,
   "accordion-02": Accordion02,
-  "showcase-01": Showcase01,
-  "cards-03": Cards03,
   "accordion-03": Accordion03,
   "accordion-04": Accordion04,
+  "showcase-01": Showcase01,
+  "cards-03": Cards03,
   "cards-04": Cards04,
   "datepicker-01": Datepicker01,
-  "nav-03": Nav03,
   "carousel-06": Carousel06,
   "darkMode-01": DarkMode01,
   "landing-02": Landing02,
