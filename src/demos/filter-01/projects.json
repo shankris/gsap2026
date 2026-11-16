@@ -1,0 +1,20 @@
+[
+  { "id": 1, "title": "Saltmarsh Coffee", "year": 2026, "category": "brand", "color": "#f3d9c2" },
+  { "id": 2, "title": "Orbit Speaker", "year": 2025, "category": "product", "color": "#dfe6ef" },
+  { "id": 3, "title": "Night Shift Titles", "year": 2026, "category": "motion", "color": "#d9d2f4" },
+  { "id": 4, "title": "Ferro Type", "year": 2024, "category": "brand", "color": "#efe5cf" },
+  { "id": 5, "title": "Loop Reel", "year": 2025, "category": "motion", "color": "#cfeee6" },
+  { "id": 6, "title": "Halden Kettle", "year": 2026, "category": "product", "color": "#ebe8e3" },
+  { "id": 7, "title": "Wren Bakery", "year": 2025, "category": "brand", "color": "#f6dfd9" },
+  { "id": 8, "title": "Pulse Idents", "year": 2024, "category": "motion", "color": "#f7d6ea" },
+  { "id": 9, "title": "Tilde Lamp", "year": 2025, "category": "product", "color": "#e6ecf2" },
+  { "id": 10, "title": "Marsh Records", "year": 2026, "category": "brand", "color": "#e3ead6" },
+  { "id": 11, "title": "Drift Opener", "year": 2026, "category": "motion", "color": "#d4e6f7" },
+  { "id": 12, "title": "Nook Chair", "year": 2024, "category": "product", "color": "#f1e7dc" },
+  { "id": 13, "title": "Common Ground", "year": 2026, "category": "brand", "color": "#e8d9c5" },
+  { "id": 14, "title": "Forma Watch", "year": 2025, "category": "product", "color": "#d5e1dc" },
+  { "id": 15, "title": "After Hours", "year": 2026, "category": "motion", "color": "#e4d5e8" },
+  { "id": 16, "title": "Northline Studio", "year": 2025, "category": "product", "color": "#d9e3c9" },
+  { "id": 17, "title": "Kinetic Forms", "year": 2024, "category": "motion", "color": "#f0d9cc" },
+  { "id": 18, "title": "Arc Table", "year": 2026, "category": "product", "color": "#d8dce8" }
+]

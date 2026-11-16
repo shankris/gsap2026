@@ -25,6 +25,7 @@ import Carousel05 from "./carousel-05/Demo";
 import Carousel06 from "./carousel-06/Demo";
 import Carousel07Pics from "./carousel-07-pics/Demo";
 import Counter01 from "./counter-01/Demo";
+import Clock01World from "./clock-01-world/Demo";
 import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
 import ElectricBorder from "./electric-border/Demo";
@@ -128,6 +129,7 @@ const demos = {
   "number-roll-01": NumberRoll01,
   "background-02": Background02,
   "number-roll-02": NumberRoll02,
+  "clock-01-world": Clock01World,
 };
 
 export default demos;

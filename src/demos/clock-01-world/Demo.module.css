@@ -1,0 +1,403 @@
+/* src/demos/clock-01-world/Demo.module.css */
+
+@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/mona-sans@5.3.0/wdth.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/geist-mono@5.3.0/index.css");
+
+.stage {
+  --page: #ecebe6;
+  --page-light: #f7f6f2;
+  --card: #fbfaf8;
+  --well: #f1f0ec;
+  --ink: #16171a;
+  --muted: #7b7c80;
+  --line: rgba(22, 23, 26, .08);
+  --accent: #ff5b24;
+  --accent-ink: #250c02;
+
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(70% 60% at 30% 18%, var(--page-light), transparent 70%),
+    var(--page);
+  font-family: "Mona Sans Variable", "Mona Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage *,
+.stage *::before,
+.stage *::after {
+  box-sizing: border-box;
+}
+
+.card {
+  --pad: clamp(16px, 4.6vw, 26px);
+  --lx: 22%;
+  --ly: 0%;
+  --lit: .55;
+
+  position: relative;
+  width: min(452px, 100%);
+  padding: var(--pad);
+  border-radius: clamp(18px, 5vw, 26px);
+  background: linear-gradient(180deg, #fefefd, var(--card) 40%);
+  box-shadow:
+    0 0 0 1px rgba(22, 23, 26, .06),
+    0 1px 1px rgba(22, 23, 26, .04),
+    0 4px 8px -2px rgba(22, 23, 26, .05),
+    0 18px 32px -12px rgba(22, 23, 26, .12),
+    0 44px 70px -30px rgba(22, 23, 26, .18);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.card__rim,
+.card__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.card__rim {
+  z-index: 3;
+  padding: 1px;
+  background:
+    radial-gradient(240px 180px at var(--lx) var(--ly),
+      rgba(255, 255, 255, var(--lit)),
+      transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, .9), transparent 30%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+
+.card__shine {
+  z-index: 0;
+  background:
+    radial-gradient(320px 220px at var(--lx) var(--ly),
+      rgba(255, 255, 255, calc(var(--lit) * .7)),
+      transparent 70%);
+}
+
+.card>*:not(.card__rim):not(.card__shine) {
+  position: relative;
+  z-index: 1;
+}
+
+.card__head,
+.brand,
+.clock__row,
+.clock__sub {
+  display: flex;
+  align-items: center;
+}
+
+.card__head {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 620;
+  letter-spacing: -.01em;
+}
+
+.brand__mark {
+  width: 1.55em;
+  height: 1.55em;
+  fill: var(--ink);
+}
+
+.brand__mark path {
+  fill: none;
+  stroke: var(--card);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.tag {
+  padding: .45em .8em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .6);
+  color: var(--muted);
+  font: 10px "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.clock {
+  margin-top: clamp(18px, 4.4vw, 26px);
+}
+
+.clock__label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.clock__row {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.clock__window {
+  --lh: 1.08em;
+
+  flex: 1;
+  min-width: 0;
+  height: var(--lh);
+  overflow: hidden;
+  font-size: clamp(42px, 15.4vw, 88px);
+  -webkit-mask-image: linear-gradient(180deg,
+      transparent,
+      #000 9%,
+      #000 91%,
+      transparent);
+  mask-image: linear-gradient(180deg,
+      transparent,
+      #000 9%,
+      #000 91%,
+      transparent);
+}
+
+.clock__reel {
+  will-change: transform;
+}
+
+.clock__line {
+  display: flex;
+  align-items: center;
+  height: var(--lh);
+  gap: .16em;
+  white-space: nowrap;
+}
+
+.line__time {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: 1em;
+  font-weight: 520;
+  letter-spacing: -.035em;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--lh);
+}
+
+.digit {
+  display: inline-block;
+  height: var(--lh);
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.digit__reel {
+  display: block;
+  will-change: transform;
+}
+
+.digit__reel span {
+  display: block;
+  height: var(--lh);
+  line-height: var(--lh);
+  text-align: center;
+}
+
+.colon {
+  display: inline-block;
+  height: var(--lh);
+  line-height: .98em;
+  opacity: .32;
+}
+
+.line__side {
+  display: inline-grid;
+  gap: .18em;
+  align-self: center;
+  margin-left: .1em;
+  font: 500 .17em/1 "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
+  letter-spacing: .06em;
+}
+
+.line__ampm {
+  color: var(--muted);
+}
+
+.dial {
+  flex: none;
+  width: clamp(54px, 15vw, 86px);
+  overflow: visible;
+  filter: drop-shadow(0 6px 10px rgba(22, 23, 26, .08));
+}
+
+.dial__face {
+  fill: #fff;
+  stroke: rgba(22, 23, 26, .1);
+  stroke-width: 1;
+}
+
+.dial__ticks line {
+  stroke: rgba(22, 23, 26, .28);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.dial__ticks .major {
+  stroke: rgba(22, 23, 26, .7);
+  stroke-width: 2;
+}
+
+.dial__hour,
+.dial__min {
+  stroke: var(--ink);
+  stroke-linecap: round;
+}
+
+.dial__hour {
+  stroke-width: 4;
+}
+
+.dial__min {
+  stroke-width: 2.6;
+}
+
+.dial__sec {
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.dial__hub {
+  fill: #fff;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+}
+
+.clock__sub {
+  justify-content: space-between;
+  gap: 10px;
+  height: 1.5em;
+  margin-top: 5px;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.sub__name {
+  min-width: 0;
+}
+
+.sub__state {
+  color: var(--muted);
+  font: 11px "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.sub__state.is-open {
+  color: var(--accent);
+}
+
+.cities {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: clamp(16px, 4vw, 22px);
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--well);
+  box-shadow:
+    inset 0 1px 2px rgba(22, 23, 26, .06),
+    inset 0 0 0 1px rgba(22, 23, 26, .035);
+}
+
+.cities__pill {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(22, 23, 26, .05),
+    0 1px 2px rgba(22, 23, 26, .08),
+    0 4px 10px -4px rgba(22, 23, 26, .16);
+  pointer-events: none;
+  will-change: transform, width;
+}
+
+.city {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding: 9px 2px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 12px "Mona Sans Variable", "Mona Sans", sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .35s cubic-bezier(.16, 1, .3, 1);
+}
+
+.city.is-on {
+  color: var(--ink);
+}
+
+.city:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+
+.stat__num .digit {
+  flex: 0 0 auto;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .stage {
+    padding: 14px;
+  }
+
+  .card {
+    --pad: 15px;
+  }
+
+  .city {
+    font-size: 10px;
+  }
+
+  .stat {
+    padding: 10px 7px;
+  }
+
+  .stat__cap {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city {
+    transition: none;
+  }
+}

@@ -686,5 +686,17 @@
     "status": "ready",
     "date": "2026-11-16",
     "lines": 0
+  },
+  {
+    "id": "GSAP-XXX",
+    "slug": "clock-01-world",
+    "name": "World Clock",
+    "description": "A world clock displaying live times across four global offices.",
+    "star": false,
+    "category": "Utility",
+    "status": "ready",
+    "date": "2026-11-16",
+    "lines": 0,
+    "zip": ""
   }
 ]
