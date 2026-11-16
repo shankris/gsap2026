@@ -664,5 +664,27 @@
     "status": "ready",
     "date": "2026-11-15",
     "lines": 0
+  },
+  {
+    "id": "GSAP-063",
+    "name": "MIS 01 – Pixel Transition",
+    "slug": "mis-01-pixel-transition",
+    "category": "Navigation",
+    "description": "Randomized pixel-block transitions with centered, horizontal, and vertical animation variations.",
+    "tech": "Motion animation library",
+    "status": "ready",
+    "date": "2026-11-16",
+    "lines": 0
+  },
+  {
+    "id": "GSAP-064",
+    "name": "Filter 01 – Animated Gallery",
+    "slug": "filter-01",
+    "category": "Gallery",
+    "description": "A filterable project mosaic with animated FLIP rearrangement, staggered card transitions, a rolling project counter, and an animated filter indicator.",
+    "tech": "GSAP",
+    "status": "ready",
+    "date": "2026-11-16",
+    "lines": 0
   }
 ]

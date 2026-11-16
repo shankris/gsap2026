@@ -28,6 +28,7 @@ import Counter01 from "./counter-01/Demo";
 import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
 import ElectricBorder from "./electric-border/Demo";
+import Filter01 from "./filter-01/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
 import Hover01 from "./hover-01/Demo";
@@ -40,6 +41,7 @@ import MacosDock01 from "./macos-dock-01/Demo";
 import Menu01 from "./menu-01/Demo";
 import Menu02 from "./menu-02/Demo";
 import Mis01Radar from "./mis-01-radar/Demo";
+import Mis01PixelTransition from "./mis-01-pixel-transition/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
@@ -79,6 +81,7 @@ const demos = {
   showcase1: Showcase1,
   "gallery-01": Gallery01,
   "scroll-01": Scroll01,
+  "filter-01": Filter01,
   "flip-accordion-01": FlipAccordion01,
   "carousel-01": Carousel01,
   "carousel-02": Carousel02,
@@ -115,6 +118,7 @@ const demos = {
   "landing-02": Landing02,
   "table-01": Table01,
   "mis-01-radar": Mis01Radar,
+  "mis-01-pixel-transition": Mis01PixelTransition,
   "carousel-07-pics": Carousel07Pics,
   "landing-03": Landing03,
   "site-01": Site01,
