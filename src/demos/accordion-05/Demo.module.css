@@ -1,0 +1,377 @@
+/* src/demos/accordion-05/Demo.module.css */
+
+.demo {
+  --paper: #f2ede5;
+  --paper-light: #fbf8f3;
+  --ink: #191612;
+  --muted: #8a8278;
+  --border: rgba(25, 22, 18, 0.14);
+  --empty: #d8d0c4;
+  --accent: #d0713f;
+  --light: #fbf6ef;
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 0;
+
+  background:
+    radial-gradient(110% 80% at 10% -12%,
+      var(--paper-light) 0%,
+      rgba(251, 248, 243, 0) 60%),
+    radial-gradient(80% 60% at 100% 112%,
+      rgba(208, 113, 63, 0.07),
+      rgba(208, 113, 63, 0) 70%),
+    var(--paper);
+
+  color: var(--ink);
+  font-family:
+    "Mona Sans Variable",
+    "Mona Sans",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.demo *,
+.demo *::before,
+.demo *::after {
+  box-sizing: border-box;
+}
+
+/* Main container */
+
+.studio {
+  width: min(1080px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.6vh, 26px);
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 20px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.headingRow h1 {
+  margin: 0;
+  font-size: clamp(28px, 4.5vw, 46px);
+  line-height: 1.02;
+  font-weight: 560;
+  font-variation-settings: "wdth"92;
+  letter-spacing: -0.035em;
+}
+
+.headingRow h1 em {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 330;
+  font-variation-settings: "wdth"118;
+}
+
+.headingRow p {
+  max-width: 28ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* Portrait accordion */
+
+.people {
+  display: flex;
+  gap: clamp(5px, 0.8vw, 10px);
+  height: clamp(300px, 56vh, 520px);
+  min-width: 0;
+}
+
+.person {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--empty);
+  box-shadow:
+    0 1px 1px rgba(40, 30, 20, 0.05),
+    0 6px 14px -6px rgba(40, 30, 20, 0.16);
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+  will-change: flex-grow, transform;
+}
+
+.person:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 0 0 3.5px var(--accent);
+}
+
+.personImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.personImage img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--image-width, 100%);
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transform: translateX(-50%) scale(1.06);
+  filter: grayscale(1) contrast(1.1) brightness(0.94);
+  will-change: transform, filter;
+}
+
+/* Bottom contrast overlay */
+
+.person::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(0deg,
+      rgba(14, 11, 8, 0.7) 0%,
+      rgba(14, 11, 8, 0.2) 34%,
+      rgba(14, 11, 8, 0) 58%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.initials {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: clamp(10px, 2vh, 18px);
+  margin-left: -0.6em;
+  color: var(--light);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(11px, 1.9vh, 15px);
+  font-weight: 600;
+  font-variation-settings: "wdth"80;
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.personInfo {
+  position: absolute;
+  z-index: 2;
+  left: clamp(10px, 1.6vw, 20px);
+  bottom: clamp(12px, 2vh, 20px);
+  width: var(--info-width, 220px);
+  color: var(--light);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.personLine {
+  display: block;
+  width: 28px;
+  height: 1px;
+  margin-bottom: clamp(6px, 1.2vh, 10px);
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.personInfo h2,
+.personInfo p,
+.personInfo small {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+}
+
+.personInfo h2 {
+  font-size: clamp(16px, min(1.9vw, 3.4vh), 25px);
+  font-weight: 600;
+  font-variation-settings: "wdth"104;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.personInfo p {
+  margin-top: 4px;
+  font-size: clamp(11px, 1.8vh, 14px);
+  font-weight: 400;
+  opacity: 0.86;
+}
+
+.personInfo small {
+  margin-top: 7px;
+  color: #f2b48f;
+  font-size: clamp(9.5px, 1.5vh, 11.5px);
+  font-weight: 560;
+  font-variation-settings: "wdth"118;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.personInfo h2,
+.personInfo p,
+.personInfo small {
+  opacity: 0;
+  transform: translateY(110%);
+}
+
+.personArrow {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(20, 16, 12, 0.3);
+  color: var(--light);
+  font-size: 17px;
+  opacity: 0;
+  transform: scale(0.6) rotate(-45deg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Footer */
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Desktop row behavior */
+
+.personRow {
+  display: contents;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 640px) {
+  .demo {
+    padding: 28px 0;
+  }
+
+  .studio {
+    gap: 16px;
+  }
+
+  .headingRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .headingRow h1 {
+    font-size: clamp(28px, 7vw, 38px);
+  }
+
+  .headingRow p {
+    max-width: none;
+    text-align: left;
+  }
+
+  .people {
+    display: flex;
+    flex-direction: column;
+    height: clamp(420px, 65vh, 600px);
+    gap: 6px;
+  }
+
+  .personRow {
+    display: flex;
+    flex: 1 1 0;
+    min-height: 0;
+    gap: 6px;
+  }
+
+  .person {
+    border-radius: 11px;
+  }
+
+  .initials {
+    left: 9px;
+    bottom: 9px;
+    margin-left: 0;
+  }
+
+  .personInfo {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+@media (max-height: 460px) and (min-width: 641px) {
+  .headingRow p {
+    display: none;
+  }
+
+  .people {
+    height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .demo *,
+  .demo *::before,
+  .demo *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

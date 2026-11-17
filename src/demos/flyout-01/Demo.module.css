@@ -1,0 +1,464 @@
+/* src/demos/flyout-01/Demo.module.css */
+
+.stage {
+  --fondo: #ffffff;
+  --barra: #ffffff;
+  --inchiostro: #111113;
+  --grigio: #6f6f77;
+  --grigio-chiaro: #a1a1aa;
+  --bordo: rgba(17, 17, 19, 0.09);
+  --campo: #f4f4f5;
+  --accento: #5b5bd6;
+  --faccia-a: #8b8cf0;
+  --faccia-b: #c9b8f5;
+
+  --menu: #ffffff;
+  --menu-testo: #111113;
+  --menu-grigio: #71717a;
+  --menu-bordo: rgba(17, 17, 19, 0.09);
+  --menu-hl: rgba(17, 17, 19, 0.055);
+  --menu-seg: #f1f1f3;
+  --menu-pill: #ffffff;
+  --menu-key: #ffffff;
+  --menu-key-fondo: #e4e4e7;
+
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 12px 16px;
+  background: var(--fondo);
+  color: var(--inchiostro);
+  font-family: "Mona Sans Variable", "Mona Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage *,
+.stage *::before,
+.stage *::after {
+  box-sizing: border-box;
+}
+
+/* Frame */
+
+.frame {
+  position: relative;
+  width: min(520px, 100%);
+  height: 372px;
+}
+
+/* Header */
+
+.bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 54px;
+  padding: 0 10px 0 16px;
+  background: var(--barra);
+  border: 1px solid var(--bordo);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(17, 17, 19, 0.04),
+    0 10px 28px -16px rgba(17, 17, 19, 0.18);
+}
+
+.barBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barMark {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--inchiostro);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.barName {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.barNav {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.barLink {
+  padding: 6px 9px;
+  border-radius: 8px;
+  color: var(--grigio);
+  font-size: 13px;
+  font-weight: 520;
+}
+
+.barLink.isOn {
+  background: var(--campo);
+  color: var(--inchiostro);
+}
+
+/* Avatar */
+
+.avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.avatar::before {
+  position: absolute;
+  inset: -3px;
+  content: "";
+  border: 2px solid var(--accento);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.86);
+  transition:
+    opacity 0.25s,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar.avatarOpen::before,
+.avatar:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.avatar:focus-visible {
+  outline: none;
+}
+
+.avatarFace,
+.menuFace {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--faccia-a), var(--faccia-b));
+  color: #fff;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.avatarFace {
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  transition: box-shadow 0.25s;
+}
+
+.avatar:hover .avatarFace,
+.avatar.avatarOpen .avatarFace {
+  box-shadow: 0 0 0 4px rgba(91, 91, 214, 0.12);
+}
+
+/* Account menu */
+
+.menu {
+  position: absolute;
+  z-index: 3;
+  top: 62px;
+  right: 4px;
+  width: min(268px, calc(100% - 8px));
+  padding: 6px;
+  background: var(--menu);
+  color: var(--menu-testo);
+  border: 1px solid var(--menu-bordo);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(17, 17, 19, 0.05),
+    0 22px 48px -18px rgba(17, 17, 19, 0.28);
+  transform-origin: calc(100% - 18px) -26px;
+  transition:
+    background 0.35s,
+    color 0.35s,
+    border-color 0.35s;
+}
+
+.menu[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
+/* Account details */
+
+.menuHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--menu-bordo);
+  transition: border-color 0.35s;
+}
+
+.menuFace {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  font-size: 12px;
+}
+
+.menuWho {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.menuName {
+  font-size: 13.5px;
+  font-weight: 640;
+}
+
+.menuMail {
+  overflow: hidden;
+  color: var(--menu-grigio);
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color 0.35s;
+}
+
+/* Menu list */
+
+.menuList {
+  position: relative;
+  display: grid;
+}
+
+.menuHighlight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--menu-hl);
+  opacity: 0;
+  pointer-events: none;
+  transition: background 0.35s;
+}
+
+.menuRule {
+  display: block;
+  height: 1px;
+  margin: 4px 2px;
+  background: var(--menu-bordo);
+  transition: background 0.35s;
+}
+
+/* Menu items */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 520;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:focus-visible {
+  outline: none;
+}
+
+.itemTheme {
+  height: 40px;
+  cursor: default;
+}
+
+.itemIcon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.78;
+}
+
+.itemIcon .fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.itemLabel {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.itemNote {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(91, 91, 214, 0.1);
+  color: var(--accento);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.itemOut {
+  color: var(--menu-grigio);
+  transition: color 0.35s;
+}
+
+/* Shortcut key */
+
+.key {
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border: 1px solid var(--menu-bordo);
+  border-radius: 6px;
+  background: var(--menu-key);
+  box-shadow: 0 1.5px 0 var(--menu-key-fondo);
+  color: var(--menu-grigio);
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  transition:
+    background 0.35s,
+    border-color 0.35s,
+    box-shadow 0.35s,
+    color 0.35s;
+}
+
+/* Theme switch */
+
+.segment {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 9px;
+  background: var(--menu-seg);
+  transition: background 0.35s;
+}
+
+.segmentPill {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--menu-pill);
+  box-shadow:
+    0 1px 2px rgba(17, 17, 19, 0.14),
+    0 0 0 0.5px rgba(17, 17, 19, 0.06);
+  transition: background 0.35s;
+}
+
+.segmentButton {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--menu-grigio);
+  cursor: pointer;
+  transition: color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.segmentButton svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.segmentButton.segmentActive {
+  color: var(--menu-testo);
+}
+
+.segmentButton:focus-visible {
+  outline: 2px solid var(--accento);
+  outline-offset: 1px;
+}
+
+/* Dark theme */
+
+.menu.dark {
+  --menu: #18181b;
+  --menu-testo: #fafafa;
+  --menu-grigio: #a1a1aa;
+  --menu-bordo: rgba(255, 255, 255, 0.09);
+  --menu-hl: rgba(255, 255, 255, 0.075);
+  --menu-seg: #27272a;
+  --menu-pill: #3f3f46;
+  --menu-key: #27272a;
+  --menu-key-fondo: #0b0b0c;
+}
+
+.menu.dark .itemNote {
+  background: rgba(140, 141, 255, 0.16);
+  color: #b4b5ff;
+}
+
+/* Responsive */
+
+@media (max-width: 420px) {
+  .barNav {
+    display: none;
+  }
+
+  .frame {
+    height: 366px;
+  }
+}
+
+@media (min-width: 1100px) and (min-height: 700px) {
+  .frame {
+    zoom: 1.2;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stage *,
+  .stage *::before,
+  .stage *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

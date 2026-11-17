@@ -711,5 +711,39 @@
     "date": "2026-11-17",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-067",
+    "name": "Portrait Accordion",
+    "slug": "accordion-05",
+    "category": "Accordions",
+    "description": "An interactive portrait accordion featuring expanding panels, grayscale-to-color image transitions, and animated profile details.",
+    "status": "ready",
+    "date": "2026-11-17",
+    "star": 4,
+    "lines": 0
+  },
+  {
+    "id": "GSAP-068",
+    "name": "Flyout 01",
+    "slug": "flyout-01",
+    "category": "Navigation",
+    "description": "An animated account menu featuring a spring-like flyout reveal, profile actions, keyboard navigation, and light and dark theme controls.",
+    "status": "ready",
+    "date": "2026-11-17",
+    "star": 4,
+    "lines": 0
+  },
+  {
+    "id": "GSAP-069",
+    "name": "Sort 01",
+    "slug": "sort-01",
+    "category": "Interaction",
+    "description": "An animated product catalogue with interactive sorting options, GSAP Flip transitions, and smooth rearrangement of product cards.",
+    "tech": "GSAP Flip",
+    "status": "ready",
+    "date": "2026-11-17",
+    "star": 4,
+    "lines": 0
   }
 ]
