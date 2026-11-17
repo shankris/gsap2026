@@ -64,6 +64,7 @@ import SliderNocturne from "./slider-nocturne/Demo";
 import SplitScreen01 from "./split-screen-01/Demo";
 import Table01 from "./table-01/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
+import Widget01 from "./widget-01/Demo";
 
 const demos = {
   "welcome-loader": WelcomeLoader,
@@ -130,6 +131,7 @@ const demos = {
   "background-02": Background02,
   "number-roll-02": NumberRoll02,
   "clock-01-world": Clock01World,
+  "widget-01": Widget01,
 };
 
 export default demos;

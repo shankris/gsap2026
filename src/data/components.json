@@ -683,19 +683,32 @@
     "category": "Gallery",
     "description": "A filterable project mosaic with animated FLIP rearrangement, staggered card transitions, a rolling project counter, and an animated filter indicator.",
     "tech": "GSAP",
+    "star": 3,
     "status": "ready",
     "date": "2026-11-16",
     "lines": 0
   },
   {
-    "id": "GSAP-XXX",
+    "id": "GSAP-065",
     "slug": "clock-01-world",
     "name": "World Clock",
     "description": "A world clock displaying live times across four global offices.",
-    "star": false,
+    "star": 4,
     "category": "Utility",
     "status": "ready",
     "date": "2026-11-16",
+    "lines": 0,
+    "zip": ""
+  },
+  {
+    "id": "GSAP-066",
+    "slug": "widget-01",
+    "name": "Animated Statistics",
+    "description": "A collection of animated statistics with counting numbers, charts, rating stars, and a response-time gauge.",
+    "star": 4,
+    "category": "Widget",
+    "status": "ready",
+    "date": "2026-11-17",
     "lines": 0,
     "zip": ""
   }
