@@ -33,6 +33,7 @@ import Filter01 from "./filter-01/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Flyout01 from "./flyout-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
+import Graph01 from "./graph-01/Demo";
 import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
 import Landing01 from "./landing-01/Demo";
@@ -103,6 +104,7 @@ const demos = {
   "flip-accordion-01": FlipAccordion01,
   "flyout-01": Flyout01,
   "gallery-01": Gallery01,
+  "graph-01": Graph01,
   "hover-01": Hover01,
   "icon-01": Icon01,
   "landing-01": Landing01,

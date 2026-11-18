@@ -745,5 +745,16 @@
     "date": "2026-11-17",
     "star": 4,
     "lines": 0
+  },
+  {
+    "id": "GSAP-XXX",
+    "slug": "graph-01",
+    "name": "Graph 01",
+    "description": "An interactive animated donut chart with category highlights, rolling totals, and budget tracking.",
+    "star": 0,
+    "category": "Data Visualization",
+    "status": "ready",
+    "date": "2026-11-18",
+    "lines": null
   }
 ]
