@@ -756,5 +756,17 @@
     "status": "ready",
     "date": "2026-11-18",
     "lines": null
+  },
+  {
+    "id": "GSAP-XXX",
+    "slug": "number-roll-03",
+    "name": "Number Roll 03",
+    "description": "A reusable odometer-style number rolling component.",
+    "star": false,
+    "category": "Text",
+    "status": "ready",
+    "date": "2026-11-18",
+    "lines": 0,
+    "zip": ""
   }
 ]

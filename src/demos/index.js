@@ -53,6 +53,7 @@ import Nav05 from "./nav-05/Demo";
 import Norden from "./norden/Demo";
 import NumberRoll01 from "./number-roll-01/Demo";
 import NumberRoll02 from "./number-roll-02/Demo";
+import NumberRoll03 from "./number-roll-03/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
 import Preloader02 from "./preloader-02/Demo";
@@ -124,6 +125,7 @@ const demos = {
   norden: Norden,
   "number-roll-01": NumberRoll01,
   "number-roll-02": NumberRoll02,
+  "number-roll-03": NumberRoll03,
   "paper-craft": PaperCraft,
   "preloader-01": Preloader01,
   "preloader-02": Preloader02,

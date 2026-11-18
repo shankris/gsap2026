@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import styles from "./Demo.module.css";
 
@@ -21,8 +21,6 @@ const RADIUS = 70;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 const GAP = 2.2;
 const GAP_LENGTH = (GAP / 360) * CIRCUMFERENCE;
-
-const MAX_TURNS = 3;
 
 const TICKS = Array.from({ length: 72 }, (_, index) => ({
   angle: index * 5,
@@ -51,112 +49,21 @@ const formatAmount = (amount) => amount.toLocaleString("en-US");
 
 const formatPercentage = (amount) => `${Math.round((amount / BUDGET) * 100)}% of $${formatAmount(BUDGET)}`;
 
-const isDigit = (char) => char >= "0" && char <= "9";
-
-/* --------------------------------------------------
-   Rolling Amount
--------------------------------------------------- */
-
-function RollingAmount({ value }) {
-  const figureRef = useRef(null);
-
-  const chars = [...formatAmount(value)];
-
-  useLayoutEffect(() => {
-    const figure = figureRef.current;
-
-    if (!figure) return;
-
-    const wheels = figure.querySelectorAll(`.${styles.digitWheel}`);
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reducedMotion) {
-      gsap.set(wheels, { yPercent: 0 });
-      return;
-    }
-
-    const wheelStart = (_, wheel) => ((wheel.children.length - 1) / wheel.children.length) * 100;
-
-    const tween = gsap.fromTo(
-      wheels,
-      {
-        yPercent: wheelStart,
-      },
-      {
-        yPercent: 0,
-        duration: 2.4,
-        stagger: 0.08,
-        ease: "power4.out",
-        overwrite: true,
-      },
-    );
-
-    return () => {
-      tween.kill();
-    };
-  }, [value]);
-
-  return (
-    <>
-      <span className={styles.srOnly}>${formatAmount(value)}</span>
-
-      <span
-        ref={figureRef}
-        className={styles.rollingFigure}
-        aria-hidden='true'
-      >
-        {chars.map((char, index) => {
-          if (!isDigit(char)) {
-            return (
-              <span
-                className={styles.rollingSeparator}
-                key={`${index}-${char}`}
-              >
-                {char}
-              </span>
-            );
-          }
-
-          const turns = Math.min(MAX_TURNS, chars.slice(0, index).filter(isDigit).length + 1);
-
-          const rowCount = turns * 10 + Number(char) + 1;
-
-          return (
-            <span
-              className={styles.digitSlot}
-              key={`digit-${index}`}
-            >
-              <span className={styles.digitSlotSize}>{char}</span>
-
-              <span className={styles.digitWheel}>
-                {Array.from({ length: rowCount }, (_, number) => (
-                  <span key={number}>{number % 10}</span>
-                ))}
-              </span>
-            </span>
-          );
-        })}
-      </span>
-    </>
-  );
-}
-
-/* --------------------------------------------------
-   Demo
--------------------------------------------------- */
-
 export default function Graph01() {
-  const [displayAmount, setDisplayAmount] = useState(TOTAL);
-
   const cardRef = useRef(null);
+  const amountRef = useRef(null);
   const labelRef = useRef(null);
   const percentageRef = useRef(null);
+  const highlightRef = useRef(null);
+
+  const displayValueRef = useRef({ value: 0 });
 
   const sliceRefs = useRef([]);
   const fillRefs = useRef([]);
   const rowRefs = useRef([]);
   const tickRefs = useRef([]);
+
+  const reducedMotionRef = useRef(false);
 
   useLayoutEffect(() => {
     const card = cardRef.current;
@@ -169,6 +76,10 @@ export default function Graph01() {
       const ticks = tickRefs.current.filter(Boolean);
 
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      reducedMotionRef.current = reducedMotion;
+
+      const counter = displayValueRef.current;
 
       if (reducedMotion) {
         slices.forEach((slice, index) => {
@@ -186,11 +97,25 @@ export default function Graph01() {
         });
 
         gsap.set(ticks, { opacity: 1 });
+        gsap.set(highlightRef.current, { opacity: 0 });
+
+        counter.value = TOTAL;
+
+        if (amountRef.current) {
+          amountRef.current.textContent = formatAmount(TOTAL);
+        }
 
         return;
       }
 
+      counter.value = 0;
+
+      if (amountRef.current) {
+        amountRef.current.textContent = "0";
+      }
+
       gsap.set(ticks, { opacity: 0 });
+      gsap.set(highlightRef.current, { opacity: 0, y: 0 });
 
       const timeline = gsap.timeline({
         defaults: {
@@ -226,6 +151,22 @@ export default function Graph01() {
         0.15,
       );
 
+      // Animate the center amount.
+      timeline.to(
+        counter,
+        {
+          value: TOTAL,
+          duration: 1.45,
+          ease: "power2.out",
+          onUpdate: () => {
+            if (amountRef.current) {
+              amountRef.current.textContent = formatAmount(Math.round(counter.value));
+            }
+          },
+        },
+        0.25,
+      );
+
       // Animate the legend bars.
       timeline.to(
         fills,
@@ -244,12 +185,55 @@ export default function Graph01() {
     };
   }, []);
 
+  const moveHighlight = (index, instant = false) => {
+    const row = rowRefs.current[index];
+    const highlight = highlightRef.current;
+
+    if (!row || !highlight) return;
+
+    const paddingY = 5;
+    const paddingX = 4;
+
+    const y = row.offsetTop - paddingY;
+    const height = row.offsetHeight + paddingY * 2;
+
+    gsap.killTweensOf(highlight);
+
+    if (instant || reducedMotionRef.current || gsap.getProperty(highlight, "opacity") < 0.05) {
+      gsap.set(highlight, { y, height });
+
+      gsap.to(highlight, {
+        opacity: 1,
+        duration: reducedMotionRef.current ? 0 : 0.16,
+      });
+    } else {
+      gsap.to(highlight, {
+        y,
+        height,
+        opacity: 1,
+        duration: 0.3,
+        ease: "back.out(1.5)",
+      });
+    }
+  };
+
+  const hideHighlight = () => {
+    const highlight = highlightRef.current;
+
+    if (!highlight) return;
+
+    gsap.to(highlight, {
+      opacity: 0,
+      duration: 0.16,
+      ease: "power1.out",
+    });
+  };
+
   const activateCategory = (index) => {
     const slices = sliceRefs.current;
     const rows = rowRefs.current;
 
     const selectedAmount = index === null ? TOTAL : DATA[index].amount;
-
     const selectedLabel = index === null ? "Spent" : DATA[index].name;
 
     // Highlight the selected donut slice.
@@ -270,7 +254,7 @@ export default function Graph01() {
       });
     });
 
-    // Existing legend interaction states.
+    // Update the legend row states.
     rows.forEach((row, rowIndex) => {
       if (!row) return;
 
@@ -289,8 +273,18 @@ export default function Graph01() {
       percentageRef.current.textContent = formatPercentage(selectedAmount);
     }
 
-    // Trigger the rolling number animation.
-    setDisplayAmount(selectedAmount);
+    // Animate the center amount.
+    gsap.to(displayValueRef.current, {
+      value: selectedAmount,
+      duration: 0.45,
+      ease: "power2.out",
+      overwrite: true,
+      onUpdate: () => {
+        if (amountRef.current) {
+          amountRef.current.textContent = formatAmount(Math.round(displayValueRef.current.value));
+        }
+      },
+    });
   };
 
   return (
@@ -394,7 +388,8 @@ export default function Graph01() {
               </p>
 
               <p className={styles.donut__value}>
-                <RollingAmount value={displayAmount} />
+                <span className={styles.donut__cur}>$</span>
+                <span ref={amountRef}>{formatAmount(TOTAL)}</span>
               </p>
 
               <p
@@ -410,6 +405,12 @@ export default function Graph01() {
             className={styles.legend}
             aria-label='Categories'
           >
+            <li
+              ref={highlightRef}
+              className={styles.legend__highlight}
+              aria-hidden='true'
+            />
+
             {DATA.map((item, index) => (
               <li
                 key={item.name}
@@ -418,14 +419,27 @@ export default function Graph01() {
                 }}
                 className={styles.row}
                 tabIndex={0}
-                onPointerEnter={() => activateCategory(index)}
-                onPointerLeave={() => activateCategory(null)}
-                onFocus={() => activateCategory(index)}
-                onBlur={() => activateCategory(null)}
+                onPointerEnter={() => {
+                  moveHighlight(index);
+                  activateCategory(index);
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "mouse") {
+                    hideHighlight();
+                    activateCategory(null);
+                  }
+                }}
+                onFocus={() => {
+                  moveHighlight(index);
+                  activateCategory(index);
+                }}
+                onBlur={() => {
+                  hideHighlight();
+                  activateCategory(null);
+                }}
               >
                 <div className={styles.row__top}>
                   <span className={styles.row__name}>{item.name}</span>
-
                   <span className={styles.row__amt}>${formatAmount(item.amount)}</span>
                 </div>
 
