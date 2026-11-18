@@ -778,5 +778,17 @@
     "status": "ready",
     "date": "2026-11-18",
     "lines": 0
+  },
+  {
+    "id": "GSAP-073",
+    "slug": "ios-dock-01",
+    "name": "iOS Dock",
+    "description": "A magnifying app dock with interactive icons, animated indicators, and hover labels.",
+    "star": false,
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-18",
+    "lines": 0,
+    "zip": ""
   }
 ]

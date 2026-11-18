@@ -37,6 +37,7 @@ import Gallery01 from "./gallery-01/Demo";
 import Graph01 from "./graph-01/Demo";
 import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
+import IosDock01 from "./ios-dock-01/Demo";
 import Landing01 from "./landing-01/Demo";
 import Landing02 from "./landing-02/Demo";
 import Landing03 from "./landing-03/Demo";
@@ -110,6 +111,7 @@ const demos = {
   "graph-01": Graph01,
   "hover-01": Hover01,
   "icon-01": Icon01,
+  "ios-dock-01": IosDock01,
   "landing-01": Landing01,
   "landing-02": Landing02,
   "landing-03": Landing03,
