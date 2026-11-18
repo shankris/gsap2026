@@ -790,5 +790,40 @@
     "date": "2026-11-18",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-074",
+    "slug": "accordion-06",
+    "name": "Notched Feature Cards",
+    "category": "Accordions",
+    "description": "An interactive feature-card accordion with animated notched outlines, expanding panels, KPI counters, and embedded dashboard widgets.",
+    "status": "ready",
+    "date": "2026-11-18",
+    "star": 4,
+    "lines": 0,
+    "zip": null
+  },
+  {
+    "id": "GSAP-075",
+    "slug": "add-to-cart-01",
+    "name": "Add to Cart 01",
+    "category": "Interaction",
+    "description": "An animated add-to-cart button with a morphing quantity stepper, rolling count, and interactive increment and remove controls.",
+    "status": "ready",
+    "date": "2026-11-18",
+    "star": 4,
+    "lines": 0,
+    "zip": ""
+  },
+  {
+    "id": "GSAP-076",
+    "name": "Card Stack 04",
+    "slug": "card-stack-04",
+    "category": "Scroll Animation",
+    "description": "A scroll-driven stacking card component with sticky positioning, layered transitions, scaling, rotation, and dark overlay effects using GSAP ScrollTrigger.",
+    "tech": "GSAP ScrollTrigger",
+    "status": "ready",
+    "date": "2026-11-18",
+    "lines": 0
   }
 ]
