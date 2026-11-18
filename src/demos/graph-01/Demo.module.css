@@ -320,3 +320,52 @@
     font-size: 10px;
   }
 }
+
+
+/* --------------------------------------------------
+   Rolling Amount
+-------------------------------------------------- */
+
+.rollingFigure {
+  display: inline-flex;
+  overflow: hidden;
+  padding-right: 0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.digitSlot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.digitSlotSize {
+  display: block;
+  visibility: hidden;
+}
+
+.digitWheel {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.digitWheel span {
+  display: block;
+}
+
+.rollingSeparator {
+  display: block;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
