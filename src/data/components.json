@@ -747,7 +747,7 @@
     "lines": 0
   },
   {
-    "id": "GSAP-XXX",
+    "id": "GSAP-070",
     "slug": "graph-01",
     "name": "Graph 01",
     "description": "An interactive animated donut chart with category highlights, rolling totals, and budget tracking.",
@@ -758,7 +758,7 @@
     "lines": null
   },
   {
-    "id": "GSAP-XXX",
+    "id": "GSAP-071",
     "slug": "number-roll-03",
     "name": "Number Roll 03",
     "description": "A reusable odometer-style number rolling component.",
@@ -768,5 +768,15 @@
     "date": "2026-11-18",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-072",
+    "slug": "dropdown-01",
+    "name": "Dropdown 01",
+    "description": "A Google-style account dropdown with animated menu interactions and a storage usage indicator.",
+    "category": "Dropdown",
+    "status": "ready",
+    "date": "2026-11-18",
+    "lines": 0
   }
 ]
