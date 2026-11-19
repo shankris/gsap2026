@@ -1,0 +1,1120 @@
+/* src/demos/accordion-06/Demo.module.css */
+
+.stage {
+  --page: #052424;
+  --page-2: #031818;
+  --lime: #abff02;
+  --paper: #f1efe7;
+  --stone: #c6c8bf;
+  --deep: #0b3535;
+  --open: #0a2f2f;
+  --ink: #052424;
+  --mute: rgba(241, 239, 231, 0.56);
+  --hair: rgba(241, 239, 231, 0.1);
+
+  --cw: clamp(84px, 12.5vw, 168px);
+  --ew: clamp(200px, 44vw, 520px);
+  --h: clamp(230px, calc(100vh - 128px), 440px);
+  --gap: clamp(6px, 0.9vw, 12px);
+  --open-time: 0.6s;
+
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: clamp(12px, 3vh, 40px) clamp(12px, 3vw, 40px);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(60% 50% at 18% 100%,
+      rgba(171, 255, 2, 0.07),
+      transparent 70%),
+    radial-gradient(70% 60% at 85% 0%,
+      rgba(30, 90, 84, 0.45),
+      transparent 70%),
+    radial-gradient(120% 90% at 50% 50%,
+      var(--page) 40%,
+      var(--page-2) 100%);
+  color: var(--paper);
+  font-family: "Geist Variable", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage,
+.stage * {
+  box-sizing: border-box;
+}
+
+.stage :global(button) {
+  font: inherit;
+}
+
+.stage :global(svg) {
+  display: block;
+}
+
+.lanes {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: rgba(241, 239, 231, 0.06);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.lanes path {
+  vector-effect: non-scaling-stroke;
+}
+
+.grain {
+  position: absolute;
+  inset: -50%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.yos {
+  width: min(1080px, 100%);
+  min-width: 0;
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------
+   Header
+------------------------------------------------------------ */
+
+.yosHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: clamp(10px, 2.4vh, 22px);
+  padding-inline: 2px;
+}
+
+.yosEyebrow {
+  margin-bottom: 6px;
+  color: var(--lime);
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: clamp(9px, 1vw, 11px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.yosTitle {
+  font-size: clamp(17px, 2.6vw, 34px);
+  font-weight: 420;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.yosNav {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+
+.navBtn {
+  display: grid;
+  width: clamp(30px, 3.4vw, 40px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(241, 239, 231, 0.14);
+  border-radius: 10px;
+  background: linear-gradient(rgba(241, 239, 231, 0.07),
+      rgba(241, 239, 231, 0.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 6px 14px -8px rgba(0, 0, 0, 0.6);
+  color: var(--paper);
+  cursor: pointer;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s;
+}
+
+.navBtn svg {
+  width: 45%;
+  height: 45%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (hover: hover) {
+  .navBtn:hover {
+    border-color: rgba(171, 255, 2, 0.5);
+    background-color: rgba(171, 255, 2, 0.06);
+  }
+}
+
+/* ------------------------------------------------------------
+   Card track
+------------------------------------------------------------ */
+
+.track {
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  height: var(--h);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-inline: 2px;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.track.isL {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22px);
+  mask-image: linear-gradient(90deg, transparent, #000 22px);
+}
+
+.track.isR {
+  -webkit-mask-image: linear-gradient(270deg, transparent, #000 22px);
+  mask-image: linear-gradient(270deg, transparent, #000 22px);
+}
+
+.track.isL.isR {
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent,
+      #000 22px,
+      #000 calc(100% - 22px),
+      transparent);
+  mask-image: linear-gradient(90deg,
+      transparent,
+      #000 22px,
+      #000 calc(100% - 22px),
+      transparent);
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.probe {
+  position: absolute;
+  width: var(--ew);
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.probeC {
+  width: var(--cw);
+}
+
+/* ------------------------------------------------------------
+   Cards
+------------------------------------------------------------ */
+
+.card {
+  position: relative;
+  flex: none;
+  width: var(--cw);
+  height: 100%;
+  outline: none;
+  cursor: pointer;
+  filter:
+    drop-shadow(0 22px 26px rgba(0, 0, 0, 0.32)) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+  transition: width var(--open-time) cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card.isOpen {
+  width: var(--ew);
+  cursor: default;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+
+.card[data-tone="lime"] {
+  --bg: var(--lime);
+  --fg: var(--ink);
+  --rim-a: rgba(255, 255, 255, 0.75);
+  --rim-b: rgba(5, 36, 36, 0.18);
+}
+
+.card[data-tone="paper"] {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --rim-a: rgba(255, 255, 255, 0.95);
+  --rim-b: rgba(5, 36, 36, 0.14);
+}
+
+.card[data-tone="deep"] {
+  --bg: var(--deep);
+  --fg: var(--paper);
+  --rim-a: rgba(241, 239, 231, 0.3);
+  --rim-b: rgba(241, 239, 231, 0.06);
+}
+
+.card[data-tone="stone"] {
+  --bg: var(--stone);
+  --fg: var(--ink);
+  --rim-a: rgba(255, 255, 255, 0.8);
+  --rim-b: rgba(5, 36, 36, 0.16);
+}
+
+.card.isOpen {
+  --fg: var(--paper);
+  --rim-a: rgba(241, 239, 231, 0.32);
+  --rim-b: rgba(171, 255, 2, 0.16);
+}
+
+.cardSurface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  color: var(--fg);
+  background-color: var(--bg);
+  background-image: linear-gradient(170deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0) 40%,
+      rgba(0, 0, 0, 0.08));
+  transition:
+    background-color var(--open-time) cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.3s;
+}
+
+.card.isOpen .cardSurface {
+  background-color: var(--open);
+  background-image:
+    radial-gradient(70% 55% at 100% 0%,
+      rgba(171, 255, 2, 0.16),
+      transparent 70%),
+    radial-gradient(60% 50% at 0% 100%,
+      rgba(40, 120, 110, 0.28),
+      transparent 70%),
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0) 30%);
+}
+
+.card.isOpen .cardSurface::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Pointer light */
+
+.cardLight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(160px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.34),
+      transparent 65%);
+  mix-blend-mode: soft-light;
+  transition: opacity 0.4s;
+}
+
+.card.isHover .cardLight {
+  opacity: 1;
+}
+
+/* Rim */
+
+.rim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.rim path {
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Notch marker */
+
+.cardMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 2px;
+  height: 40px;
+  border-radius: 2px;
+  background: var(--lime);
+  box-shadow:
+    0 0 10px 1px rgba(171, 255, 2, 0.55),
+    0 0 26px 4px rgba(171, 255, 2, 0.22);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   Closed card face
+------------------------------------------------------------ */
+
+.face {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.faceC {
+  left: 0;
+  width: var(--cw);
+  justify-content: space-between;
+  padding: clamp(10px, 1.4vw, 18px);
+  transition: opacity 0.3s 0.25s;
+}
+
+.card.isOpen .faceC {
+  opacity: 0;
+  transition: opacity 0.18s;
+  pointer-events: none;
+}
+
+.faceLabel {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: clamp(8.5px, 0.85vw, 10.5px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  opacity: 0.72;
+}
+
+.faceTitle {
+  margin-top: auto;
+  margin-bottom: 12px;
+  font-size: clamp(19px, 2.3vw, 30px);
+  font-weight: 430;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.faceFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.faceStat {
+  padding: 3px 6px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: clamp(10px, 1vw, 12px);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.facePlus {
+  flex: none;
+  width: clamp(18px, 1.7vw, 22px);
+  height: clamp(18px, 1.7vw, 22px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+/* ------------------------------------------------------------
+   Expanded card face
+------------------------------------------------------------ */
+
+.faceE {
+  left: 0;
+  width: var(--ew);
+  gap: clamp(6px, 1.3vh, 12px);
+  padding: clamp(14px, 2.2vw, 28px);
+  color: var(--paper);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    visibility 0s 0.2s;
+}
+
+.card.isOpen .faceE {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s 0.08s,
+    visibility 0s;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mono {
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+}
+
+.top .mono {
+  color: var(--mute);
+  font-size: clamp(9px, 0.9vw, 11px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.live {
+  padding: 3px 7px;
+  border: 1px solid rgba(171, 255, 2, 0.4);
+  border-radius: 6px;
+  background: rgba(171, 255, 2, 0.06);
+  color: var(--lime);
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eTitle {
+  font-size: clamp(20px, 2.6vw, 34px);
+  font-weight: 420;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.eDesc {
+  max-width: 40ch;
+  color: var(--mute);
+  font-size: clamp(12px, 1.1vw, 14px);
+  line-height: 1.45;
+}
+
+.rise {
+  /* Animated by GSAP */
+}
+
+/* ------------------------------------------------------------
+   Panels
+------------------------------------------------------------ */
+
+.panel {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(8px, 1.2vw, 14px);
+  border-radius: 12px;
+  background: linear-gradient(180deg,
+      rgba(241, 239, 231, 0.06),
+      rgba(241, 239, 231, 0.025));
+  box-shadow:
+    inset 0 0 0 1px rgba(241, 239, 231, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ------------------------------------------------------------
+   Gate arrivals
+------------------------------------------------------------ */
+
+.arrivals {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  list-style: none;
+}
+
+.arrivals li {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 4px 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.arrivals li+li {
+  box-shadow: 0 -1px 0 var(--hair);
+}
+
+.arrivals li.isNow {
+  background: rgba(171, 255, 2, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(171, 255, 2, 0.18);
+}
+
+.arrivals .mono {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.arrivals .car {
+  overflow: hidden;
+  color: var(--mute);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrivals .t {
+  color: var(--mute);
+}
+
+/* Chips */
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.chip svg {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chip.ok {
+  background: rgba(171, 255, 2, 0.1);
+  color: var(--lime);
+}
+
+.chip.wait {
+  background: rgba(241, 239, 231, 0.06);
+  color: var(--mute);
+}
+
+.chip.swap {
+  display: inline-grid;
+  background: rgba(241, 239, 231, 0.1);
+  color: var(--paper);
+}
+
+.chip.swap>span {
+  display: inline-flex;
+  grid-area: 1 / 1;
+  align-items: center;
+  gap: 4px;
+}
+
+.chipA {
+  position: relative;
+}
+
+.chipB {
+  opacity: 0;
+}
+
+.chip.swap.isDone {
+  background: rgba(171, 255, 2, 0.12);
+  color: var(--lime);
+}
+
+.chip.swap.isScan::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(171, 255, 2, 0.35),
+      transparent);
+  transform: translateX(-100%);
+  animation: scan 1.1s cubic-bezier(0.52, 0, 0, 1) infinite;
+}
+
+@keyframes scan {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ------------------------------------------------------------
+   Yard map
+------------------------------------------------------------ */
+
+.panelMap {
+  /* Map fills the panel */
+}
+
+.map {
+  position: absolute;
+  inset: clamp(8px, 1.2vw, 14px);
+  width: calc(100% - 2 * clamp(8px, 1.2vw, 14px));
+  height: calc(100% - 2 * clamp(8px, 1.2vw, 14px));
+  overflow: visible;
+}
+
+.map .slot {
+  fill: none;
+  stroke: rgba(241, 239, 231, 0.16);
+  stroke-width: 1;
+}
+
+.map .full {
+  fill: rgba(241, 239, 231, 0.16);
+  stroke: rgba(241, 239, 231, 0.22);
+}
+
+.map .goal {
+  stroke: var(--lime);
+  stroke-dasharray: 2 2;
+}
+
+.map .goal.isIn {
+  fill: var(--lime);
+  stroke-dasharray: none;
+}
+
+.laneLabel {
+  font: 500 7px "Geist Mono Variable", monospace;
+  fill: rgba(241, 239, 231, 0.4);
+}
+
+.mapRoute {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 3px rgba(171, 255, 2, 0.6));
+}
+
+.mapPin {
+  fill: var(--lime);
+}
+
+.mapTag rect {
+  fill: #0d3d3b;
+  stroke: rgba(171, 255, 2, 0.6);
+  stroke-width: 0.8;
+}
+
+.mapTag text {
+  font: 600 7px "Geist Mono Variable", monospace;
+  fill: var(--lime);
+  text-anchor: middle;
+}
+
+/* ------------------------------------------------------------
+   Dock schedule
+------------------------------------------------------------ */
+
+.dock {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(4px, 1.2vh, 10px);
+  padding-left: 36px;
+}
+
+.dockAxis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--mute);
+  font: 500 9px "Geist Mono Variable", monospace;
+}
+
+.dockRow {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-height: 34px;
+}
+
+.dockRow .mono {
+  position: absolute;
+  left: -36px;
+  color: var(--mute);
+  font-size: 10px;
+}
+
+.dockRow.isHot .mono {
+  color: var(--lime);
+}
+
+.dockLane {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 72%;
+  border-radius: 6px;
+  background: rgba(241, 239, 231, 0.04);
+}
+
+.dockLane i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 6px;
+  background: linear-gradient(180deg,
+      rgba(241, 239, 231, 0.2),
+      rgba(241, 239, 231, 0.12));
+  box-shadow: inset 0 0 0 1px rgba(241, 239, 231, 0.08);
+  transform-origin: 0 50%;
+}
+
+.dockLane i.hot {
+  background: linear-gradient(180deg,
+      rgba(171, 255, 2, 0.95),
+      rgba(150, 230, 0, 0.85));
+  box-shadow: 0 0 18px -2px rgba(171, 255, 2, 0.45);
+}
+
+.dockLane i b {
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  color: var(--ink);
+  font: 600 9.5px "Geist Mono Variable", monospace;
+  white-space: nowrap;
+  translate: 0 -50%;
+}
+
+.dockNow {
+  position: absolute;
+  top: 14px;
+  bottom: 0;
+  left: calc(36px + (100% - 36px) * 0.46);
+  width: 1px;
+  background: var(--lime);
+  transform-origin: 50% 0;
+}
+
+.dockNow .mono {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: var(--lime);
+  color: var(--ink);
+  font-size: 9px;
+  translate: -50% 0;
+}
+
+/* ------------------------------------------------------------
+   Trailer tracking
+------------------------------------------------------------ */
+
+.panelTrack {
+  display: flex;
+}
+
+.trl {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trlHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.trlHead p {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.trlId {
+  font-size: clamp(15px, 1.6vw, 20px);
+  letter-spacing: 0.02em;
+}
+
+.trlSub {
+  color: var(--mute);
+  font-size: 11px;
+}
+
+.trlLine {
+  position: relative;
+  height: 2px;
+  margin: 0 8px 34px;
+  border-radius: 2px;
+  background: rgba(241, 239, 231, 0.12);
+}
+
+.trlFill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--lime);
+  box-shadow: 0 0 10px rgba(171, 255, 2, 0.5);
+  transform-origin: 0 50%;
+}
+
+.trlStop {
+  position: absolute;
+  top: -5px;
+  width: 0;
+}
+
+.trlStop::before {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(241, 239, 231, 0.3);
+  content: "";
+  transition: background-color 0.3s;
+}
+
+.trlStop.isPast::before {
+  background: var(--lime);
+}
+
+.trlStop b,
+.trlStop em {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+  font-style: normal;
+  translate: -50% 0;
+}
+
+.trlStop:first-child b,
+.trlStop:first-child em {
+  translate: -8px 0;
+}
+
+.trlStop:last-child b,
+.trlStop:last-child em {
+  translate: calc(-100% + 8px) 0;
+}
+
+.trlStop b {
+  top: 18px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.trlStop em {
+  top: 33px;
+  color: var(--mute);
+  font-size: 9.5px;
+}
+
+/* ------------------------------------------------------------
+   KPIs and rolling numbers
+------------------------------------------------------------ */
+
+.kpis {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(14px, 2.4vw, 32px);
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpiN {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 420;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpiN small {
+  margin-left: 2px;
+  color: var(--mute);
+  font-size: 0.45em;
+  letter-spacing: 0;
+}
+
+.kpiL {
+  color: var(--mute);
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.roll {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.rollCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.rollCol>span {
+  height: 1em;
+  line-height: 1;
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 10px 12px 10px 14px;
+  border-radius: 9px;
+  background: var(--lime);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 8px 20px -8px rgba(171, 255, 2, 0.55);
+  color: var(--ink);
+  font-family: "Geist Mono Variable", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+------------------------------------------------------------ */
+
+@media (max-height: 560px), (max-width: 640px) {
+
+  .eDesc,
+  .kpi2,
+  .go {
+    display: none;
+  }
+
+  .arrivals li:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardSurface {
+    border-radius: 12px;
+  }
+
+  .arrivals li {
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    padding-left: 6px;
+    font-size: 11px;
+  }
+
+  .arrivals .car,
+  .arrivals .t {
+    display: none;
+  }
+
+  .arrivals .mono {
+    font-size: 10px;
+  }
+
+  .chip {
+    padding: 2px 6px;
+    font-size: 9.5px;
+  }
+
+  .dock {
+    padding-left: 28px;
+  }
+
+  .dockRow .mono {
+    left: -28px;
+    font-size: 9px;
+  }
+
+  .dockNow {
+    left: calc(28px + (100% - 28px) * 0.46);
+  }
+
+  .dockLane i b {
+    left: 4px;
+    font-size: 8px;
+  }
+
+  .dockLane i b span {
+    display: none;
+  }
+
+  .dockRow:nth-child(5) {
+    display: none;
+  }
+
+  .trlStop b {
+    font-size: 10px;
+  }
+
+  .trlStop em {
+    font-size: 8.5px;
+  }
+
+  .yosNav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .card,
+  .cardSurface {
+    transition: none;
+  }
+
+  .chip.swap.isScan::after {
+    animation: none;
+    opacity: 0;
+  }
+}

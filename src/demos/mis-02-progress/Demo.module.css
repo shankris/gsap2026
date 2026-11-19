@@ -1,0 +1,371 @@
+/* src/demos/mis-02-progress/Demo.module.css */
+
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(html) {
+  touch-action: manipulation;
+}
+
+:global(html),
+:global(body) {
+  margin: 0;
+  overflow-x: clip;
+}
+
+.stage {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: 32px 16px;
+
+  background: #ffffff;
+  color: #141414;
+
+  font-family: "Newsreader Variable", "Newsreader", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------
+   Reader
+---------------------------------------------------------------- */
+
+.reader {
+  --page: #ffffff;
+  --ink: #141414;
+  --soft: #8a857c;
+  --hair: rgba(20, 20, 20, 0.12);
+  --track: #e6e2da;
+  --accent: #2c3fd6;
+
+  position: relative;
+  width: min(600px, 100%);
+  height: 470px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--page);
+  color: var(--ink);
+
+  box-shadow:
+    0 0 0 1px var(--hair),
+    0 24px 50px -30px rgba(20, 20, 20, 0.3);
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------------------------------------------------------------
+   Article
+---------------------------------------------------------------- */
+
+.text {
+  position: absolute;
+  inset: 0 0 64px 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 38px 44px 56px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--track) transparent;
+
+  outline: none;
+  z-index: 0;
+}
+
+.text>* {
+  max-width: 430px;
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--soft);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 420;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz"72;
+}
+
+.lede {
+  margin: 0 0 30px;
+  font-size: 19px;
+  line-height: 1.38;
+  font-style: italic;
+  font-weight: 360;
+}
+
+.text h2 {
+  margin: 34px 0 12px;
+  font-size: 23px;
+  line-height: 1.1;
+  font-weight: 520;
+  font-variation-settings: "opsz"36;
+  scroll-margin-top: 24px;
+}
+
+.text p {
+  margin: 0 0 14px;
+  font-size: 16.5px;
+  line-height: 1.55;
+  font-weight: 380;
+  font-variation-settings: "opsz"16;
+}
+
+.text p.kicker {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.text p.lede {
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------------------
+   Overlay
+---------------------------------------------------------------- */
+
+.veil {
+  position: absolute;
+  inset: 0 0 64px 0;
+  background: rgba(255, 255, 255, 0.78);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------------
+   Bottom progress bar
+---------------------------------------------------------------- */
+
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  height: 64px;
+  margin: 0;
+  padding: 0 14px 0 22px;
+
+  border: 0;
+  border-top: 1px solid var(--hair);
+
+  background: var(--page);
+  color: var(--ink);
+
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.barWords {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Chapter name */
+
+.barNowBox {
+  position: relative;
+  display: block;
+  height: 24px;
+  overflow: hidden;
+  flex: none;
+}
+
+.barNow {
+  display: block;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: italic;
+  font-weight: 440;
+  white-space: nowrap;
+}
+
+/* Reading time */
+
+.barLeft {
+  color: var(--soft);
+  font-size: 13.5px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small dial */
+
+.barDial {
+  flex: none;
+  width: 48px;
+  height: 48px;
+}
+
+.bar:focus-visible .barNow {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.bar:focus-visible .barDial {
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px var(--ink);
+}
+
+/* ---------------------------------------------------------------
+   SVG dial
+---------------------------------------------------------------- */
+
+.dial {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.dialFace {
+  fill: var(--page);
+}
+
+
+.dialTracks,
+.dialReads,
+.dialHand {
+  pointer-events: none;
+}
+
+
+.dial path {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.dialTrack {
+  stroke: var(--track);
+}
+
+.dialRead {
+  stroke: var(--ink);
+}
+
+.isNow {
+  stroke: var(--accent);
+}
+
+.dialNames text {
+  fill: var(--ink);
+  font-size: 14.5px;
+  font-style: italic;
+  font-weight: 470;
+  letter-spacing: 0.01em;
+}
+
+.dialNames text.isNow {
+  fill: var(--accent);
+}
+
+.dialNeedle {
+  stroke: var(--accent);
+  stroke-linecap: round;
+}
+
+.dialPin {
+  fill: var(--page);
+  stroke: var(--accent);
+}
+
+.dialNow {
+  fill: var(--ink);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 440;
+}
+
+.dialLeft {
+  fill: var(--soft);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------
+   Chapter navigation
+---------------------------------------------------------------- */
+
+.chapters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.chapter {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 84px;
+  height: 28px;
+  margin: -14px 0 0 -42px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 15px;
+
+  background: transparent;
+  color: transparent;
+
+  font: inherit;
+  font-size: 1px;
+
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chapter:focus-visible {
+  box-shadow: 0 0 0 1.5px var(--ink);
+}
+
+/* ---------------------------------------------------------------
+   Draggable dial area
+---------------------------------------------------------------- */
+
+.grip {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+  visibility: hidden;
+
+  z-index: 4;
+}
+
+.grip.isHeld {
+  cursor: grabbing;
+}

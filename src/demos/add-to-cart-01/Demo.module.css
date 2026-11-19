@@ -1,0 +1,201 @@
+/* src/demos/add-to-cart-01/Demo.module.css */
+
+.stage {
+  --page: #000000;
+  --pill: #f5f2ec;
+  --ink: #101010;
+  --soft: #e4dfd6;
+  --bin: #d8402f;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+  overflow-x: clip;
+
+  background: var(--page);
+  color: var(--pill);
+  font-family: "Outfit Variable", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cart {
+  position: relative;
+}
+
+/* Cart pill */
+
+.cartPill {
+  position: relative;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--ink);
+  box-shadow: 0 18px 40px -22px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+.cart button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+.cart button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -5px;
+}
+
+/* Add button */
+
+.cartAdd {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: max-content;
+  height: 100%;
+  padding: 0 36px 0 30px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 620;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.cartAdd:focus-visible {
+  outline-offset: -6px;
+}
+
+.cartBag {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+/* Quantity controls */
+
+.cartStepper {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: max-content;
+  height: 100%;
+  padding: 0 10px;
+  visibility: hidden;
+}
+
+.cartMinus,
+.cartPlus {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.cartMinus {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.cartPlus {
+  background: var(--ink);
+  color: var(--pill);
+}
+
+.cartPlus[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.cartMinus svg,
+.cartPlus svg {
+  width: 20px;
+  height: 20px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Minus and trash icons */
+
+.cartBin {
+  stroke: var(--bin);
+  stroke-width: 1.9;
+  opacity: 0;
+}
+
+/* Quantity number */
+
+.cartCount {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 36px;
+  font-size: 22px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.slot {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 4px 0;
+  margin: -4px 0;
+}
+
+.slot>span {
+  display: inline-block;
+}
+
+.slot>span+span {
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+/* Floating +1 indicator */
+
+.cartPop {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pill);
+  opacity: 0;
+  pointer-events: none;
+  translate: -50% 0;
+}
+
+/* Screen-reader status */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

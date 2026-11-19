@@ -4,6 +4,8 @@ import Accordion02 from "./accordion-02/Demo";
 import Accordion03 from "./accordion-03/Demo";
 import Accordion04 from "./accordion-04/Demo";
 import Accordion05 from "./accordion-05/Demo";
+import Accordion06 from "./accordion-06/Demo";
+import AddToCart01 from "./add-to-cart-01/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
 import Background02 from "./background-02/Demo";
@@ -12,6 +14,7 @@ import Button02 from "./button-02/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import CardStack03 from "./card-stack-03/Demo";
+import CardStack04 from "./card-stack-04/Demo";
 import Cards01 from "./cards-01/Demo";
 import Cards02 from "./cards-02/Demo";
 import Cards03 from "./cards-03/Demo";
@@ -47,6 +50,7 @@ import Menu01 from "./menu-01/Demo";
 import Menu02 from "./menu-02/Demo";
 import Mis01PixelTransition from "./mis-01-pixel-transition/Demo";
 import Mis01Radar from "./mis-01-radar/Demo";
+import Mis02Progress from "./mis-02-progress/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
@@ -78,6 +82,8 @@ const demos = {
   "accordion-03": Accordion03,
   "accordion-04": Accordion04,
   "accordion-05": Accordion05,
+  "accordion-06": Accordion06,
+  "add-to-cart-01": AddToCart01,
   atsu: Atsu,
   "background-01": Background01,
   "background-02": Background02,
@@ -86,6 +92,7 @@ const demos = {
   "card-stack-01": CardStack01,
   "card-stack-02": CardStack02,
   "card-stack-03": CardStack03,
+  "card-stack-04": CardStack04,
   "cards-01": Cards01,
   "cards-02": Cards02,
   "cards-03": Cards03,
@@ -145,6 +152,7 @@ const demos = {
   "table-01": Table01,
   "welcome-loader": WelcomeLoader,
   "widget-01": Widget01,
+  "mis-02-progress": Mis02Progress,
 };
 
 export default demos;

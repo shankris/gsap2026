@@ -1,0 +1,191 @@
+/* src/demos/card-stack-04/Demo.module.css */
+
+.demo {
+  --fondo: #07201f;
+  --inchiostro: #07201f;
+  --carta-chiara: #f6f7f3;
+  --alto: 12vh;
+  --scalino: 16px;
+
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--carta-chiara);
+  font-family: "Mona Sans Variable", system-ui, sans-serif;
+}
+
+.demo *,
+.demo *::before,
+.demo *::after {
+  box-sizing: border-box;
+}
+
+.pila {
+  padding: 0 clamp(14px, 4vw, 56px);
+}
+
+.pila__carte {
+  display: flex;
+  flex-direction: column;
+  gap: 8vh;
+}
+
+.ancora {
+  display: block;
+  height: 0;
+}
+
+.carta {
+  position: sticky;
+  top: calc(var(--alto) + var(--i, 0) * var(--scalino));
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: center;
+  gap: clamp(16px, 3vw, 48px);
+  height: min(72vh, 620px);
+  padding: clamp(22px, 4vw, 60px);
+  border-radius: 28px;
+  color: var(--inchiostro);
+  transform-origin: 50% 0%;
+  overflow: clip;
+  will-change: transform;
+}
+
+.c1 {
+  background: #ff8a3d;
+  --i: 0;
+}
+
+.c2 {
+  background: #86cfc4;
+  --i: 1;
+}
+
+.c3 {
+  background: var(--carta-chiara);
+  --i: 2;
+}
+
+.c4 {
+  background: #146662;
+  color: var(--carta-chiara);
+  --i: 3;
+}
+
+.carta__titolo {
+  margin: 0 0 16px;
+  font-size: clamp(38px, 6.4vw, 104px);
+  font-weight: 860;
+  font-stretch: 90%;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.carta__testo p {
+  max-width: 34ch;
+  margin: 0 0 20px;
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.4;
+}
+
+.etichette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etichette li {
+  padding: 5px 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.disegno {
+  width: 100%;
+  max-height: 100%;
+  overflow: visible;
+}
+
+.tratto {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.compare {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.riempi {
+  fill: #ff8a3d;
+  fill-opacity: 1;
+}
+
+.carta__velo {
+  position: absolute;
+  inset: 0;
+  background: #041b1a;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pila__coda {
+  height: 30vh;
+}
+
+@media (max-width: 760px) {
+  .demo {
+    --alto: 9vh;
+    --scalino: 10px;
+  }
+
+  .carta {
+    grid-template-columns: 1fr;
+    align-content: start;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: min(520px,
+        calc(100vh - var(--alto) - 3 * var(--scalino) - 16px));
+    min-height: 0;
+  }
+
+  .disegno {
+    height: 100%;
+    min-height: 0;
+    max-height: 190px;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 600px) {
+  .carta {
+    padding: 18px 20px;
+    gap: 10px;
+    border-radius: 22px;
+  }
+
+  .carta__titolo {
+    margin-bottom: 10px;
+    font-size: 32px;
+  }
+
+  .carta__testo p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .etichette {
+    gap: 6px;
+  }
+
+  .etichette li {
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+}
