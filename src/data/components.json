@@ -840,5 +840,30 @@
     "date": "2026-11-19",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-078",
+    "slug": "graph-02",
+    "name": "Segmented Control",
+    "category": "Graph",
+    "description": "An animated analytics dashboard featuring a segmented time-period selector, rolling visitor statistics, and an interactive chart.",
+    "tech": "GSAP",
+    "status": "ready",
+    "star": 3,
+    "date": "2026-11-19",
+    "lines": 0,
+    "zip": ""
+  },
+  {
+    "id": "GSAP-079",
+    "slug": "menu-03",
+    "name": "Clikd Navigation",
+    "description": "A full-screen navigation menu with an elastic SVG reveal, staggered contact details, and character-based link animations.",
+    "star": false,
+    "category": "Menu",
+    "status": "ready",
+    "date": "2026-11-19",
+    "lines": 0,
+    "zip": ""
   }
 ]

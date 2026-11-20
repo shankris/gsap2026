@@ -1,0 +1,241 @@
+/* src/demos/menu-03/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
+
+.stage {
+  --base-100: #f0eeee;
+  --base-200: #a374ff;
+  --base-300: #222225;
+
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  font-family: "Google Sans Flex", sans-serif;
+}
+
+.stage,
+.stage * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.35;
+}
+
+.stage h3,
+.stage h6 {
+  font-family: "Google Sans Flex", sans-serif;
+  font-weight: 450;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.stage h3 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+.stage h6 {
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+}
+
+.stage p {
+  text-transform: uppercase;
+  font-family: "Google Sans Flex", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25rem;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0.6' y2='1'%3E%3Cstop offset='0' stop-color='%238b7bb8'/%3E%3Cstop offset='0.5' stop-color='%23584a7d'/%3E%3Cstop offset='1' stop-color='%231b1b21'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23g)'/%3E%3C/svg%3E") no-repeat 50% 50%;
+  background-size: cover;
+}
+
+/* Navigation */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.navLogo,
+.menuLogo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 6rem;
+}
+
+.navLogo,
+.navToggle {
+  padding: 0.5rem;
+  pointer-events: all;
+}
+
+.navToggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: var(--base-100);
+  cursor: pointer;
+  z-index: 100;
+  border: 0;
+  background: transparent;
+  font: inherit;
+}
+
+.navToggleMenu {
+  color: var(--base-100);
+}
+
+.navToggleMenu,
+.navToggleClose {
+  transition: opacity 0.25s ease;
+}
+
+.navToggleClose {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #222225 !important;
+  opacity: 0;
+}
+
+.labelVisible {
+  opacity: 1;
+}
+
+.labelHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Menu curtain */
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  padding: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  color: var(--base-300);
+  pointer-events: none;
+  z-index: 10;
+
+  /* Keep the curtain and content in a controlled stacking context */
+  isolation: isolate;
+}
+
+.isOpen {
+  pointer-events: all;
+}
+
+.menuBgSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menuLogo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 6rem;
+  padding: 0.5rem;
+  opacity: 0;
+  z-index: 1;
+}
+
+.menuCol {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.menuCol a {
+  text-decoration: none;
+  color: var(--base-300);
+  font-family: "Boldonse", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.35;
+  display: block;
+  width: max-content;
+  overflow: visible;
+}
+
+.menuCol p {
+  color: var(--base-200);
+  margin-bottom: 1rem;
+}
+
+.menu a :global(.char),
+.menuCol h3,
+.menuCol h6,
+.menuCol p {
+  will-change: transform, opacity;
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    flex-direction: column-reverse;
+  }
+
+  .menuColLinks {
+    flex: 1.5;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .navLogo,
+  .menuLogo {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .navToggle {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .menuCol a {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .stage h3 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+}

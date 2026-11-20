@@ -1,0 +1,346 @@
+/* src/demos/graph-02/Demo.module.css */
+
+.stage {
+  --background: #fafafa;
+  --card: #ffffff;
+  --control-bg: #f0f0f2;
+  --border: rgba(10, 10, 20, 0.07);
+  --text: #0b0b0f;
+  --text-secondary: #71717a;
+  --text-muted: #a1a1aa;
+  --accent: #4f46e5;
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --bar-color: #e4e4e9;
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 4vmin, 40px);
+  background: var(--background);
+  color: var(--text);
+  font-family: "Mona Sans Variable", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.stage *,
+.stage *::before,
+.stage *::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------
+   Analytics card
+---------------------------------------------------------------- */
+
+.card {
+  width: min(420px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding:
+    clamp(14px, 3.6vh, 22px) clamp(14px, 4vw, 22px) clamp(12px, 3vh, 18px);
+  box-shadow:
+    0 1px 2px rgba(10, 10, 20, 0.04),
+    0 18px 40px -18px rgba(10, 10, 20, 0.16);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2.6vh, 18px);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 640;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.brandMark {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cardSite {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------
+   Segmented control
+---------------------------------------------------------------- */
+
+.seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--control-bg);
+  border-radius: 12px;
+  padding: 3px;
+  box-shadow: inset 0 1px 1px rgba(10, 10, 20, 0.04);
+  touch-action: manipulation;
+}
+
+.segPill,
+.segHover {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: 10px;
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.segHover {
+  background: rgba(255, 255, 255, 0.55);
+  opacity: 0;
+}
+
+.segPill {
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(10, 10, 20, 0.08),
+    0 3px 10px -2px rgba(10, 10, 20, 0.12),
+    0 0 0 0.5px rgba(10, 10, 20, 0.05);
+  overflow: hidden;
+}
+
+.segShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(10, 10, 20, 0.025));
+}
+
+.segOpt {
+  --weight: 500;
+
+  position: relative;
+  z-index: 1;
+  appearance: none;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: clamp(12.5px, 3.4vw, 13.5px);
+  font-variation-settings: "wght"var(--weight);
+  color: var(--text-secondary);
+  height: clamp(30px, 8vh, 34px);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.segOpt[aria-checked="true"] {
+  color: var(--text);
+}
+
+@media (hover: hover) {
+  .segOpt:hover {
+    color: var(--text);
+  }
+}
+
+.segOpt:focus {
+  outline: none;
+}
+
+.segOpt:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ---------------------------------------------------------------
+   Visitor statistics
+---------------------------------------------------------------- */
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statNum {
+  display: flex;
+  font-size: clamp(32px, 9vh, 44px);
+  font-weight: 640;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
+  font-variant-numeric: tabular-nums;
+  height: 1.16em;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg,
+      transparent,
+      #000 9%,
+      #000 91%,
+      transparent);
+  mask-image: linear-gradient(180deg,
+      transparent,
+      #000 9%,
+      #000 91%,
+      transparent);
+}
+
+.slot {
+  position: relative;
+  display: inline-block;
+  height: 1.16em;
+  overflow: hidden;
+}
+
+.slotColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.slotColumn span {
+  height: 1.16em;
+  line-height: 1.16;
+  display: block;
+}
+
+.sep {
+  display: inline-block;
+  line-height: 1.16;
+}
+
+/* Percentage badge */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 7px 3px 5px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.badgeArrow {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.statNote {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------
+   Chart
+---------------------------------------------------------------- */
+
+.chart {
+  position: relative;
+  height: clamp(54px, 17vh, 96px);
+}
+
+.chartGrid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chartGrid span {
+  height: 1px;
+  background: repeating-linear-gradient(90deg,
+      var(--border) 0 3px,
+      transparent 3px 6px);
+}
+
+.chartBars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(3px, 1.2vw, 6px);
+}
+
+.bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.barFill {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px 4px 2px 2px;
+  background: var(--bar-color);
+  transform-origin: 50% 100%;
+  transition: background-color 0.2s;
+}
+
+.isNow .barFill {
+  background: var(--accent);
+}
+
+@media (hover: hover) {
+  .bar:hover .barFill {
+    background: #c9c9d2;
+  }
+
+  .isNow:hover .barFill {
+    background: var(--accent);
+  }
+}
+
+.chartAxis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-top: calc(clamp(10px, 2.6vh, 18px) * -0.6);
+}
+
+/* ---------------------------------------------------------------
+   Reduced motion
+---------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stage *,
+  .stage *::before,
+  .stage *::after {
+    scroll-behavior: auto !important;
+  }
+}

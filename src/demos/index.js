@@ -38,6 +38,7 @@ import FlipAccordion01 from "./flip-accordion-01/Demo";
 import Flyout01 from "./flyout-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
 import Graph01 from "./graph-01/Demo";
+import Graph02 from "./graph-02/Demo";
 import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
 import IosDock01 from "./ios-dock-01/Demo";
@@ -48,6 +49,7 @@ import Landing04 from "./landing-04/Demo";
 import MacosDock01 from "./macos-dock-01/Demo";
 import Menu01 from "./menu-01/Demo";
 import Menu02 from "./menu-02/Demo";
+import Menu03 from "./menu-03/Demo";
 import Mis01PixelTransition from "./mis-01-pixel-transition/Demo";
 import Mis01Radar from "./mis-01-radar/Demo";
 import Mis02Progress from "./mis-02-progress/Demo";
@@ -116,6 +118,7 @@ const demos = {
   "flyout-01": Flyout01,
   "gallery-01": Gallery01,
   "graph-01": Graph01,
+  "graph-02": Graph02,
   "hover-01": Hover01,
   "icon-01": Icon01,
   "ios-dock-01": IosDock01,
@@ -126,6 +129,7 @@ const demos = {
   "macos-dock-01": MacosDock01,
   "menu-01": Menu01,
   "menu-02": Menu02,
+  "menu-03": Menu03,
   "mis-01-pixel-transition": Mis01PixelTransition,
   "mis-01-radar": Mis01Radar,
   "nav-01": Nav01,
