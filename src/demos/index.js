@@ -11,6 +11,7 @@ import Background01 from "./background-01/Demo";
 import Background02 from "./background-02/Demo";
 import Button01 from "./button-01/Demo";
 import Button02 from "./button-02/Demo";
+import Calendar01 from "./calendar-01/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import CardStack03 from "./card-stack-03/Demo";
@@ -53,6 +54,8 @@ import Menu03 from "./menu-03/Demo";
 import Mis01PixelTransition from "./mis-01-pixel-transition/Demo";
 import Mis01Radar from "./mis-01-radar/Demo";
 import Mis02Progress from "./mis-02-progress/Demo";
+import Mis03Sign from "./mis-03-sign/Demo";
+import Mis04Heart from "./mis-04-heart/Demo";
 import Nav01 from "./nav-01/Demo";
 import Nav02 from "./nav-02/Demo";
 import Nav03 from "./nav-03/Demo";
@@ -159,6 +162,9 @@ const demos = {
   "widget-01": Widget01,
   "mis-02-progress": Mis02Progress,
   "text-01-scramble": Text01Scramble,
+  "mis-03-sign": Mis03Sign,
+  "mis-04-heart": Mis04Heart,
+  "calendar-01": Calendar01,
 };
 
 export default demos;

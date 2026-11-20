@@ -1,0 +1,866 @@
+[
+  {
+    "date": "2026-11-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2026-11-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2026-11-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2026-11-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2026-12-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2026-12-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2026-12-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2026-12-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-01-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-01-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-01-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-01-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-02-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-02-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-02-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-02-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-03-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-03-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-03-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-03-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-04-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-04-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-04-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-04-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-05-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-05-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-05-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-05-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-06-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-06-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-06-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-06-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-07-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-07-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-07-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-07-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-08-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-08-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-08-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-08-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-09-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-09-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-09-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-09-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-10-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-10-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-10-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-10-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-11-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-11-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-11-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-11-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2027-12-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2027-12-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2027-12-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2027-12-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-01-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-01-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-01-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-01-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-02-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-02-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-02-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-02-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-03-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-03-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-03-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-03-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-04-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-04-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-04-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-04-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-05-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-05-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-05-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-05-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-06-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-06-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-06-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-06-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-07-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-07-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-07-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-07-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-08-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-08-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-08-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-08-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-09-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-09-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-09-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-09-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-10-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-10-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-10-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-10-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-11-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-11-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-11-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-11-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2028-12-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2028-12-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2028-12-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2028-12-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-01-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-01-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-01-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-01-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-02-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-02-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-02-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-02-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-03-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-03-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-03-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-03-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-04-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-04-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-04-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-04-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-05-05",
+    "eventName": "Quarterly Financial Results Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-05-12",
+    "eventName": "Audit Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-05-19",
+    "eventName": "Business Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-05-26",
+    "eventName": "Enterprise Risk Committee Meeting",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-06-05",
+    "eventName": "Annual Budget Approval",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-06-12",
+    "eventName": "Executive Committee Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-06-19",
+    "eventName": "Market Outlook and Growth Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-06-26",
+    "eventName": "Compliance Status Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-07-05",
+    "eventName": "Financial Performance Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-07-12",
+    "eventName": "Annual General Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-07-19",
+    "eventName": "Half-Year Performance Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-07-26",
+    "eventName": "Policy and Controls Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-08-05",
+    "eventName": "Investor Relations Briefing",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-08-12",
+    "eventName": "Nomination and Remuneration Committee Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-08-19",
+    "eventName": "Annual Business Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-08-26",
+    "eventName": "Internal Audit Review",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-09-05",
+    "eventName": "Quarterly Earnings Presentation",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-09-12",
+    "eventName": "Corporate Governance Review",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-09-19",
+    "eventName": "Strategic Planning Review",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-09-26",
+    "eventName": "Corporate Risk Assessment",
+    "calendar": "Compliance",
+    "color": "green"
+  },
+  {
+    "date": "2029-10-05",
+    "eventName": "Capital Allocation Review",
+    "calendar": "Financial",
+    "color": "orange"
+  },
+  {
+    "date": "2029-10-12",
+    "eventName": "Board of Directors Meeting",
+    "calendar": "Governance",
+    "color": "yellow"
+  },
+  {
+    "date": "2029-10-19",
+    "eventName": "Executive Leadership Meeting",
+    "calendar": "Strategy",
+    "color": "blue"
+  },
+  {
+    "date": "2029-10-26",
+    "eventName": "Regulatory Compliance Review",
+    "calendar": "Compliance",
+    "color": "green"
+  }
+]

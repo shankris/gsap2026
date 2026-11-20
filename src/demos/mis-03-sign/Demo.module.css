@@ -1,0 +1,156 @@
+/* src/demos/mis-03-sign/Demo.module.css */
+
+.stage {
+  width: 100%;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  perspective: 3200px;
+  perspective-origin: 50% 50%;
+  background: #f5f5f5;
+}
+
+.followers {
+  position: relative;
+  top: 0;
+  font-family: "Work Sans", sans-serif;
+  font-size: clamp(5rem, 12vw, 12rem);
+  transform: rotateX(-15deg) rotateY(30deg) scale(0.65);
+  transform-style: preserve-3d;
+  animation:
+    float 4.1s cubic-bezier(0.3, 0, 0.7, 1) infinite,
+    tilt 5s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+}
+
+.pin {
+  color: #ea7676;
+  background: currentColor;
+  padding: 0.4em 0.5em;
+  border-radius: 0.4em;
+  box-shadow: 0 0 5px 0 currentColor;
+  transform: translateX(-15%);
+  transform-style: preserve-3d;
+}
+
+.front {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: relative;
+  height: 1em;
+  aspect-ratio: 1;
+  margin-right: 0.25em;
+  transform-style: preserve-3d;
+}
+
+.icon>* {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.icon .bottom {
+  color: #ccd1d9;
+}
+
+.icon .top {
+  position: absolute;
+  top: 0;
+  color: white;
+  transform: translateZ(0.03em);
+  filter: drop-shadow(0 0 0.008em currentColor);
+}
+
+.icon .head {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: currentColor;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 100%;
+}
+
+.icon .body {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 100%;
+  height: 80%;
+  border-radius: 100%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.number {
+  position: relative;
+  color: #ccd1d9;
+  user-select: none;
+  transform-style: preserve-3d;
+}
+
+.number .bottom {
+  text-shadow:
+    0.025em 0.025em 0.05em #00000018,
+    0.05em 0.05em 0.125em #0000000c;
+}
+
+.number .top {
+  position: absolute;
+  top: 0;
+  color: white;
+  transform: translateZ(0.03em);
+  text-shadow: 0 0 0.015em currentColor;
+}
+
+.front::before {
+  content: "";
+  position: absolute;
+  top: 99%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.5em solid transparent;
+  border-top-color: currentColor;
+  transform: translateX(-50%);
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -0.1em;
+  bottom: -0.05em;
+  color: #f39e9e;
+  transform: translateX(-15%) translateZ(-0.3em);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: -0.1em;
+  }
+}
+
+@keyframes tilt {
+
+  0%,
+  100% {
+    transform: rotateX(-15deg) rotateY(25deg) scale(0.65);
+  }
+
+  50% {
+    transform: rotateX(-15deg) rotateY(30deg) scale(0.65);
+  }
+}

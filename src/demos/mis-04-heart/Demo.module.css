@@ -1,0 +1,247 @@
+/* src/demos/mis-04-heart/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+/* Main layout */
+
+.stage {
+  min-height: 100vh;
+  width: 100%;
+  padding: 3rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, #121721 0%, #000 100%);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Original large heart */
+
+.original {
+  width: 100%;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+}
+
+.originalHeart {
+  appearance: none;
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: url("/demos/mis-04-heart/heart.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.originalHeart.isActive {
+  animation: heartFill 1s steps(28) forwards;
+}
+
+/* Content card */
+
+.cardSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  color: #20232a;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+.cardImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.cardCategory {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #888;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.cardContent h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.4rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.cardContent p {
+  margin: 0;
+  color: #686b72;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Card footer */
+
+.cardFooter {
+  margin-top: .5rem;
+  padding: 6px 0 0 0;
+  border-top: 1px solid #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 30px;
+}
+
+.cardDate {
+  color: #92949a;
+  font-size: 0.75rem;
+}
+
+/* Like button and counter */
+
+.likeButton {
+  display: inline-flex;
+  align-items: center;
+  /* gap: 0.5rem; */
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  height: 30px;
+  padding: 0 8px 0 0;
+}
+
+/* Small heart — 64 × 64 */
+
+.smallHeart {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 64px;
+  flex: 0 0 64px;
+}
+
+.smallHeart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  transform: scale(0.64);
+  transform-origin: top left;
+  background-image: url("/demos/mis-04-heart/heart.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.smallHeart.isActive::before {
+  animation: smallHeartFill 1s steps(28) forwards;
+}
+
+/* Counter number */
+
+.countWindow {
+  display: inline-flex;
+  height: 1.4rem;
+  min-width: 1rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.countWindow span {
+  display: block;
+}
+
+/* Remove button focus and tap effects */
+
+.originalHeart:focus,
+.originalHeart:focus-visible,
+.originalHeart:active,
+.likeButton:focus,
+.likeButton:focus-visible,
+.likeButton:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Sprite animations */
+
+@keyframes heartFill {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -2800px 0;
+  }
+}
+
+@keyframes smallHeartFill {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -2800px 0;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .stage {
+    padding: 2rem 1rem 3rem;
+    gap: 1rem;
+  }
+
+  .original {
+    min-height: 150px;
+  }
+
+  .cardContent {
+    padding: 0 18px;
+  }
+
+  .cardContent h2 {
+    font-size: 1.2rem;
+  }
+}
