@@ -865,5 +865,17 @@
     "date": "2026-11-19",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-080",
+    "slug": "text-01-scramble",
+    "name": "Text Scramble",
+    "description": "A text scrambling animation using GSAP ScrambleTextPlugin.",
+    "star": false,
+    "category": "Text",
+    "status": "ready",
+    "date": "2026-11-20",
+    "lines": 0,
+    "zip": ""
   }
 ]

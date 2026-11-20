@@ -75,6 +75,7 @@ import SliderNocturne from "./slider-nocturne/Demo";
 import SplitScreen01 from "./split-screen-01/Demo";
 import Sort01 from "./sort-01/Demo";
 import Table01 from "./table-01/Demo";
+import Text01Scramble from "./text-01-scramble/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
 import Widget01 from "./widget-01/Demo";
 
@@ -157,6 +158,7 @@ const demos = {
   "welcome-loader": WelcomeLoader,
   "widget-01": Widget01,
   "mis-02-progress": Mis02Progress,
+  "text-01-scramble": Text01Scramble,
 };
 
 export default demos;

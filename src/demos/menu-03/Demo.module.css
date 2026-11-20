@@ -1,6 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
 /* src/demos/menu-03/Demo.module.css */
 
-@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
+
+.menuColLinks a {
+  opacity: 0;
+}
+
+.menuColInfo p,
+.menuColInfo h3,
+.menuColInfo h6 {
+  opacity: 0;
+}
 
 .stage {
   --base-100: #f0eeee;
@@ -100,6 +110,12 @@
   border: 0;
   background: transparent;
   font: inherit;
+
+  font-family: "Google Sans Flex", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .navToggleMenu {

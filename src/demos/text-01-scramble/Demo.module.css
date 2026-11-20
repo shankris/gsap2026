@@ -1,0 +1,40 @@
+/* src/demos/text-01-scramble/Demo.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap");
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: url("https://raw.githubusercontent.com/dpteckark/images/refs/heads/main/banner.jpg") center center / cover no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0 6.25rem;
+  color: #fff;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 4vw, 6.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .title {
+    margin: 0 1.5rem;
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
