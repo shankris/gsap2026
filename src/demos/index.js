@@ -82,6 +82,7 @@ import Table01 from "./table-01/Demo";
 import Text01Scramble from "./text-01-scramble/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
 import Widget01 from "./widget-01/Demo";
+import Widget02 from "./widget-02/Demo";
 
 const demos = {
   "accordion-01": Accordion01,
@@ -167,6 +168,7 @@ const demos = {
   "mis-04-heart": Mis04Heart,
   "calendar-01": Calendar01,
   "calendar-02": Calendar02,
+  "widget-02": Widget02,
 };
 
 export default demos;

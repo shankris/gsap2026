@@ -907,7 +907,7 @@
     "slug": "calendar-01",
     "name": "Corporate Calendar",
     "description": "An animated monthly calendar featuring corporate events, category indicators, month navigation, and a selected-day event panel.",
-    "star": false,
+    "star": 2,
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-20",
@@ -919,11 +919,21 @@
     "slug": "calendar-02",
     "name": "Monthly Calendar",
     "description": "A minimalist monthly calendar showing the current month with previous and next month navigation.",
-    "star": false,
+    "star": 2,
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-21",
     "lines": 0,
     "zip": ""
+  },
+  {
+    "id": "GSAP-085",
+    "slug": "widget-02",
+    "name": "Pinned Notes",
+    "description": "An animated notes card with draggable pinned notes, recent notes, and an interactive note reader.",
+    "tech": "GSAP",
+    "category": "Widget",
+    "status": "ready",
+    "date": "2026-11-21"
   }
 ]
