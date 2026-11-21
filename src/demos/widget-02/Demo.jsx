@@ -127,9 +127,14 @@ export default function Demo() {
   const backButtonRef = useRef(null);
   const closeTimelineRef = useRef(null);
   const [selectedNote, setSelectedNote] = useState(null);
-
+  const [showNewNote, setShowNewNote] = useState(false);
   const statusRef = useRef(null);
   const [showOrderSaved, setShowOrderSaved] = useState(false);
+
+  const newButtonRef = useRef(null);
+  const newNoteRef = useRef(null);
+  const newNoteContentRef = useRef(null);
+  const newNoteTimelineRef = useRef(null);
 
   const [orderedPinnedNotes, setOrderedPinnedNotes] = useState(pinnedNotes);
 
@@ -153,6 +158,168 @@ export default function Demo() {
       height: rowRect.height,
     };
   };
+
+  const closeNewNote = () => {
+    const layer = newNoteRef.current;
+    const button = newButtonRef.current;
+    const card = notesCardRef.current;
+
+    if (!layer || !button || !card) {
+      setShowNewNote(false);
+      return;
+    }
+
+    const buttonRect = button.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    const content = newNoteContentRef.current;
+
+    newNoteTimelineRef.current?.kill();
+
+    const timeline = gsap.timeline({
+      onComplete: () => {
+        newNoteTimelineRef.current = null;
+        setShowNewNote(false);
+      },
+    });
+
+    newNoteTimelineRef.current = timeline;
+
+    timeline
+      .to(content, {
+        opacity: 0,
+        y: -6,
+        duration: 0.15,
+        ease: "power1.in",
+      })
+      .to(
+        layer,
+        {
+          left: buttonRect.left - cardRect.left - card.clientLeft,
+          top: buttonRect.top - cardRect.top - card.clientTop,
+          width: buttonRect.width,
+          height: buttonRect.height,
+          borderRadius: 9,
+          duration: 0.5,
+          ease: "expo.inOut",
+        },
+        "-=0.05",
+      );
+  };
+
+  useLayoutEffect(() => {
+    if (!showNewNote) return;
+
+    const layer = newNoteRef.current;
+    const button = newButtonRef.current;
+    const card = notesCardRef.current;
+    const content = newNoteContentRef.current;
+
+    if (!layer || !button || !card || !content) return;
+
+    const buttonRect = button.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    gsap.set(layer, {
+      left: buttonRect.left - cardRect.left - card.clientLeft,
+      top: buttonRect.top - cardRect.top - card.clientTop,
+      width: buttonRect.width,
+      height: buttonRect.height,
+      borderRadius: 9,
+      overflow: "hidden",
+    });
+
+    gsap.set(content, {
+      opacity: 0,
+      y: 10,
+    });
+
+    const timeline = gsap.timeline({
+      onComplete: () => {
+        gsap.set(layer, { clearProps: "overflow" });
+      },
+    });
+
+    newNoteTimelineRef.current = timeline;
+
+    timeline
+      .to(layer, {
+        left: 0,
+        top: 0,
+        width: card.clientWidth,
+        height: card.clientHeight,
+        borderRadius: 22,
+        duration: 0.6,
+        ease: "expo.inOut",
+      })
+      .to(
+        content,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "power3.out",
+        },
+        "-=0.1",
+      );
+
+    return () => {
+      timeline.kill();
+      newNoteTimelineRef.current = null;
+    };
+  }, [showNewNote]);
+
+  useLayoutEffect(() => {
+    const status = statusRef.current;
+    if (!status) return;
+
+    const [hint, saved] = status.children;
+
+    if (showOrderSaved) {
+      gsap
+        .timeline({
+          onComplete: () => setShowOrderSaved(false),
+        })
+        .to(hint, {
+          yPercent: -100,
+          duration: 0.25,
+          ease: "power2.in",
+        })
+        .fromTo(
+          saved,
+          { yPercent: 100 },
+          {
+            yPercent: 0,
+            duration: 0.25,
+            ease: "power2.out",
+          },
+          "<",
+        )
+        .to({}, { duration: 1.1 })
+        .to(saved, {
+          yPercent: -100,
+          duration: 0.25,
+          ease: "power2.in",
+        })
+        .fromTo(
+          hint,
+          { yPercent: 100 },
+          {
+            yPercent: 0,
+            duration: 0.25,
+            ease: "power2.out",
+          },
+          "<",
+        );
+    } else {
+      gsap.set(hint, { yPercent: 0 });
+      gsap.set(saved, { yPercent: 100 });
+    }
+
+    return () => {
+      gsap.killTweensOf([hint, saved]);
+    };
+  }, [showOrderSaved]);
 
   const startDrag = (note, event) => {
     if (selectedNote || closeTimelineRef.current || event.button !== 0) return;
@@ -287,10 +454,11 @@ export default function Demo() {
       boxShadow: "none",
       duration: 0.5,
       ease: "back.out(1.7)",
+
       onComplete: () => {
         drag.row.classList.remove(styles.rowDragging);
-
         setOrderedPinnedNotes(pinnedOrderRef.current.map((id) => pinnedNotes.find((note) => note.id === id)));
+        setShowOrderSaved(true);
       },
     });
   };
@@ -461,6 +629,94 @@ export default function Demo() {
         className={styles.notes}
         ref={notesCardRef}
       >
+        {showNewNote && (
+          <section
+            ref={newNoteRef}
+            className={styles.newNote}
+            aria-label='New note form'
+          >
+            <div
+              ref={newNoteContentRef}
+              className={styles.newNote__content}
+            >
+              <div
+                className={styles.newNote__bar}
+                data-new-note-part
+              >
+                <h2 className={styles.newNote__title}>Add New Note</h2>
+
+                <button
+                  className={styles.newNote__close}
+                  type='button'
+                  aria-label='Close new note form'
+                  onClick={() => setShowNewNote(false)}
+                >
+                  ×
+                </button>
+              </div>
+
+              <label
+                className={styles.newNote__label}
+                data-new-note-part
+              >
+                Title
+                <input
+                  className={styles.newNote__input}
+                  type='text'
+                  placeholder='Give your note a title'
+                />
+              </label>
+
+              <label className={styles.newNote__label}>
+                Note
+                <textarea
+                  className={styles.newNote__textarea}
+                  placeholder='Write your note...'
+                  rows={4}
+                />
+              </label>
+
+              <div
+                className={styles.newNote__label}
+                data-new-note-part
+              >
+                Checklist items
+                <input
+                  className={styles.newNote__input}
+                  type='text'
+                  placeholder='First item'
+                />
+                <input
+                  className={styles.newNote__input}
+                  type='text'
+                  placeholder='Second item'
+                />
+              </div>
+
+              <div
+                className={styles.newNote__actions}
+                data-new-note-part
+              >
+                <button
+                  className={styles.newNote__cancel}
+                  type='button'
+                  onClick={closeNewNote}
+                >
+                  Cancel
+                </button>
+
+                <button
+                  className={styles.newNote__save}
+                  type='button'
+                  onClick={closeNewNote}
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </section>
+        )}
+
         <header className={styles.notes__head}>
           <div className={styles.notes__app}>
             <FileText
@@ -475,9 +731,11 @@ export default function Demo() {
           </div>
 
           <button
+            ref={newButtonRef}
             className={styles.notes__new}
             type='button'
             aria-label='New note'
+            onClick={() => setShowNewNote(true)}
           >
             +
           </button>
@@ -489,7 +747,15 @@ export default function Demo() {
               <Pin size={12} />
             </span>
             Pinned
-            <span className={styles.notes__hint}>Drag to reorder</span>
+            <span className={styles.notes__hint}>
+              <span
+                className={styles.notes__status}
+                ref={statusRef}
+              >
+                <span className={styles.notes__statusText}>Drag to reorder</span>
+                <span className={styles.notes__statusText}>Order Saved</span>
+              </span>
+            </span>
           </h2>
 
           <ul className={styles.notes__pinned}>

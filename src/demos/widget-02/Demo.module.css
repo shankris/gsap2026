@@ -419,3 +419,133 @@
 .row__colorBar--purple {
   background: #9a7bb0;
 }
+
+.notes__hint {
+  overflow: hidden;
+}
+
+.notes__status {
+  display: grid;
+  overflow: hidden;
+}
+
+.notes__statusText {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.newNote {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  overflow: hidden;
+  padding: 24px 20px;
+  border-radius: 22px;
+  background: #fbfaf7;
+}
+
+.newNote__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newNote__title {
+  margin: 0;
+  color: #30312c;
+  font-size: 18px;
+  font-weight: 680;
+  letter-spacing: -0.04em;
+}
+
+.newNote__close {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #e6e4dc;
+  border-radius: 9px;
+  background: #fff;
+  color: #62635b;
+  font: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.newNote__label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #85867d;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.newNote__input,
+.newNote__textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #e6e4dc;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #42433d;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  resize: vertical;
+}
+
+.newNote__input:focus,
+.newNote__textarea:focus {
+  border-color: #b7b7ad;
+}
+
+.newNote__cancel {
+  margin-top: auto;
+  padding: 11px 14px;
+  border: 1px solid #e6e4dc;
+  border-radius: 10px;
+  background: #fff;
+  color: #62635b;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.newNote__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+.newNote__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.newNote__cancel,
+.newNote__save {
+  flex: 1;
+  padding: 11px 14px;
+  border: 1px solid #e6e4dc;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.newNote__cancel {
+  background: #fff;
+  color: #62635b;
+}
+
+.newNote__save {
+  border-color: #30312c;
+  background: #30312c;
+  color: #fff;
+}
