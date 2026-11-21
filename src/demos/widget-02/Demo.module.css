@@ -153,7 +153,15 @@
   flex: 0 0 auto;
   place-items: center;
   color: #b7b7ad;
+  touch-action: none;
   cursor: grab;
+}
+
+.rowDragging {
+  z-index: 3;
+  border-color: rgba(29, 27, 24, 0.15);
+  background: #fff;
+  cursor: grabbing;
 }
 
 .row__swatch {

@@ -66,7 +66,7 @@ const recentNotes = [
 
 const notes = [...pinnedNotes, ...recentNotes];
 
-function NoteRow({ note, pinned, rowRef, onOpen }) {
+function NoteRow({ note, pinned, rowRef, onOpen, onGripPointerDown, onGripPointerMove, onGripPointerUp, shouldIgnoreClick }) {
   return (
     <li
       ref={rowRef}
@@ -74,7 +74,10 @@ function NoteRow({ note, pinned, rowRef, onOpen }) {
       tabIndex={0}
       role='button'
       aria-label={`Open ${note.title}${pinned ? ", pinned" : ""}`}
-      onClick={() => onOpen(note)}
+      onClick={() => {
+        if (shouldIgnoreClick?.()) return;
+        onOpen(note);
+      }}
       onKeyDown={(event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
@@ -85,7 +88,11 @@ function NoteRow({ note, pinned, rowRef, onOpen }) {
       {pinned && (
         <span
           className={styles.row__grip}
-          aria-hidden='true'
+          aria-label='Drag to reorder'
+          onPointerDown={(event) => onGripPointerDown(note, event)}
+          onPointerMove={onGripPointerMove}
+          onPointerUp={onGripPointerUp}
+          onPointerCancel={onGripPointerUp}
         >
           <GripVertical size={15} />
         </span>
@@ -121,6 +128,15 @@ export default function Demo() {
   const closeTimelineRef = useRef(null);
   const [selectedNote, setSelectedNote] = useState(null);
 
+  const statusRef = useRef(null);
+  const [showOrderSaved, setShowOrderSaved] = useState(false);
+
+  const [orderedPinnedNotes, setOrderedPinnedNotes] = useState(pinnedNotes);
+
+  const pinnedOrderRef = useRef(pinnedNotes.map((note) => note.id));
+  const dragRef = useRef(null);
+  const dragMovedRef = useRef(false);
+
   const getRowRect = (noteId) => {
     const row = rowRefs.current[noteId];
     const card = notesCardRef.current;
@@ -137,6 +153,157 @@ export default function Demo() {
       height: rowRect.height,
     };
   };
+
+  const startDrag = (note, event) => {
+    if (selectedNote || closeTimelineRef.current || event.button !== 0) return;
+
+    const row = rowRefs.current[note.id];
+    if (!row) return;
+
+    const list = row.parentElement;
+    const gap = parseFloat(getComputedStyle(list).rowGap) || 7;
+    const step = row.offsetHeight + gap;
+    const startOrder = [...pinnedOrderRef.current];
+    const originalIndex = startOrder.indexOf(note.id);
+
+    if (originalIndex < 0) return;
+
+    dragMovedRef.current = false;
+
+    const siblingY = {};
+
+    startOrder.forEach((id) => {
+      if (id === note.id) return;
+
+      const sibling = rowRefs.current[id];
+      if (!sibling) return;
+
+      siblingY[id] = gsap.quickTo(sibling, "y", {
+        duration: 0.22,
+        ease: "power2.out",
+      });
+    });
+
+    dragRef.current = {
+      id: note.id,
+      row,
+      pointerId: event.pointerId,
+      startY: event.clientY,
+      originalIndex,
+      startOrder,
+      step,
+      moved: false,
+      siblingY,
+    };
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+
+    gsap.killTweensOf(row);
+    row.classList.add(styles.rowDragging);
+
+    gsap.to(row, {
+      scale: 1.035,
+      boxShadow: "0 14px 30px -10px rgba(29,27,24,0.35), 0 2px 6px rgba(29,27,24,0.08)",
+      duration: 0.25,
+      ease: "power2.out",
+    });
+  };
+
+  const moveDrag = (event) => {
+    const drag = dragRef.current;
+    if (!drag || event.pointerId !== drag.pointerId) return;
+
+    const deltaY = event.clientY - drag.startY;
+
+    if (Math.abs(deltaY) > 4) {
+      drag.moved = true;
+      dragMovedRef.current = true;
+    }
+
+    if (!drag.moved) return;
+
+    const minY = -drag.originalIndex * drag.step - 8;
+    const maxY = (drag.startOrder.length - 1 - drag.originalIndex) * drag.step + 8;
+
+    const y = Math.max(minY, Math.min(maxY, deltaY));
+
+    gsap.set(drag.row, { y });
+
+    const targetIndex = Math.max(0, Math.min(drag.startOrder.length - 1, Math.round((drag.originalIndex * drag.step + deltaY) / drag.step)));
+
+    // Rebuild the target order from the order at drag start.
+    const nextOrder = [...drag.startOrder];
+    nextOrder.splice(drag.originalIndex, 1);
+    nextOrder.splice(targetIndex, 0, drag.id);
+
+    pinnedOrderRef.current = nextOrder;
+
+    // Every sibling offset is relative to its original position.
+    nextOrder.forEach((id, index) => {
+      if (id === drag.id) return;
+
+      const startIndex = drag.startOrder.indexOf(id);
+      const moveSibling = drag.siblingY[id];
+
+      if (startIndex < 0 || !moveSibling) return;
+
+      moveSibling((index - startIndex) * drag.step);
+    });
+  };
+
+  const endDrag = (event) => {
+    const drag = dragRef.current;
+    if (!drag || event.pointerId !== drag.pointerId) return;
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    dragRef.current = null;
+
+    if (!drag.moved) {
+      drag.row.classList.remove(styles.rowDragging);
+
+      gsap.to(drag.row, {
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        boxShadow: "none",
+        duration: 0.25,
+        ease: "power2.out",
+      });
+
+      Object.values(drag.siblingY).forEach((moveSibling) => moveSibling(0));
+      return;
+    }
+
+    const finalIndex = pinnedOrderRef.current.indexOf(drag.id);
+    const finalY = (finalIndex - drag.originalIndex) * drag.step;
+
+    gsap.to(drag.row, {
+      y: finalY,
+      scale: 1,
+      rotation: 0,
+      boxShadow: "none",
+      duration: 0.5,
+      ease: "back.out(1.7)",
+      onComplete: () => {
+        drag.row.classList.remove(styles.rowDragging);
+
+        setOrderedPinnedNotes(pinnedOrderRef.current.map((id) => pinnedNotes.find((note) => note.id === id)));
+      },
+    });
+  };
+
+  useLayoutEffect(() => {
+    Object.values(rowRefs.current).forEach((row) => {
+      if (row) {
+        gsap.set(row, {
+          clearProps: "transform,boxShadow",
+        });
+      }
+    });
+  }, [orderedPinnedNotes]);
 
   useLayoutEffect(() => {
     if (!selectedNote) return;
@@ -326,7 +493,7 @@ export default function Demo() {
           </h2>
 
           <ul className={styles.notes__pinned}>
-            {pinnedNotes.map((note) => (
+            {orderedPinnedNotes.map((note, index) => (
               <NoteRow
                 key={note.id}
                 note={note}
@@ -335,6 +502,14 @@ export default function Demo() {
                   rowRefs.current[note.id] = element;
                 }}
                 onOpen={openNote}
+                onGripPointerDown={(note, event) => startDrag(note, event)}
+                onGripPointerMove={moveDrag}
+                onGripPointerUp={endDrag}
+                shouldIgnoreClick={() => {
+                  const moved = dragMovedRef.current;
+                  dragMovedRef.current = false;
+                  return moved;
+                }}
               />
             ))}
           </ul>
