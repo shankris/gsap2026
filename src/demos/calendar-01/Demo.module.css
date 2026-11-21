@@ -264,6 +264,7 @@
   gap: 28px;
   height: 30px;
   background: #3c3c3c;
+  padding: 0 6px;
 }
 
 .entry {
@@ -370,4 +371,50 @@
   letter-spacing: 0.8px;
   text-align: center;
   text-transform: uppercase;
+}
+
+/* Arrow on the details panel, pointing up toward the selected date */
+.details {
+  position: relative;
+  z-index: 101;
+}
+
+.arrow {
+  position: absolute;
+  top: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid rgba(164, 164, 164, 1);
+  pointer-events: none;
+  z-index: 102;
+}
+
+.arrow0 {
+  left: calc(100% / 14);
+}
+
+.arrow1 {
+  left: calc(100% * 3 / 14);
+}
+
+.arrow2 {
+  left: calc(100% * 5 / 14);
+}
+
+.arrow3 {
+  left: calc(100% * 7 / 14);
+}
+
+.arrow4 {
+  left: calc(100% * 9 / 14);
+}
+
+.arrow5 {
+  left: calc(100% * 11 / 14);
+}
+
+.arrow6 {
+  left: calc(100% * 13 / 14);
 }

@@ -174,6 +174,13 @@ export default function Demo() {
                     >
                       <span className={styles.dayNumber}>{day.getDate()}</span>
 
+                      {isSelected && (
+                        <span
+                          className={styles.selectedIndicator}
+                          aria-hidden='true'
+                        />
+                      )}
+
                       <span className={styles.dayEvents}>
                         {dayEvents.map((event, index) => (
                           <span
@@ -220,7 +227,7 @@ export default function Demo() {
           {CATEGORIES.map((category) => (
             <span
               key={category.name}
-              className={`${styles.entry} ${styles[category.color]}`}
+              className={`${styles.entry}`}
             >
               {category.name}
             </span>

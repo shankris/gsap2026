@@ -891,7 +891,7 @@
     "zip": ""
   },
   {
-    "id": "GSAP-069",
+    "id": "GSAP-082",
     "slug": "mis-04-heart",
     "name": "Heart Animation",
     "description": "A frame-by-frame heart animation with an interactive like button and animated counter.",
@@ -903,7 +903,7 @@
     "zip": null
   },
   {
-    "id": "GSAP-082",
+    "id": "GSAP-083",
     "slug": "calendar-01",
     "name": "Corporate Calendar",
     "description": "An animated monthly calendar featuring corporate events, category indicators, month navigation, and a selected-day event panel.",
@@ -911,6 +911,18 @@
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-20",
+    "lines": 0,
+    "zip": ""
+  },
+  {
+    "id": "GSAP-084",
+    "slug": "calendar-02",
+    "name": "Monthly Calendar",
+    "description": "A minimalist monthly calendar showing the current month with previous and next month navigation.",
+    "star": false,
+    "category": "Misc",
+    "status": "ready",
+    "date": "2026-11-21",
     "lines": 0,
     "zip": ""
   }

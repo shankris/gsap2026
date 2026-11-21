@@ -12,6 +12,7 @@ import Background02 from "./background-02/Demo";
 import Button01 from "./button-01/Demo";
 import Button02 from "./button-02/Demo";
 import Calendar01 from "./calendar-01/Demo";
+import Calendar02 from "./calendar-02/Demo";
 import CardStack01 from "./card-stack-01/Demo";
 import CardStack02 from "./card-stack-02/Demo";
 import CardStack03 from "./card-stack-03/Demo";
@@ -165,6 +166,7 @@ const demos = {
   "mis-03-sign": Mis03Sign,
   "mis-04-heart": Mis04Heart,
   "calendar-01": Calendar01,
+  "calendar-02": Calendar02,
 };
 
 export default demos;
