@@ -152,7 +152,7 @@ export default function Demo() {
     const from = getRowRect(selectedNote.id);
     if (!from) return;
 
-    const readerParts = reader.querySelectorAll(".reader__bar, .reader__title, .reader__date, .reader__item, .reader__progress, .reader__foot");
+    const readerParts = reader.querySelectorAll([`.${styles.reader__bar}`, `.${styles.reader__title}`, `.${styles.reader__date}`, `.${styles.reader__item}`, `.${styles.reader__progress}`, `.${styles.reader__foot}`].join(", "));
 
     gsap.set(reader, {
       ...from,
@@ -179,28 +179,30 @@ export default function Demo() {
     gsap.set(readerParts, { opacity: 0, y: 10 });
     gsap.to(row, { opacity: 0, duration: 0.15 });
 
-    gsap.to(reader, {
-      left: 0,
-      top: 0,
-      width: card.clientWidth,
-      height: card.clientHeight,
-      borderRadius: 22,
-      duration: 0.6,
-      ease: "expo.inOut",
-    });
-
-    gsap.to(readerParts, {
-      opacity: 1,
-      y: 0,
-      duration: 0.45,
-      stagger: 0.05,
-      delay: 0.6,
-      ease: "power3.out",
+    const openTimeline = gsap.timeline({
       onComplete: () => {
         gsap.set(reader, { overflowY: "auto" });
         backButtonRef.current?.focus({ preventScroll: true });
       },
     });
+
+    openTimeline
+      .to(reader, {
+        left: 0,
+        top: 0,
+        width: card.clientWidth,
+        height: card.clientHeight,
+        borderRadius: 22,
+        duration: 0.6,
+        ease: "expo.inOut",
+      })
+      .to(readerParts, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        stagger: 0.06,
+        ease: "power3.out",
+      });
 
     return () => {
       gsap.killTweensOf([reader, readerParts, row]);
