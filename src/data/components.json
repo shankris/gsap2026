@@ -8,8 +8,8 @@
     "category": "Loader",
     "status": "ready",
     "date": "2026-10-19",
-    "lines": 158,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-002",
@@ -20,8 +20,8 @@
     "category": "Hero Section",
     "status": "ready",
     "date": "2026-11-05",
-    "lines": 571,
-    "zip": "usefull-things-477-form-main.zip"
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-003",
@@ -32,8 +32,8 @@
     "category": "Hero Section",
     "status": "ready",
     "date": "2026-11-05",
-    "lines": 837,
-    "zip": "usefull-things-478-intro-main.zip"
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-004",
@@ -44,8 +44,8 @@
     "category": "Cards",
     "status": "ready",
     "date": "2026-11-05",
-    "lines": 516,
-    "zip": "usefull-things-476-skills-main.zip"
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-005",
@@ -56,8 +56,8 @@
     "category": "Slider",
     "status": "ready",
     "date": "2026-11-05",
-    "lines": null,
-    "zip": "usefull-things-475-slider-main.zip"
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-006",
@@ -68,8 +68,8 @@
     "category": "Hero Section",
     "status": "ready",
     "date": "2026-11-05",
-    "lines": null,
-    "zip": "usefull-things-472-travel-main.zip"
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-007",
@@ -80,7 +80,8 @@
     "category": "Scroll Animation",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-008",
@@ -91,7 +92,8 @@
     "category": "Scroll Animation",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-009",
@@ -102,7 +104,8 @@
     "category": "Visual Effects",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-010",
@@ -113,7 +116,8 @@
     "category": "Scroll Effects",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-011",
@@ -124,19 +128,21 @@
     "category": "Scroll Effects",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-012",
     "slug": "scroll-01",
     "name": "Scroll 01",
     "description": "Scroll-driven section transitions with pinned panels and rotating entrances.",
+    "technologies": ["GSAP", "ScrollTrigger", "Lenis"],
     "star": 2,
     "category": "Scroll",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null,
-    "technologies": ["GSAP", "ScrollTrigger", "Lenis"]
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-013",
@@ -147,7 +153,8 @@
     "category": "Scroll Animations",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-014",
@@ -158,7 +165,8 @@
     "category": "Accordion",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-015",
@@ -169,7 +177,8 @@
     "category": "Carousel",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-016",
@@ -180,7 +189,8 @@
     "category": "Carousel",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-017",
@@ -191,7 +201,8 @@
     "category": "Carousel",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-018",
@@ -202,7 +213,8 @@
     "category": "Slider",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-019",
@@ -213,7 +225,8 @@
     "category": "Hover",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-020",
@@ -224,7 +237,8 @@
     "category": "Preloader",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-021",
@@ -235,18 +249,8 @@
     "category": "Accordion",
     "status": "ready",
     "date": "2026-11-06",
-    "lines": 0
-  },
-  {
-    "id": "GSAP-025",
-    "slug": "preloader-02",
-    "name": "Preloader 02",
-    "description": "A cinematic image preloader with a staggered image reveal, loading counter, and animated hero transition.",
-    "star": 2,
-    "category": "Preloader",
-    "status": "In Progress",
-    "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-022",
@@ -257,7 +261,8 @@
     "category": "Background",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-023",
@@ -268,7 +273,8 @@
     "category": "Scroll",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-024",
@@ -279,7 +285,20 @@
     "category": "Carousel",
     "status": "In Progress",
     "date": "2026-11-07",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
+  },
+  {
+    "id": "GSAP-025",
+    "slug": "preloader-02",
+    "name": "Preloader 02",
+    "description": "A cinematic image preloader with a staggered image reveal, loading counter, and animated hero transition.",
+    "star": 2,
+    "category": "Preloader",
+    "status": "In Progress",
+    "date": "2026-11-07",
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-026",
@@ -290,7 +309,8 @@
     "category": "Cards",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-027",
@@ -301,7 +321,8 @@
     "category": "Buttons",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-028",
@@ -312,7 +333,8 @@
     "category": "Navigation",
     "status": "In Progress",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-029",
@@ -323,7 +345,8 @@
     "category": "Accordion",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-030",
@@ -334,7 +357,8 @@
     "category": "Showcase",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-031",
@@ -345,7 +369,8 @@
     "category": "Cards",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-032",
@@ -356,7 +381,8 @@
     "category": "Carousel",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-033",
@@ -367,7 +393,8 @@
     "category": "Icons",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-034",
@@ -378,7 +405,8 @@
     "category": "Buttons",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-035",
@@ -389,7 +417,8 @@
     "category": "Navigation",
     "status": "ready",
     "date": "2026-11-07",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-036",
@@ -400,7 +429,8 @@
     "category": "Accordions",
     "status": "ready",
     "date": "2026-11-09",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-037",
@@ -411,7 +441,8 @@
     "category": "Accordions",
     "status": "ready",
     "date": "2026-11-09",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-038",
@@ -422,7 +453,8 @@
     "category": "WebDev",
     "status": "ready",
     "date": "2026-11-09",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-039",
@@ -433,7 +465,8 @@
     "category": "WebDev",
     "status": "ready",
     "date": "2026-11-09",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-040",
@@ -444,7 +477,8 @@
     "category": "WebDev",
     "status": "ready",
     "date": "2026-11-09",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-041",
@@ -455,7 +489,8 @@
     "category": "WebDev",
     "status": "ready",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-042",
@@ -466,7 +501,8 @@
     "category": "Carousels",
     "status": "ready",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-043",
@@ -477,7 +513,8 @@
     "category": "Landing Pages",
     "status": "ready",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-044",
@@ -488,7 +525,8 @@
     "category": "Themes",
     "status": "ready",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-045",
@@ -499,7 +537,8 @@
     "category": "Landing Pages",
     "status": "development",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-046",
@@ -510,7 +549,8 @@
     "category": "WebDev",
     "status": "ready",
     "date": "2026-11-10",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-047",
@@ -520,7 +560,8 @@
     "category": "Dashboards",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-048",
@@ -530,7 +571,8 @@
     "category": "Carousels",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-049",
@@ -540,7 +582,8 @@
     "category": "Landing Pages",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-050",
@@ -550,7 +593,8 @@
     "category": "Websites",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-051",
@@ -560,7 +604,8 @@
     "category": "Websites",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-052",
@@ -570,7 +615,8 @@
     "category": "Cards",
     "status": "ready",
     "date": "2026-11-11",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-053",
@@ -580,7 +626,8 @@
     "category": "Navigation",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-054",
@@ -590,103 +637,113 @@
     "category": "Navigation",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-055",
-    "name": "Number Roll 01",
     "slug": "number-roll-01",
-    "category": "Number Animation",
+    "name": "Number Roll 01",
     "description": "Animated odometer-style number counter with rolling digits, staggered transitions, and customizable formatting.",
+    "category": "Number Animation",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-056",
-    "name": "Background 02",
     "slug": "background-02",
-    "category": "Background",
+    "name": "Background 02",
     "description": "Animated aurora background with drifting gradient blobs, customizable color palettes, blur, intensity, and light/dark theme support.",
+    "category": "Background",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-057",
-    "name": "Number Roll 02",
     "slug": "number-roll-02",
-    "category": "Number Animation",
+    "name": "Number Roll 02",
     "description": "Odometer-style statistics animation with scroll-triggered rolling digits, staggered text reveals, and hover-to-replay interactions.",
+    "category": "Number Animation",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-058",
-    "name": "macOS Dock 01",
     "slug": "macos-dock-01",
-    "category": "Interaction",
+    "name": "macOS Dock 01",
     "description": "macOS-style magnification dock with pointer proximity scaling, smooth GSAP animations, and hover tooltips.",
+    "category": "Interaction",
     "status": "ready",
     "date": "2026-11-13",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-060",
-    "name": "Card Stack 03",
     "slug": "card-stack-03",
-    "category": "Scroll Animation",
+    "name": "Card Stack 03",
     "description": "Sticky parallax card stack with scroll-linked scaling, image zoom effects, and layered transitions using Motion.",
     "tech": "Motion animation library",
+    "category": "Scroll Animation",
     "status": "ready",
     "date": "2026-11-15",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-061",
-    "name": "Nav 04",
     "slug": "nav-04",
-    "category": "Navigation",
+    "name": "Nav 04",
     "description": "Animated expanding side menu with perspective link transitions, staggered entrances, and an interactive Menu/Close toggle.",
     "tech": "Motion animation library",
+    "category": "Navigation",
     "status": "ready",
     "date": "2026-11-15",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-062",
-    "name": "Nav 05",
     "slug": "nav-05",
-    "category": "Navigation",
+    "name": "Nav 05",
     "description": "Curved SVG side menu with animated panel transitions, staggered navigation links, and an active-link indicator.",
     "tech": "Motion animation library",
+    "category": "Navigation",
     "status": "ready",
     "date": "2026-11-15",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-063",
-    "name": "MIS 01 – Pixel Transition",
     "slug": "mis-01-pixel-transition",
-    "category": "Navigation",
+    "name": "MIS 01 – Pixel Transition",
     "description": "Randomized pixel-block transitions with centered, horizontal, and vertical animation variations.",
     "tech": "Motion animation library",
+    "category": "Navigation",
     "status": "ready",
     "date": "2026-11-16",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-064",
-    "name": "Filter 01 – Animated Gallery",
     "slug": "filter-01",
-    "category": "Gallery",
+    "name": "Filter 01 – Animated Gallery",
     "description": "A filterable project mosaic with animated FLIP rearrangement, staggered card transitions, a rolling project counter, and an animated filter indicator.",
     "tech": "GSAP",
     "star": 3,
+    "category": "Gallery",
     "status": "ready",
     "date": "2026-11-16",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-065",
@@ -697,8 +754,8 @@
     "category": "Utility",
     "status": "ready",
     "date": "2026-11-16",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-066",
@@ -709,42 +766,45 @@
     "category": "Widget",
     "status": "ready",
     "date": "2026-11-17",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-067",
-    "name": "Portrait Accordion",
     "slug": "accordion-05",
-    "category": "Accordions",
+    "name": "Portrait Accordion",
     "description": "An interactive portrait accordion featuring expanding panels, grayscale-to-color image transitions, and animated profile details.",
+    "star": 4,
+    "category": "Accordions",
     "status": "ready",
     "date": "2026-11-17",
-    "star": 4,
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-068",
-    "name": "Flyout 01",
     "slug": "flyout-01",
-    "category": "Website",
+    "name": "Flyout 01",
     "description": "An animated account menu featuring a spring-like flyout reveal, profile actions, keyboard navigation, and light and dark theme controls.",
+    "star": 3,
+    "category": "Website",
     "status": "ready",
     "date": "2026-11-17",
-    "star": 3,
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-069",
-    "name": "Sort 01",
     "slug": "sort-01",
-    "category": "Website",
+    "name": "Sort 01",
     "description": "An animated product catalogue with interactive sorting options, GSAP Flip transitions, and smooth rearrangement of product cards.",
     "tech": "GSAP Flip",
+    "star": 3,
+    "category": "Website",
     "status": "ready",
     "date": "2026-11-17",
-    "star": 3,
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-070",
@@ -755,7 +815,8 @@
     "category": "Graph",
     "status": "ready",
     "date": "2026-11-18",
-    "lines": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-071",
@@ -766,19 +827,20 @@
     "category": "Website",
     "status": "ready",
     "date": "2026-11-18",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-072",
     "slug": "dropdown-01",
     "name": "Dropdown 01",
     "description": "A Google-style account dropdown with animated menu interactions and a storage usage indicator.",
-    "category": "WebApp",
     "star": "2",
+    "category": "WebApp",
     "status": "ready",
     "date": "2026-11-18",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-073",
@@ -789,70 +851,71 @@
     "category": "WebApp",
     "status": "ready",
     "date": "2026-11-18",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-074",
     "slug": "accordion-06",
     "name": "Notched Feature Cards",
-    "category": "WebApp",
     "description": "An interactive feature-card accordion with animated notched outlines, expanding panels, KPI counters, and embedded dashboard widgets.",
+    "star": 4,
+    "category": "WebApp",
     "status": "ready",
     "date": "2026-11-18",
-    "star": 4,
-    "lines": 0,
-    "zip": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-075",
     "slug": "add-to-cart-01",
     "name": "Add to Cart 01",
-    "category": "Website",
     "description": "An animated add-to-cart button with a morphing quantity stepper, rolling count, and interactive increment and remove controls.",
+    "star": 1,
+    "category": "Website",
     "status": "ready",
     "date": "2026-11-18",
-    "star": 1,
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-076",
-    "name": "Card Stack 04",
     "slug": "card-stack-04",
-    "category": "Website",
+    "name": "Card Stack 04",
     "description": "A scroll-driven stacking card component with sticky positioning, layered transitions, scaling, rotation, and dark overlay effects using GSAP ScrollTrigger.",
     "tech": "GSAP ScrollTrigger",
-    "status": "ready",
     "star": 1,
+    "category": "Website",
+    "status": "ready",
     "date": "2026-11-18",
-    "lines": 0
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-077",
     "slug": "mis-02-progress",
     "name": "Reading Progress Dial",
-    "category": "Interaction",
     "description": "An interactive reading progress dial with chapter navigation, draggable progress control, animated indicators, and estimated reading time.",
     "tech": "GSAP",
-    "status": "ready",
     "star": 3,
+    "category": "Interaction",
+    "status": "ready",
     "date": "2026-11-19",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-078",
     "slug": "graph-02",
     "name": "Segmented Control",
-    "category": "Graph",
     "description": "An animated analytics dashboard featuring a segmented time-period selector, rolling visitor statistics, and an interactive chart.",
     "tech": "GSAP",
-    "status": "ready",
     "star": 3,
+    "category": "Graph",
+    "status": "ready",
     "date": "2026-11-19",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-079",
@@ -863,8 +926,8 @@
     "category": "Menu",
     "status": "ready",
     "date": "2026-11-19",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-080",
@@ -875,8 +938,8 @@
     "category": "Text",
     "status": "ready",
     "date": "2026-11-20",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-081",
@@ -887,20 +950,20 @@
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-20",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-082",
     "slug": "mis-04-heart",
     "name": "Heart Animation",
     "description": "A frame-by-frame heart animation with an interactive like button and animated counter.",
+    "star": 4,
     "category": "Miscellaneous",
     "status": "ready",
     "date": "2026-11-20",
-    "star": 4,
-    "lines": 0,
-    "zip": null
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-083",
@@ -911,8 +974,8 @@
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-20",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-084",
@@ -923,8 +986,8 @@
     "category": "Misc",
     "status": "ready",
     "date": "2026-11-21",
-    "lines": 0,
-    "zip": ""
+    "golive": false,
+    "ribbon": ""
   },
   {
     "id": "GSAP-085",
@@ -932,8 +995,37 @@
     "name": "Pinned Notes",
     "description": "An animated notes card with draggable pinned notes, recent notes, and an interactive note reader.",
     "tech": "GSAP",
+    "star": 4,
     "category": "Widget",
     "status": "ready",
-    "date": "2026-11-21"
+    "date": "2026-11-21",
+    "golive": false,
+    "ribbon": ""
+  },
+  {
+    "id": "GSAP-086",
+    "slug": "drawer-01",
+    "name": "Navigation Drawer",
+    "description": "A full-screen navigation drawer with layered panel reveals and animated menu links.",
+    "tech": "GSAP",
+    "star": 4,
+    "category": "Navigation",
+    "status": "ready",
+    "date": "2026-11-22",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-087",
+    "slug": "ripple-01",
+    "name": "Ripple Buttons",
+    "description": "Four clickable buttons with distinct SVG ripple effects that expand from the click position.",
+    "tech": "GSAP",
+    "star": 2,
+    "category": "Button",
+    "status": "ready",
+    "date": "2026-11-22",
+    "golive": false,
+    "ribbon": "WIP"
   }
 ]

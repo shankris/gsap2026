@@ -33,6 +33,7 @@ import Clock01World from "./clock-01-world/Demo";
 import Counter01 from "./counter-01/Demo";
 import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
+import Drawer01 from "./drawer-01/Demo";
 import Dropdown01 from "./dropdown-01/Demo";
 import ElectricBorder from "./electric-border/Demo";
 import Filter01 from "./filter-01/Demo";
@@ -69,6 +70,7 @@ import NumberRoll03 from "./number-roll-03/Demo";
 import PaperCraft from "./paper-craft/Demo";
 import Preloader01 from "./preloader-01/Demo";
 import Preloader02 from "./preloader-02/Demo";
+import Ripple01 from "./ripple-01/Demo";
 import Scroll01 from "./scroll-01/Demo";
 import Showcase01 from "./showcase-01/Demo";
 import Showcase1 from "./showcase1/Demo";
@@ -169,6 +171,8 @@ const demos = {
   "calendar-01": Calendar01,
   "calendar-02": Calendar02,
   "widget-02": Widget02,
+  "drawer-01": Drawer01,
+  "ripple-01": Ripple01,
 };
 
 export default demos;
