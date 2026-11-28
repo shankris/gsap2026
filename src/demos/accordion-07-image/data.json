@@ -1,0 +1,27 @@
+[
+  {
+    "header": "Canada",
+    "image": "/demos/accordion-07-image/2.jpg",
+    "text": "Explore vast forests, sparkling lakes, and lively cities. Canada offers dramatic mountain scenery, welcoming communities, and outdoor adventures across every season."
+  },
+  {
+    "header": "New Zealand",
+    "image": "/demos/accordion-07-image/6.jpg",
+    "text": "Discover a land of towering mountains, green valleys, and clear blue lakes. New Zealand is known for striking landscapes and unforgettable outdoor journeys."
+  },
+  {
+    "header": "Indonesia",
+    "image": "/demos/accordion-07-image/4.jpg",
+    "text": "Visit a tropical archipelago of volcanic peaks, lush rice terraces, and beautiful beaches. Indonesia blends diverse cultures, vibrant markets, and island traditions."
+  },
+  {
+    "header": "South Africa",
+    "image": "/demos/accordion-07-image/5.jpg",
+    "text": "Experience dramatic coastlines, open savannas, and remarkable wildlife. South Africa brings together varied landscapes, rich cultural traditions, and exciting journeys."
+  },
+  {
+    "header": "Spain",
+    "image": "/demos/accordion-07-image/3.jpg",
+    "text": "Wander through historic streets, sunlit plazas, and lively coastal towns. Spain is celebrated for its architecture, regional cuisine, and vibrant festivals."
+  }
+]

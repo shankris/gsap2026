@@ -5,12 +5,18 @@ import Accordion03 from "./accordion-03/Demo";
 import Accordion04 from "./accordion-04/Demo";
 import Accordion05 from "./accordion-05/Demo";
 import Accordion06 from "./accordion-06/Demo";
+import Accordion07Image from "./accordion-07-image/Demo";
+import Accordion08Faq from "./accordion-08-faq/Demo";
+import Accordion09Faq from "./accordion-09-faq/Demo";
+import Accordion10Faq from "./accordion-10-faq/Demo";
+import Accordion11Faq from "./accordion-11-faq/Demo";
 import AddToCart01 from "./add-to-cart-01/Demo";
 import Atsu from "./atsu/Demo";
 import Background01 from "./background-01/Demo";
 import Background02 from "./background-02/Demo";
 import Button01 from "./button-01/Demo";
 import Button02 from "./button-02/Demo";
+import Button03Float from "./button-03-float/Demo";
 import Calendar01 from "./calendar-01/Demo";
 import Calendar02 from "./calendar-02/Demo";
 import CardStack01 from "./card-stack-01/Demo";
@@ -93,12 +99,18 @@ const demos = {
   "accordion-04": Accordion04,
   "accordion-05": Accordion05,
   "accordion-06": Accordion06,
+  "accordion-07-image": Accordion07Image,
+  "accordion-08-faq": Accordion08Faq,
+  "accordion-09-faq": Accordion09Faq,
+  "accordion-10-faq": Accordion10Faq,
+  "accordion-11-faq": Accordion11Faq,
   "add-to-cart-01": AddToCart01,
   atsu: Atsu,
   "background-01": Background01,
   "background-02": Background02,
   "button-01": Button01,
   "button-02": Button02,
+  "button-03-float": Button03Float,
   "card-stack-01": CardStack01,
   "card-stack-02": CardStack02,
   "card-stack-03": CardStack03,

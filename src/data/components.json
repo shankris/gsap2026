@@ -1027,5 +1027,83 @@
     "date": "2026-11-22",
     "golive": false,
     "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-088",
+    "slug": "accordion-07-image",
+    "name": "Image Accordion",
+    "description": "An image accordion that expands the selected panel to reveal its title and description.",
+    "tech": "GSAP",
+    "star": 2,
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-089",
+    "slug": "accordion-08-faq",
+    "name": "FAQ Accordion",
+    "description": "An animated FAQ accordion with independently expandable answers and a rotating chevron.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-090",
+    "slug": "accordion-09-faq",
+    "name": "Tabbed FAQ Accordion",
+    "description": "A category-based FAQ with animated tabs and expandable answers.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-091",
+    "slug": "accordion-10-faq",
+    "name": "Solutions Accordion",
+    "description": "An animated solutions accordion with selectable categories and a changing image panel.",
+    "tech": "GSAP",
+    "star": 4,
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-092",
+    "slug": "accordion-11-faq",
+    "name": "FAQ Accordion",
+    "description": "A clean FAQ accordion with smooth height transitions, rotating chevrons, and expandable answers.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Accordion",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-093",
+    "slug": "button-03-float",
+    "name": "Floating Dev Button",
+    "description": "A floating developer tools button with an expandable menu, nested submenus, and an error indicator.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Button",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
   }
 ]

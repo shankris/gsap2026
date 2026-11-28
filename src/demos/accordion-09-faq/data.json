@@ -1,0 +1,93 @@
+{
+  "tabs": ["Web dev", "Mobile dev", "UI/UX", "Copywriting"],
+  "questions": {
+    "Web dev": [
+      {
+        "question": "What is web development?",
+        "answer": "Web development is the process of creating and maintaining websites and web applications. It includes building the parts people interact with, connecting those interfaces to data and services, and making sure everything works across browsers and devices."
+      },
+      {
+        "question": "How do I know if I need it?",
+        "answer": "You may need web development if you want to launch a new website, improve an existing one, or build a custom online tool. It can help you present your business, reach customers, automate tasks, or offer services that a standard website builder cannot support."
+      },
+      {
+        "question": "What is the difference between a website and a web application?",
+        "answer": "A website usually focuses on sharing information, such as a company profile or portfolio. A web application lets users perform tasks, such as managing projects, booking appointments, or editing documents. Many modern websites combine both."
+      },
+      {
+        "question": "Will my website work on phones and tablets?",
+        "answer": "A responsive website adapts its layout and controls to different screen sizes. We can design and test the experience for phones, tablets, and desktop browsers so visitors can navigate and use the site comfortably on their preferred device."
+      },
+      {
+        "question": "Can I update the website myself after it launches?",
+        "answer": "Yes, if the site includes an editing interface or content management system. You can update things like text, images, articles, and product details without changing the code. The best setup depends on how often you expect to make changes and who will manage them."
+      }
+    ],
+    "Mobile dev": [
+      {
+        "question": "What is mobile development?",
+        "answer": "Mobile development is the creation of apps designed for smartphones and tablets. It covers the app's interface, features, data handling, and device-specific behavior, with attention to performance and usability on smaller screens."
+      },
+      {
+        "question": "Can you build for iOS and Android?",
+        "answer": "Yes. An app can be built for both iOS and Android using a shared codebase, or as separate native apps when platform-specific features are important. The right approach depends on your app's requirements, budget, and long-term plans."
+      },
+      {
+        "question": "Do I need a mobile app if I already have a website?",
+        "answer": "Not always. A mobile-friendly website may be enough if people mainly need to browse information or complete a few simple tasks. An app can make sense when users return frequently, need offline access, or benefit from features such as push notifications or device integration."
+      },
+      {
+        "question": "How do users get my app?",
+        "answer": "Native and cross-platform apps are commonly distributed through the Apple App Store and Google Play. Each store has its own submission and review process. A web app can instead be accessed through a browser, without a traditional app-store installation."
+      },
+      {
+        "question": "Can a mobile app work without an internet connection?",
+        "answer": "Some features can work offline if the app is designed to store the necessary information on the device. Features that rely on live data, accounts, or online services will usually need a connection. Offline support depends on what the app needs to do."
+      }
+    ],
+    "UI/UX": [
+      {
+        "question": "What is UI/UX?",
+        "answer": "UI means user interface: the visual elements people use, such as buttons, menus, and screens. UX means user experience: how easy and satisfying it is to complete a task. Good UI/UX combines clear design with thoughtful flows so people can use a product confidently."
+      },
+      {
+        "question": "Why is UI/UX important for a website or app?",
+        "answer": "A clear and intuitive experience helps people find what they need, understand how the product works, and complete tasks with less frustration. Good UI/UX can also reduce support requests and help users feel more confident using your product."
+      },
+      {
+        "question": "What is the difference between a wireframe and a prototype?",
+        "answer": "A wireframe is a simplified layout that shows the structure and placement of content before visual details are finalized. A prototype is an interactive model that lets people try key flows and provide feedback before development begins."
+      },
+      {
+        "question": "Do you need user research before designing?",
+        "answer": "Research is useful for understanding who will use the product, what they need, and where they may struggle. It can include interviews, surveys, analytics, or usability tests. The amount of research depends on the project's size, risk, and available time."
+      },
+      {
+        "question": "Can you improve the design of an existing product?",
+        "answer": "Yes. We can review the current experience, identify confusing or difficult areas, and recommend improvements to layout, navigation, content, and interactions. Testing those changes with users can help confirm whether the redesign makes the product easier to use."
+      }
+    ],
+    "Copywriting": [
+      {
+        "question": "What is copywriting?",
+        "answer": "Copywriting is the practice of writing clear, persuasive content that encourages a reader to take action. It can include website headlines, product descriptions, landing pages, and calls to action. Effective copy explains the value of a product or service in language that speaks to its audience."
+      },
+      {
+        "question": "How is copywriting different from content writing?",
+        "answer": "Copywriting usually focuses on a specific action, such as signing up, making a purchase, or requesting a quote. Content writing often focuses on informing, educating, or entertaining an audience through articles, guides, and other useful material. Both can support a broader marketing strategy."
+      },
+      {
+        "question": "What information do you need before writing copy?",
+        "answer": "Helpful starting points include what you offer, who your audience is, what makes your product or service useful, and what you want readers to do next. Existing brand guidelines, customer questions, and competitor examples can also help shape the message."
+      },
+      {
+        "question": "Can copywriting help improve conversions?",
+        "answer": "Clear copy can help visitors understand the value of an offer and what to do next. Strong headlines, useful details, and direct calls to action may reduce confusion, but results also depend on the offer, audience, design, and overall user experience."
+      },
+      {
+        "question": "Can you write copy that matches my brand's voice?",
+        "answer": "Yes. Brand voice can be guided by examples of your existing writing, your audience, and the qualities you want to communicate. The copy can then use consistent wording, tone, and style across pages and other customer touchpoints."
+      }
+    ]
+  }
+}

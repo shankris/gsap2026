@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Next.js 16 Made Easy for Beginners",
+    "description": "A beginner-friendly introduction to Next.js 16, designed to help you understand the fundamentals of modern web development. Explore routing, layouts, components, data fetching, and essential concepts through a practical learning journey that builds confidence step by step.",
+    "imgSrc": "/demos/accordion-10-faq/01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Full Stack Web Development with Next.js",
+    "description": "Learn how to build complete web applications with Next.js by combining frontend interfaces with backend functionality. Explore server components, API integration, databases, authentication, and data management while developing the skills needed to create practical full-stack projects.",
+    "imgSrc": "/demos/accordion-10-faq/02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Real-World Next.js",
+    "description": "Move beyond tutorials and discover how Next.js is used to solve real development challenges. Explore practical application architecture, reusable components, performance optimization, deployment strategies, and production-ready patterns through examples inspired by everyday development scenarios.",
+    "imgSrc": "/demos/accordion-10-faq/03.jpg"
+  }
+]
