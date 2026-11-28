@@ -1,0 +1,58 @@
+/* src/demos/user-02-mac/Demo.module.css */
+
+.demo {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow: hidden;
+}
+
+.stack {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.avatarWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+.avatar {
+  display: block;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  object-fit: cover;
+  user-select: none;
+}
+
+.name {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #242424;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.avatarWrapper:hover .name {
+  opacity: 1;
+  visibility: visible;
+}

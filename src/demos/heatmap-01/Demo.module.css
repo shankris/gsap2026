@@ -1,0 +1,188 @@
+/* src/demos/heatmap-01/Demo.module.css */
+
+/* Heatmap dimensions */
+:global(:root) {
+  --heatmap-cell-size: 16px;
+  --heatmap-cell-gap: 4px;
+  --heatmap-weekday-spacer: 40px;
+}
+
+/* Center the heatmap in the viewport */
+.heatmapWrapper {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  overflow-x: auto;
+}
+
+/* Shared container for labels and grid */
+.heatmapContent {
+  position: relative;
+  width: max-content;
+  flex: 0 0 auto;
+  padding-top: 24px;
+}
+
+/* Month labels */
+.monthRow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.monthLabel {
+  position: absolute;
+  top: 0;
+  font-size: 12px;
+  color: var(--text-muted, #6b7280);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Main grid */
+.heatmapGrid {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
+
+/* Weekday labels */
+.weekdayCol {
+  width: var(--heatmap-weekday-spacer);
+  flex: 0 0 var(--heatmap-weekday-spacer);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: calc((var(--heatmap-cell-size) * 7) + (var(--heatmap-cell-gap) * 6));
+
+  padding-top: 2px;
+  box-sizing: border-box;
+
+  font-size: 12px;
+  color: var(--text-secondary, #6b7280);
+}
+
+/* Week columns container */
+.weeks {
+  display: flex;
+  gap: var(--heatmap-cell-gap);
+  align-items: flex-start;
+}
+
+/* Individual week */
+.week {
+  display: flex;
+  flex-direction: column;
+  gap: var(--heatmap-cell-gap);
+}
+
+/* Individual day square */
+.cell {
+  width: var(--heatmap-cell-size);
+  height: var(--heatmap-cell-size);
+  flex: 0 0 var(--heatmap-cell-size);
+
+  border-radius: 3px;
+  background: var(--heatmap-empty, #ebedf0);
+  box-sizing: border-box;
+
+  transition: background 0.3s;
+}
+
+/* Tooltip wrapper */
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+  width: var(--heatmap-cell-size);
+  height: var(--heatmap-cell-size);
+  flex: 0 0 var(--heatmap-cell-size);
+}
+
+/* Tooltip */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+
+  width: max-content;
+  max-width: 220px;
+
+  background-color: var(--tooltip-bg, #333);
+  color: var(--tooltip-text, #fff);
+
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+
+  font-size: 11px;
+  line-height: 1.2;
+
+  position: absolute;
+  z-index: 1000;
+
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  transition: opacity 0.15s ease;
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: "";
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  margin-left: -5px;
+
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--tooltip-bg, #333) transparent transparent transparent;
+}
+
+.tooltipWrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Contribution levels */
+.level0 {
+  background: var(--heatmap-empty, #ebedf0);
+}
+
+.level1 {
+  background: var(--heatmap-1, #c6e48b);
+}
+
+.level2 {
+  background: var(--heatmap-2, #7bc96f);
+}
+
+.level3 {
+  background: var(--heatmap-3, #239a3b);
+}
+
+.level4 {
+  background: var(--heatmap-4, #196127);
+}
+
+/* Allow horizontal scrolling on smaller screens */
+@media (max-width: 768px) {
+  .heatmapWrapper {
+    justify-content: flex-start;
+  }
+}

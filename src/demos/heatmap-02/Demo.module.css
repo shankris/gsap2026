@@ -1,0 +1,145 @@
+/* src/demos/heatmap-02/Demo.module.css */
+
+.yearHeatmap {
+  --cell-size: 26px;
+  --cell-gap: 4px;
+  --day-label-width: 39px;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.heatmapContent {
+  width: max-content;
+  margin: 0 auto;
+}
+
+/* Month labels */
+
+.monthRow {
+  display: grid;
+  grid-template-columns:
+    var(--day-label-width) repeat(12, var(--cell-size));
+  column-gap: var(--cell-gap);
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.dayLabelSpacer {
+  width: var(--day-label-width);
+}
+
+.monthLabel {
+  width: var(--cell-size);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary, #888);
+}
+
+/* Heatmap rows */
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-gap);
+}
+
+.row {
+  display: grid;
+  grid-template-columns:
+    var(--day-label-width) repeat(12, var(--cell-size));
+  column-gap: var(--cell-gap);
+  align-items: center;
+}
+
+.dayLabel {
+  width: var(--day-label-width);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary, #888);
+}
+
+/* Heatmap cells */
+
+.cellWrapper {
+  width: var(--cell-size);
+  height: var(--cell-size);
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--heatmap-empty, #ebedf0);
+}
+
+/* Intensity levels */
+
+.level0 {
+  background: var(--heatmap-empty, #ebedf0);
+}
+
+.level1 {
+  background: var(--heatmap-1, #9be9a8);
+}
+
+.level2 {
+  background: var(--heatmap-2, #40c463);
+}
+
+.level3 {
+  background: var(--heatmap-3, #30a14e);
+}
+
+.level4 {
+  background: var(--heatmap-4, #216e39);
+}
+
+/* Tooltip */
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 234px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #24292f;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease;
+}
+
+.cell:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .yearHeatmap {
+    justify-content: flex-start;
+    padding: 24px 16px;
+  }
+
+  .heatmapContent {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

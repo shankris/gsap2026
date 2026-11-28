@@ -28,6 +28,7 @@ import Cards02 from "./cards-02/Demo";
 import Cards03 from "./cards-03/Demo";
 import Cards04 from "./cards-04/Demo";
 import Cards05 from "./cards-05/Demo";
+import Cards06 from "./cards-06/Demo";
 import Carousel01 from "./carousel-01/Demo";
 import Carousel02 from "./carousel-02/Demo";
 import Carousel03 from "./carousel-03/Demo";
@@ -48,6 +49,8 @@ import Flyout01 from "./flyout-01/Demo";
 import Gallery01 from "./gallery-01/Demo";
 import Graph01 from "./graph-01/Demo";
 import Graph02 from "./graph-02/Demo";
+import Heatmap01 from "./heatmap-01/Demo";
+import Heatmap02 from "./heatmap-02/Demo";
 import Hover01 from "./hover-01/Demo";
 import Icon01 from "./icon-01/Demo";
 import IosDock01 from "./ios-dock-01/Demo";
@@ -88,6 +91,8 @@ import SplitScreen01 from "./split-screen-01/Demo";
 import Sort01 from "./sort-01/Demo";
 import Table01 from "./table-01/Demo";
 import Text01Scramble from "./text-01-scramble/Demo";
+import Users01 from "./users-01/Demo";
+import Users02Mac from "./users-02-mac/Demo";
 import WelcomeLoader from "./welcome-loader/Demo";
 import Widget01 from "./widget-01/Demo";
 import Widget02 from "./widget-02/Demo";
@@ -139,6 +144,8 @@ const demos = {
   "gallery-01": Gallery01,
   "graph-01": Graph01,
   "graph-02": Graph02,
+  "heatmap-01": Heatmap01,
+  "heatmap-02": Heatmap02,
   "hover-01": Hover01,
   "icon-01": Icon01,
   "ios-dock-01": IosDock01,
@@ -185,6 +192,9 @@ const demos = {
   "widget-02": Widget02,
   "drawer-01": Drawer01,
   "ripple-01": Ripple01,
+  "users-01": Users01,
+  "users-02-mac": Users02Mac,
+  "cards-06": Cards06,
 };
 
 export default demos;

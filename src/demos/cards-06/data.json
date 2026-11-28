@@ -1,0 +1,62 @@
+{
+  "month": [
+    {
+      "avatar": "/img/001-boy.svg",
+      "name": "Jeff Davies",
+      "role": "Art Director",
+      "stars": 5
+    },
+    {
+      "avatar": "/img/047-girl-25.svg",
+      "name": "Melinda Doe",
+      "role": "Creative Director",
+      "stars": 4
+    },
+    {
+      "avatar": "/img/043-boy-18.svg",
+      "name": "Bo Larsson",
+      "role": "Chief Designer",
+      "stars": 3
+    }
+  ],
+  "week": [
+    {
+      "avatar": "/img/014-girl-7.svg",
+      "name": "Shannon Drake",
+      "role": "Copywriter",
+      "stars": 4
+    },
+    {
+      "avatar": "/img/018-girl-9.svg",
+      "name": "Taylor Drift",
+      "role": "Art Director",
+      "stars": 3
+    },
+    {
+      "avatar": "/img/001-boy.svg",
+      "name": "Peter Rose",
+      "role": "Photographer",
+      "stars": 2
+    }
+  ],
+  "day": [
+    {
+      "avatar": "/img/047-girl-25.svg",
+      "name": "Kate Best",
+      "role": "Developer",
+      "stars": 4
+    },
+    {
+      "avatar": "/img/043-boy-18.svg",
+      "name": "Ben North",
+      "role": "UX Designer",
+      "stars": 3
+    },
+    {
+      "avatar": "/img/018-girl-9.svg",
+      "name": "Claire Tait",
+      "role": "UI Engineer",
+      "stars": 3
+    }
+  ]
+}

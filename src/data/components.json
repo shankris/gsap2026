@@ -1105,5 +1105,70 @@
     "date": "2026-11-28",
     "golive": false,
     "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-094",
+    "slug": "heatmap-01",
+    "name": "Contribution Heatmap",
+    "description": "A GitHub-style contribution heatmap displaying daily activity across the past year with color intensity levels and hover tooltips.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Data Visualization",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-095",
+    "slug": "heatmap-02",
+    "name": "Yearly Activity Heatmap",
+    "description": "A compact yearly activity heatmap with weekday rows, month columns, intensity levels, and hover details.",
+    "tech": "GSAP",
+    "star": 1,
+    "category": "Data Visualization",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-096",
+    "slug": "users-01",
+    "name": "User Avatar Stack",
+    "description": "An overlapping user avatar stack with interactive hover scaling and name labels.",
+    "tech": "GSAP",
+    "star": 2,
+    "category": "Users",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-097",
+    "slug": "users-02-mac",
+    "name": "macOS Avatar Stack",
+    "description": "An interactive avatar stack inspired by the macOS Dock, with spring expansion and proximity-based magnification.",
+    "tech": "Framer Motion",
+    "star": 1,
+    "category": "Users",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-098",
+    "slug": "cards-06",
+    "name": "Leaderboard Sliding Card",
+    "description": "A leaderboard card with Month, Week, and Day tabs and smoothly sliding applicant tables.",
+    "tech": "CSS",
+    "star": 2,
+    "category": "Cards",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
   }
 ]
