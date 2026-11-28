@@ -42,6 +42,7 @@ import DarkMode01 from "./darkMode-01/Demo";
 import Datepicker01 from "./datepicker-01/Demo";
 import Drawer01 from "./drawer-01/Demo";
 import Dropdown01 from "./dropdown-01/Demo";
+import Dropdown02 from "./dropdown-02/Demo";
 import ElectricBorder from "./electric-border/Demo";
 import Filter01 from "./filter-01/Demo";
 import FlipAccordion01 from "./flip-accordion-01/Demo";
@@ -137,6 +138,7 @@ const demos = {
   "darkMode-01": DarkMode01,
   "datepicker-01": Datepicker01,
   "dropdown-01": Dropdown01,
+  "dropdown-02": Dropdown02,
   "electric-border": ElectricBorder,
   "filter-01": Filter01,
   "flip-accordion-01": FlipAccordion01,

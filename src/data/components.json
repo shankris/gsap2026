@@ -1170,5 +1170,18 @@
     "date": "2026-11-28",
     "golive": false,
     "ribbon": "WIP"
+  },
+  {
+    "id": "GSAP-099",
+    "slug": "dropdown-02",
+    "name": "Multi-Level Dropdown",
+    "description": "An animated account dropdown with sliding submenus, back navigation, and expandable menu height.",
+    "tech": "CSS",
+    "star": 3,
+    "category": "Dropdowns",
+    "status": "ready",
+    "date": "2026-11-28",
+    "golive": false,
+    "ribbon": "WIP"
   }
 ]

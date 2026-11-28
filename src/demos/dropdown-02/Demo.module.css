@@ -1,0 +1,145 @@
+/* src/demos/dropdown-02/Demo.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  --color-menu: #2b2935;
+  font-family: var(--fontStack, "Open Sans", sans-serif);
+}
+
+.dropdown {
+  position: relative;
+  width: 204px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  border: 0;
+  color: #afb3b5;
+  background: var(--color-menu);
+  cursor: pointer;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 18px;
+  text-align: left;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.trigger {
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  color: #f9f9f9 !important;
+  background: #6f3dcd !important;
+}
+
+.icon {
+  flex: 0 0 auto;
+  font-family: "Material Symbols Outlined";
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.chevron {
+  margin-left: auto;
+  transition: rotate 0.3s ease;
+}
+
+.dropdownOpen>.trigger .chevron {
+  rotate: -180deg;
+}
+
+.menu {
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  width: 230px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-menu);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -20px;
+  transition:
+    height 0.4s ease,
+    opacity 0.4s ease,
+    translate 0.4s ease,
+    visibility 0.4s;
+}
+
+.dropdownOpen .menu {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+
+.menuInner {
+  position: relative;
+  display: flex;
+  width: 460px;
+  transition: translate 0.4s ease;
+}
+
+.menuInnerOpen {
+  translate: -230px 0;
+}
+
+.mainMenu,
+.subMenu {
+  flex: 0 0 230px;
+  width: 230px;
+}
+
+.mainMenu {
+  position: relative;
+}
+
+.menu .menuButton {
+  height: 56px;
+  border-radius: 0;
+  text-transform: capitalize;
+}
+
+.menu .menuButton:hover {
+  color: #f9f9f9;
+  background: #393646;
+}
+
+.subMenu {
+  position: absolute;
+  top: 0;
+  left: 230px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.subMenuOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 24px 16px;
+  }
+}
